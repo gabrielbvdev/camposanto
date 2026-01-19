@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Campo Santo Familiar | Moderno e Completo</title>
+    <meta name="description" content="Garanta tranquilidade para sua família com o Plano Campo Santo Familiar. Assistência funerária completa e benefícios em vida.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: {
+                                dark: '#1d645b',    // Verde escuro
+                                light: '#7ca899',   // Verde claro
+                                moss: '#647256',    // Verde musgo
+                                gray: '#6a7771',    // Verde acinzentado
+                            },
+                            brown: {
+                                light: '#cc7722',   // Marrom claro
+                                dark: '#4e3924',    // Marrom escuro/Café
+                            },
+                            pink: {
+                                light: '#ede2e4',   // Rosa Claro
+                            },
+                            ice: '#f4f4f4',         // Branco gelo
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(29, 100, 91, 0.08)',
+                        'card': '0 10px 30px -5px rgba(78, 57, 36, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f4f4f4;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cc7722;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-brown-dark antialiased bg-brand-ice selection:bg-brand-brown-light selection:text-white">
+
+    <!-- Modal Parceiros -->
+    <div id="modal-parceiros" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-brand-green-dark/40 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <!-- Content -->
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden fade-in-up">
+            <div class="p-6 border-b border-brand-green-light/10 flex justify-between items-center bg-brand-ice">
+                <h3 class="font-serif text-2xl font-bold text-brand-green-dark">Nossos Parceiros</h3>
+                <button onclick="closeModal()" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white transition-colors text-brand-green-gray">
+                    <i class="ph-bold ph-x text-2xl"></i>
+                </button>
+            </div>
+            <div class="p-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                <ul class="grid grid-cols-1 gap-4">
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>AME Instituto</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>Dra Vitória Machado Harmonização Facial e Corporal</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl bg-brand-brown-light/5 border border-brand-brown-light/20">
+                        <i class="ph-fill ph-check-circle text-brand-brown-light"></i>
+                        <span class="font-bold text-brand-brown-light">Hospital Santa Izabel</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>HUB Odonto Cajazeiras</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>JLM Gás</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>Raia Drogasil</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>Selfit</span>
+                    </li>
+                    <li class="flex items-center gap-3 p-3 rounded-xl hover:bg-brand-ice transition-colors border border-transparent hover:border-brand-green-light/10">
+                        <i class="ph-fill ph-check-circle text-brand-green-dark"></i>
+                        <span>UNIFACS</span>
+                    </li>
+                </ul>
+                <div class="mt-8 text-center">
+                    <p class="text-brand-brown-light font-bold text-lg italic">E muito mais!</p>
+                </div>
+            </div>
+            <div class="p-6 bg-brand-ice text-center">
+                <button onclick="closeModal()" class="px-8 py-3 bg-brand-green-dark text-white rounded-xl font-bold hover:bg-brand-brown-dark transition-all">Fechar Lista</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-brand-ice/95 backdrop-blur-md border-b border-brand-green-light/20 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-brand-green-dark rounded-full flex items-center justify-center text-white">
+                    <i class="ph-fill ph-plant text-2xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-xl text-brand-green-dark leading-tight">Campo Santo</span>
+                    <span class="text-xs tracking-widest uppercase text-brand-brown-light font-medium">Familiar</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#beneficios" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Benefícios</a>
+                <a href="#planos" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Nossos Planos</a>
+                <a href="#cartao" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Clube de Vantagens</a>
+                <a href="#contato" class="px-6 py-2.5 bg-brand-brown-light text-white text-sm font-bold rounded-full hover:bg-brand-brown-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Falar com Consultor
+                </a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden text-brand-green-dark p-2">
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-ice border-b border-gray-100 p-6 flex-col gap-4 shadow-lg md:hidden">
+            <a href="#beneficios" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Benefícios</a>
+            <a href="#planos" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Nossos Planos</a>
+            <a href="#cartao" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Clube de Vantagens</a>
+            <a href="#contato" class="block w-full text-center py-3 bg-brand-brown-light text-white rounded-lg font-bold mt-2" onclick="toggleMobileMenu()">Falar com Consultor</a>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-pink-light/30">
+        <!-- Background Decor -->
+        <div class="absolute top-0 right-0 w-2/3 h-full -z-10 rounded-bl-[150px] hidden lg:block overflow-hidden shadow-2xl">
+            <div class="absolute inset-0 bg-brand-green-dark/10 z-10"></div> <!-- Overlay sutil -->
+            <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Avós e netos felizes" class="w-full h-full object-cover object-center opacity-90">
+        </div>
+        
+        <!-- Background Blur -->
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-green-light/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                
+                <!-- Hero Content -->
+                <div class="lg:w-1/2 fade-in-up z-10">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-green-dark/10 text-brand-green-dark text-xs font-bold tracking-wider uppercase mb-6 border border-brand-green-dark/20">
+                        Plano Funerário Completo
+                    </span>
+                    <h1 class="font-serif text-4xl lg:text-5xl xl:text-6xl font-bold text-brand-green-dark leading-tight mb-6">
+                        Cuidado que atravessa <span class="text-brand-brown-light italic">gerações.</span>
+                    </h1>
+                    <p class="text-lg text-brand-green-gray mb-8 leading-relaxed max-w-lg font-medium">
+                        Garanta tranquilidade e proteção para quem você ama. Assistência funeral, serviços cemiteriais e benefícios em vida.
+                    </p>
+                    
+                    <!-- Feature Checks -->
+                    <div class="flex flex-wrap gap-4 text-sm text-brand-brown-dark mb-8 font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-check-circle text-brand-brown-light text-xl"></i>
+                            <span>Atendimento 24h</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-check-circle text-brand-brown-light text-xl"></i>
+                            <span>Cobertura Familiar</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="ph-fill ph-check-circle text-brand-brown-light text-xl"></i>
+                            <span>Sem carência</span>
+                        </div>
+                    </div>
+
+                    <!-- Image only on mobile -->
+                    <div class="lg:hidden mb-8 rounded-3xl overflow-hidden shadow-lg border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Família feliz" class="w-full h-64 object-cover">
+                    </div>
+
+                </div>
+
+                <!-- Hero Form -->
+                <div class="lg:w-1/2 w-full flex flex-col items-center lg:items-end fade-in-up delay-200 relative">
+                    
+                    <div class="bg-white p-8 rounded-3xl shadow-card border border-brand-green-light/20 max-w-md w-full relative z-10 overflow-hidden">
+                        <!-- Gradient Top Bar -->
+                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-green-dark via-brand-green-light to-brand-brown-light"></div>
+                        
+                        <h3 class="font-serif text-2xl font-bold text-brand-green-dark mb-2 pt-2">Simule seu Plano</h3>
+                        <p class="text-brand-green-gray text-sm mb-6">Preencha para receber uma proposta personalizada.</p>
+                        
+                        <form id="hero-form" class="space-y-4" onsubmit="handleSubmit(event)">
+                            <div>
+                                <label for="name" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">Nome Completo</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark" placeholder="Seu nome">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">WhatsApp</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark" placeholder="(71) 99999-9999">
+                            </div>
+
+                            <div>
+                                <label for="plan-select" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">Interesse</label>
+                                <div class="relative">
+                                    <select id="plan-select" class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark appearance-none cursor-pointer">
+                                        <option value="conhecer">Quero conhecer os planos</option>
+                                        <option value="amparo">Plano Amparo (até 60 anos)</option>
+                                        <option value="acolhimento">Plano Acolhimento (até 70 anos)</option>
+                                        <option value="tranquilidade">Plano Tranquilidade (até 80 anos)</option>
+                                        <option value="paz">Plano Paz (Sem limite)</option>
+                                    </select>
+                                    <i class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-brand-green-gray pointer-events-none"></i>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-brand-green-dark hover:bg-brand-brown-dark text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 mt-2 flex items-center justify-center gap-2">
+                                <span>Ver Preços e Condições</span>
+                                <i class="ph-bold ph-arrow-right"></i>
+                            </button>
+                        </form>
+                        <p class="text-center text-xs text-brand-green-gray mt-4 flex justify-center items-center gap-1">
+                            <i class="ph-fill ph-lock-key"></i> Seus dados estão seguros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break / Emotional Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="rounded-3xl overflow-hidden shadow-soft relative h-64 md:h-80 w-full">
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Mãos dadas conforto" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-brand-green-dark/60 flex items-center justify-center text-center p-6">
+                    <div>
+                        <h2 class="font-serif text-3xl md:text-4xl text-white font-bold mb-4">Dignidade e Respeito</h2>
+                        <p class="text-brand-ice text-lg max-w-2xl mx-auto font-light">
+                            Estamos preparados para acolher sua família com a sensibilidade que o momento exige.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section id="beneficios" class="py-20 bg-brand-ice">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Diferenciais</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark mb-4">Por que escolher o Campo Santo?</h2>
+                <p class="text-brand-green-gray">Mais do que um plano, oferecemos uma rede de amparo completa para os momentos em que sua família mais precisa.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 group border-b-4 border-transparent hover:border-brand-green-dark">
+                    <div class="w-16 h-16 bg-brand-pink-light rounded-xl flex items-center justify-center text-brand-green-dark mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-hands-praying text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-brown-dark mb-3">Assistência Funeral</h3>
+                    <p class="text-brand-green-gray text-sm leading-relaxed">
+                        Cuidamos de tudo: traslado, preparação, urna padrão, flores e toda a burocracia necessária para que você foque no que importa.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 group border-b-4 border-transparent hover:border-brand-brown-light relative overflow-hidden">
+                    <div class="w-16 h-16 bg-brand-brown-light/10 rounded-xl flex items-center justify-center text-brand-brown-light mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-church text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-brown-dark mb-3">Serviços Cemiteriais</h3>
+                    <p class="text-brand-green-gray text-sm leading-relaxed">
+                        Incluso sepultamento ou cremação, sala de velório climatizada e orientação completa para documentação de óbito.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 group border-b-4 border-transparent hover:border-brand-green-light">
+                    <div class="w-16 h-16 bg-brand-green-light/20 rounded-xl flex items-center justify-center text-brand-green-dark mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="ph-fill ph-ticket text-3xl"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-brown-dark mb-3">Benefícios em Vida</h3>
+                    <p class="text-brand-green-gray text-sm leading-relaxed">
+                        Acesso exclusivo ao <strong>Cartão Minha Família</strong>: descontos em saúde, lazer e serviços para titular e dependentes usarem hoje.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clube de Vantagens Section -->
+    <section id="cartao" class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1">
+                    <span class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Benefícios em Vida</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark mb-6">Cartão Minha Família: Economia todos os dias</h2>
+                    <p class="text-brand-green-gray text-lg mb-8 leading-relaxed font-medium">
+                        Aproveite descontos exclusivos em uma ampla rede de parceiros em Salvador e região metropolitana.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-4 p-4 bg-brand-ice rounded-xl border border-brand-green-light/10 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-pink-light flex items-center justify-center text-brand-brown-light shrink-0">
+                                <i class="ph-fill ph-pill text-xl"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-brand-brown-dark font-bold">Saúde e Farmácias</strong>
+                                <span class="text-sm text-brand-green-gray">Medicamentos e consultas com preços especiais.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 p-4 bg-brand-ice rounded-xl border border-brand-green-light/10 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-pink-light flex items-center justify-center text-brand-brown-light shrink-0">
+                                <i class="ph-fill ph-shopping-cart text-xl"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-brand-brown-dark font-bold">Compras e Lazer</strong>
+                                <span class="text-sm text-brand-green-gray">Descontos exclusivos em lojas de departamento e entretenimento.</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <button onclick="openModal()" class="inline-flex items-center gap-2 text-brand-green-dark font-bold hover:text-brand-brown-light transition-colors group">
+                        Ver lista de parceiros
+                        <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+
+                <!-- App Image Placeholder (1:1) -->
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
+                    <div class="relative w-full max-w-md aspect-square bg-brand-ice rounded-[2.5rem] shadow-2xl border-8 border-brand-brown-dark/5 overflow-hidden flex items-center justify-center">
+                        <div class="flex flex-col items-center justify-center text-brand-green-gray p-8 text-center">
+                           <i class="ph-duotone ph-device-mobile text-6xl mb-4 text-brand-green-dark"></i>
+                           <span class="text-sm font-bold uppercase tracking-wider mb-2">Interface do Aplicativo</span>
+                           <p class="text-xs opacity-70">Acesse seus benefícios direto no celular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section (ATUALIZADA) -->
+    <section id="planos" class="py-20 bg-brand-ice">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Nossos Planos</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark">Proteção para todos os perfis</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                
+                <!-- Plan 1: Amparo -->
+                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Até 60 anos</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Amparo</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-sm text-brand-green-gray">Mensalidade</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-lg font-bold text-brand-green-dark">R$</span>
+                            <span class="text-4xl font-bold text-brand-green-dark">89,90</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 border-t border-brand-green-light/10 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura funeral
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura cemiterial
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
+                        </li>
+                    </ul>
+                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
+                        Simular
+                    </a>
+                </div>
+
+                <!-- Plan 2: Acolhimento -->
+                <div class="relative bg-brand-green-dark rounded-2xl p-6 text-white shadow-2xl flex flex-col border border-brand-green-dark lg:scale-105 z-10">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-brown-light text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider">MAIS PROCURADO</div>
+                    <div class="mb-4 mt-2">
+                        <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Até 70 anos</span>
+                        <h3 class="font-serif text-2xl font-bold text-white">Acolhimento</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-sm text-brand-green-light">Mensalidade</span>
+                        <div class="flex items-baseline gap-1 text-brand-brown-light">
+                            <span class="text-lg font-bold">R$</span>
+                            <span class="text-4xl font-bold text-white">99,90</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 border-t border-white/10 pt-6">
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura funeral
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura cemiterial
+                        </li>
+                        <li class="flex items-center gap-3 text-sm">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
+                        </li>
+                    </ul>
+                    <a href="#hero-form" class="w-full block text-center py-3 bg-brand-brown-light text-white font-bold rounded-xl hover:bg-white hover:text-brand-brown-light transition-all shadow-lg text-sm">
+                        Escolher Acolhimento
+                    </a>
+                </div>
+
+                <!-- Plan 3: Tranquilidade -->
+                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Até 80 anos</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Tranquilidade</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-sm text-brand-green-gray">Mensalidade</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-lg font-bold text-brand-green-dark">R$</span>
+                            <span class="text-4xl font-bold text-brand-green-dark">119,90</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 border-t border-brand-green-light/10 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura funeral
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura cemiterial
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
+                        </li>
+                    </ul>
+                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
+                        Simular
+                    </a>
+                </div>
+
+                <!-- Plan 4: Paz -->
+                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                    <div class="mb-4">
+                        <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Sem limite de idade</span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Paz</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-sm text-brand-green-gray">Mensalidade</span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-lg font-bold text-brand-green-dark">R$</span>
+                            <span class="text-4xl font-bold text-brand-green-dark">149,90</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1 border-t border-brand-green-light/10 pt-6">
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura funeral
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Cobertura cemiterial
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-brown-dark">
+                            <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
+                        </li>
+                    </ul>
+                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
+                        Simular
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / CTA Section -->
+    <section class="py-20 bg-brand-green-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Fundo família unida" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-green-dark/90"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="w-16 h-16 bg-brand-brown-light rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <i class="ph-fill ph-heart text-3xl text-white"></i>
+            </div>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Estamos aqui por você.</h2>
+            <p class="text-lg text-brand-green-light mb-10 max-w-2xl mx-auto font-medium">
+                Ligue agora e tire todas as suas dúvidas com nossa equipe de acolhimento.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:7122039890" class="flex items-center justify-center gap-3 px-8 py-4 bg-brand-ice text-brand-green-dark font-bold rounded-full hover:bg-white transition-all transform hover:scale-105 shadow-xl">
+                    <i class="ph-fill ph-phone-call text-xl"></i>
+                    (71) 2203-9890
+                </a>
+                <a href="https://wa.me/5571999999999" target="_blank" class="flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white font-bold rounded-full hover:bg-[#128C7E] transition-all shadow-xl transform hover:scale-105">
+                    <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-brown-dark text-brand-ice pt-12 pb-8 border-t border-brand-brown-light/20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <div class="w-8 h-8 bg-brand-brown-light rounded-full flex items-center justify-center text-white">
+                    <i class="ph-fill ph-plant"></i>
+                </div>
+                <span class="font-serif font-bold text-lg text-white">Campo Santo</span>
+            </div>
+            <p class="text-xs opacity-60 max-w-sm mx-auto mb-6">Tradição, respeito e cuidado em Salvador. O plano familiar mais completo para sua tranquilidade.</p>
+            <p class="text-[10px] opacity-40 uppercase tracking-widest">&copy; 2024 Plano Campo Santo Familiar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        function openModal() {
+            const modal = document.getElementById('modal-parceiros');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal-parceiros');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            // Simulação de carregamento no botão
+            const btn = event.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert('Proposta enviada com sucesso! Um consultor entrará em contato em breve via WhatsApp.');
+                btn.innerText = originalText;
+                btn.disabled = false;
+                event.target.reset();
+            }, 1500);
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.remove('py-2', 'shadow-md');
+                navbar.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+</html>
