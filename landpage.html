@@ -176,6 +176,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-pink-light/30">
         <!-- Background Decor -->
         <div class="absolute top-0 right-0 w-[55%] h-full -z-10 rounded-bl-[150px] hidden lg:block overflow-hidden shadow-2xl">
@@ -227,24 +228,8 @@
                 <!-- Hero Form -->
                 <div class="lg:w-1/2 w-full flex flex-col items-center lg:items-end fade-in-up delay-200 relative">
                     <div role="main" id="formulario-lp-2026-9f8edd6e3e3f728c8299"></div>
-<script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
-<script type="text/javascript"> new RDStationForms('formulario-lp-2026-9f8edd6e3e3f728c8299', 'null').createForm();</script>
-            </div>
-        </div>
-    </section>
-
-    <!-- Image Break / Emotional Section -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="rounded-3xl overflow-hidden shadow-soft relative h-64 md:h-80 w-full">
-                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Mãos dadas conforto" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-brand-green-dark/60 flex items-center justify-center text-center p-6">
-                    <div>
-                        <h2 class="font-serif text-3xl md:text-4xl text-white font-bold mb-4">Dignidade e Respeito</h2>
-                        <p class="text-brand-ice text-lg max-w-2xl mx-auto font-light">
-                            Estamos preparados para acolher sua família com a sensibilidade que o momento exige.
-                        </p>
-                    </div>
+                    <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+                    <script type="text/javascript"> new RDStationForms('formulario-lp-2026-9f8edd6e3e3f728c8299', 'null').createForm();</script>
                 </div>
             </div>
         </div>
@@ -334,28 +319,31 @@
                     </button>
                 </div>
 
-                <!-- App Image Placeholder (1:1) -->
+                <!-- Image Placeholder -->
                 <div class="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
                     <div class="relative w-full max-w-md aspect-square bg-brand-ice rounded-[2.5rem] shadow-2xl border-8 border-brand-brown-dark/5 overflow-hidden flex items-center justify-center">
-                        <img src="/camposanto/assets/img/minhaFamilia.png" alt="Fundo família unida" class="w-full h-full object-cover">
+                         <!-- Fallback icon while image is not provided -->
+                         <div class="absolute inset-0 bg-brand-pink-light/20 flex flex-col items-center justify-center text-brand-green-gray text-center p-6">
+                            <i class="ph-duotone ph-device-mobile text-6xl mb-4 text-brand-green-dark"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider">Acesse no Celular</span>
+                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Plans Section (ATUALIZADA) -->
+    <!-- Plans Section -->
     <section id="planos" class="py-20 bg-brand-ice">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <span class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Nossos Planos</span>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark">Proteção para todos os perfis</h2>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark tracking-tight">Proteção para todos os perfis</h2>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-                
-                <!-- Plan 1: Amparo -->
-                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                <!-- Plan 1 -->
+                <div class="bg-white border border-brand-green-light/30 rounded-2xl p-6 flex flex-col hover:border-brand-brown-light transition-colors duration-300">
                     <div class="mb-4">
                         <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Até 60 anos</span>
                         <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Amparo</h3>
@@ -378,12 +366,10 @@
                             <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
                         </li>
                     </ul>
-                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
-                        Simular
-                    </a>
+                    <a href="#calculadora" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">Simular</a>
                 </div>
 
-                <!-- Plan 2: Acolhimento -->
+                <!-- Plan 2 -->
                 <div class="relative bg-brand-green-dark rounded-2xl p-6 text-white shadow-2xl flex flex-col border border-brand-green-dark lg:scale-105 z-10">
                     <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-brown-light text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider">MAIS PROCURADO</div>
                     <div class="mb-4 mt-2">
@@ -408,13 +394,11 @@
                             <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
                         </li>
                     </ul>
-                    <a href="#hero-form" class="w-full block text-center py-3 bg-brand-brown-light text-white font-bold rounded-xl hover:bg-white hover:text-brand-brown-light transition-all shadow-lg text-sm">
-                        Escolher Acolhimento
-                    </a>
+                    <a href="#calculadora" class="w-full block text-center py-4 bg-brand-brown-light text-white font-bold rounded-xl hover:bg-white hover:text-brand-brown-light transition-all shadow-lg text-sm">Escolher Acolhimento</a>
                 </div>
 
-                <!-- Plan 3: Tranquilidade -->
-                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                <!-- Plan 3 -->
+                <div class="bg-white border border-brand-green-light/30 rounded-2xl p-6 flex flex-col hover:border-brand-brown-light transition-colors duration-300">
                     <div class="mb-4">
                         <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Até 80 anos</span>
                         <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Tranquilidade</h3>
@@ -437,13 +421,11 @@
                             <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
                         </li>
                     </ul>
-                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
-                        Simular
-                    </a>
+                    <a href="#calculadora" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">Simular</a>
                 </div>
 
-                <!-- Plan 4: Paz -->
-                <div class="border border-brand-green-light/30 rounded-2xl p-6 flex flex-col bg-white hover:border-brand-brown-light transition-colors duration-300">
+                <!-- Plan 4 -->
+                <div class="bg-white border border-brand-green-light/30 rounded-2xl p-6 flex flex-col hover:border-brand-brown-light transition-colors duration-300">
                     <div class="mb-4">
                         <span class="text-xs font-bold text-brand-green-light uppercase tracking-wider">Sem limite de idade</span>
                         <h3 class="font-serif text-2xl font-bold text-brand-brown-dark">Paz</h3>
@@ -466,11 +448,61 @@
                             <i class="ph-bold ph-check text-brand-brown-light text-lg"></i> Clube de Benefícios
                         </li>
                     </ul>
-                    <a href="#hero-form" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">
-                        Simular
-                    </a>
+                    <a href="#calculadora" class="w-full block text-center py-3 border border-brand-green-dark text-brand-green-dark font-bold rounded-xl hover:bg-brand-green-dark hover:text-white transition-all text-sm">Simular</a>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Calculadora Section (COMPACTA) -->
+    <section id="calculadora" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-brand-ice rounded-[2rem] p-6 md:p-10 shadow-soft border border-brand-green-light/10 relative overflow-hidden">
+                    
+                    <div class="text-center mb-8">
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-brand-green-dark mb-2">Simulador de Benefícios</h2>
+                        <p class="text-brand-green-gray text-sm max-w-md mx-auto">Veja como os descontos do plano podem abater sua mensalidade.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+                        <!-- Inputs -->
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
+                                <label for="inputFarmacia" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Gasto em Farmácia (R$)</label>
+                                <input type="number" id="inputFarmacia" placeholder="Ex: 200" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold">
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
+                                <label for="inputSaude" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Gasto em Saúde/Consultas (R$)</label>
+                                <input type="number" id="inputSaude" placeholder="Ex: 300" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold">
+                            </div>
+
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
+                                <label for="selectPlanoCalc" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Plano Pretendido</label>
+                                <select id="selectPlanoCalc" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold appearance-none cursor-pointer">
+                                    <option value="89.90">Plano Amparo (R$ 89,90)</option>
+                                    <option value="99.90" selected>Plano Acolhimento (R$ 99,90)</option>
+                                    <option value="119.90">Plano Tranquilidade (R$ 119,90)</option>
+                                    <option value="149.90">Plano Paz (R$ 149,90)</option>
+                                </select>
+                            </div>
+
+                            <button id="btnCalcular" onclick="calcularEconomia()" class="w-full py-4 bg-brand-green-dark text-white font-bold rounded-xl hover:bg-brand-brown-dark transition-all shadow-md flex items-center justify-center gap-2">
+                                <i class="ph ph-calculator"></i>
+                                Calcular
+                            </button>
+                        </div>
+
+                        <!-- Resultado -->
+                        <div class="bg-white rounded-2xl p-8 border border-brand-green-light/10 shadow-sm text-center flex flex-col justify-center min-h-[250px]">
+                            <div id="resultadoCalculo" class="transition-all duration-300">
+                                <i class="ph-duotone ph-chart-bar text-5xl text-brand-green-light/40 mb-3"></i>
+                                <p class="text-brand-green-gray text-sm italic">Preencha os campos ao lado e clique em calcular.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -518,6 +550,71 @@
     </footer>
 
     <script>
+        function calcularEconomia() {
+            const gastoFarmacia = parseFloat(document.getElementById('inputFarmacia').value) || 0;
+            const gastoSaude = parseFloat(document.getElementById('inputSaude').value) || 0;
+            const valorPlano = parseFloat(document.getElementById('selectPlanoCalc').value);
+            const resultadoBox = document.getElementById('resultadoCalculo');
+            const btn = document.getElementById('btnCalcular');
+
+            if (gastoFarmacia === 0 && gastoSaude === 0) {
+                resultadoBox.innerHTML = `
+                    <p class="text-brand-brown-light font-bold">Por favor, insira valores para simular.</p>
+                `;
+                return;
+            }
+
+            // Iniciar animação de carregamento
+            btn.disabled = true;
+            const originalBtnContent = btn.innerHTML;
+            btn.innerHTML = `<i class="ph ph-circle-notch animate-spin"></i> Calculando...`;
+            
+            resultadoBox.innerHTML = `
+                <div class="flex flex-col items-center justify-center space-y-3">
+                    <i class="ph-fill ph-spinner-gap animate-spin text-5xl text-brand-green-light"></i>
+                    <p class="text-brand-green-gray text-sm font-medium">Analisando economia...</p>
+                </div>
+            `;
+
+            // Timeout de 2 segundos solicitado
+            setTimeout(() => {
+                const economiaFarmacia = gastoFarmacia * 0.20;
+                const economiaSaude = gastoSaude * 0.40;
+                const economiaTotal = economiaFarmacia + economiaSaude;
+                const saldo = economiaTotal - valorPlano;
+                
+                let htmlResultado = `
+                    <div class="mb-6">
+                        <span class="text-brand-green-gray font-bold text-xs uppercase tracking-widest block mb-1">Economia de até</span>
+                        <span class="text-brand-green-dark font-black text-4xl">R$ ${economiaTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                        <p class="text-[10px] text-brand-green-gray mt-1">estimada por mês</p>
+                    </div>
+                `;
+                
+                if (saldo >= 0) {
+                    htmlResultado += `
+                        <div class="bg-green-100 text-brand-green-dark font-black px-6 py-4 rounded-xl border border-green-200">
+                            <i class="ph-fill ph-sparkle mr-2"></i>O PLANO SE PAGA!
+                        </div>
+                        <p class="text-[10px] text-brand-green-gray mt-3">Sua economia é maior que a mensalidade.</p>
+                    `;
+                } else {
+                    const custoReal = Math.abs(saldo);
+                    htmlResultado += `
+                        <div class="bg-brand-brown-light/5 border border-brand-brown-light/20 p-4 rounded-xl">
+                            <span class="text-brand-brown-light font-bold text-xs block mb-1 uppercase">Custo Real Ajustado:</span>
+                            <span class="text-brand-brown-light font-black text-2xl">R$ ${custoReal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
+                            <p class="text-[10px] text-brand-green-gray mt-1">Sua mensalidade efetiva após os descontos.</p>
+                        </div>
+                    `;
+                }
+                
+                resultadoBox.innerHTML = htmlResultado;
+                btn.disabled = false;
+                btn.innerHTML = originalBtnContent;
+            }, 2000);
+        }
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -540,7 +637,6 @@
 
         function handleSubmit(event) {
             event.preventDefault();
-            // Simulação de carregamento no botão
             const btn = event.target.querySelector('button');
             const originalText = btn.innerText;
             btn.innerText = "Enviando...";
