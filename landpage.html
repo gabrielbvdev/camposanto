@@ -156,8 +156,8 @@
 
             <div class="hidden md:flex items-center gap-8">
                 <a href="#beneficios" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Benefícios</a>
-                <a href="#planos" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Nossos Planos</a>
                 <a href="#cartao" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Clube de Vantagens</a>
+                <a href="#planos" class="text-sm font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Nossos Planos</a>
                 <a href="#contato" class="px-6 py-2.5 bg-brand-brown-light text-white text-sm font-bold rounded-full hover:bg-brand-brown-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Falar com Consultor
                 </a>
@@ -170,15 +170,15 @@
         
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-ice border-b border-gray-100 p-6 flex-col gap-4 shadow-lg md:hidden">
             <a href="#beneficios" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Benefícios</a>
-            <a href="#planos" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Nossos Planos</a>
             <a href="#cartao" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Clube de Vantagens</a>
+            <a href="#planos" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Nossos Planos</a>
             <a href="#contato" class="block w-full text-center py-3 bg-brand-brown-light text-white rounded-lg font-bold mt-2" onclick="toggleMobileMenu()">Falar com Consultor</a>
         </div>
     </nav>
 
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-pink-light/30">
         <!-- Background Decor -->
-        <div class="absolute top-0 right-0 w-2/3 h-full -z-10 rounded-bl-[150px] hidden lg:block overflow-hidden shadow-2xl">
+        <div class="absolute top-0 right-0 w-[55%] h-full -z-10 rounded-bl-[150px] hidden lg:block overflow-hidden shadow-2xl">
             <div class="absolute inset-0 bg-brand-green-dark/10 z-10"></div> <!-- Overlay sutil -->
             <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Avós e netos felizes" class="w-full h-full object-cover object-center opacity-90">
         </div>
@@ -226,49 +226,9 @@
 
                 <!-- Hero Form -->
                 <div class="lg:w-1/2 w-full flex flex-col items-center lg:items-end fade-in-up delay-200 relative">
-                    
-                    <div class="bg-white p-8 rounded-3xl shadow-card border border-brand-green-light/20 max-w-md w-full relative z-10 overflow-hidden">
-                        <!-- Gradient Top Bar -->
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-green-dark via-brand-green-light to-brand-brown-light"></div>
-                        
-                        <h3 class="font-serif text-2xl font-bold text-brand-green-dark mb-2 pt-2">Simule seu Plano</h3>
-                        <p class="text-brand-green-gray text-sm mb-6">Preencha para receber uma proposta personalizada.</p>
-                        
-                        <form id="hero-form" class="space-y-4" onsubmit="handleSubmit(event)">
-                            <div>
-                                <label for="name" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">Nome Completo</label>
-                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark" placeholder="Seu nome">
-                            </div>
-                            
-                            <div>
-                                <label for="phone" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">WhatsApp</label>
-                                <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark" placeholder="(71) 99999-9999">
-                            </div>
-
-                            <div>
-                                <label for="plan-select" class="block text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-1">Interesse</label>
-                                <div class="relative">
-                                    <select id="plan-select" class="w-full px-4 py-3 rounded-xl bg-brand-ice border border-brand-green-light/20 focus:border-brand-green-dark focus:bg-white focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark appearance-none cursor-pointer">
-                                        <option value="conhecer">Quero conhecer os planos</option>
-                                        <option value="amparo">Plano Amparo (até 60 anos)</option>
-                                        <option value="acolhimento">Plano Acolhimento (até 70 anos)</option>
-                                        <option value="tranquilidade">Plano Tranquilidade (até 80 anos)</option>
-                                        <option value="paz">Plano Paz (Sem limite)</option>
-                                    </select>
-                                    <i class="ph-bold ph-caret-down absolute right-4 top-1/2 -translate-y-1/2 text-brand-green-gray pointer-events-none"></i>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="w-full py-4 bg-brand-green-dark hover:bg-brand-brown-dark text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 mt-2 flex items-center justify-center gap-2">
-                                <span>Ver Preços e Condições</span>
-                                <i class="ph-bold ph-arrow-right"></i>
-                            </button>
-                        </form>
-                        <p class="text-center text-xs text-brand-green-gray mt-4 flex justify-center items-center gap-1">
-                            <i class="ph-fill ph-lock-key"></i> Seus dados estão seguros.
-                        </p>
-                    </div>
-                </div>
+                    <div role="main" id="formulario-lp-2026-9f8edd6e3e3f728c8299"></div>
+<script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+<script type="text/javascript"> new RDStationForms('formulario-lp-2026-9f8edd6e3e3f728c8299', 'null').createForm();</script>
             </div>
         </div>
     </section>
@@ -377,11 +337,7 @@
                 <!-- App Image Placeholder (1:1) -->
                 <div class="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center">
                     <div class="relative w-full max-w-md aspect-square bg-brand-ice rounded-[2.5rem] shadow-2xl border-8 border-brand-brown-dark/5 overflow-hidden flex items-center justify-center">
-                        <div class="flex flex-col items-center justify-center text-brand-green-gray p-8 text-center">
-                           <i class="ph-duotone ph-device-mobile text-6xl mb-4 text-brand-green-dark"></i>
-                           <span class="text-sm font-bold uppercase tracking-wider mb-2">Interface do Aplicativo</span>
-                           <p class="text-xs opacity-70">Acesse seus benefícios direto no celular</p>
-                        </div>
+                        <img src="/camposanto/assets/img/minhaFamilia.png" alt="Fundo família unida" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
@@ -520,7 +476,7 @@
     </section>
 
     <!-- Social Proof / CTA Section -->
-    <section class="py-20 bg-brand-green-dark text-white relative overflow-hidden">
+    <section id="contato" class="py-20 bg-brand-green-dark text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full">
             <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Fundo família unida" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-brand-green-dark/90"></div>
