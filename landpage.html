@@ -240,19 +240,34 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="w-full lg:w-1/2 relative">
-                    <div class="absolute top-4 -left-4 w-full h-full bg-brand-brown-dark rounded-2xl opacity-10"></div>
-                    <img src="/camposanto/assets/img/familia.jpeg" alt="Família feliz no Pelourinho em Salvador" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-                    <div class="absolute bottom-8 right-[-20px] bg-white p-4 rounded-lg shadow-lg max-w-xs border-l-4 border-brand-brown-dark">
-                        <p class="block text-brand-brown-dark text-sm font-bold">Chancela da Santa Casa de Misericórdia</p>
-                        <p class="text-sm text-brand-green-gray">Séculos de história e confiança.</p>
+                    <!-- Fundo decorativo -->
+                    <div class="absolute top-4 -left-4 w-full h-full bg-brand-brown-dark rounded-2xl opacity-100"></div>
+                    
+                    <!-- Vídeo Embed do YouTube -->
+                    <div class="relative rounded-2xl shadow-2xl w-full overflow-hidden aspect-video h-auto lg:h-[400px]">
+                        <iframe 
+                            class="absolute top-0 left-0 w-full h-full" 
+                            src="https://www.youtube.com/embed/OFXYwLHqFP4" 
+                            title="Plano Campo Santo Familiar" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
+
+                    <!-- Selo de Chancela -->
+                    <!-- <div class="absolute bottom-4 right-[-10px] bg-white p-4 rounded-lg shadow-lg max-w-[200px] md:max-w-xs border-l-4 border-brand-brown-dark z-10">
+                        <p class="block text-brand-brown-dark text-xs md:text-sm font-bold">Chancela da Santa Casa de Misericórdia</p>
+                        <p class="text-[10px] md:text-sm text-brand-green-gray">Séculos de história e confiança.</p>
+                    </div> -->
                 </div>
                 <div class="w-full lg:w-1/2">
                     <h2 class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Tradição e Confiança</h2>
                     <h3 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark mb-4">O mais completo e tradicional Plano Familiar da Bahia</h3>
                     <div class="text-brand-green-gray text-lg mb-8 leading-relaxed font-medium">
                         <p>O <strong>Campo Santo Familiar</strong> é sinônimo de segurança para as famílias baianas. Pioneiro, trazemos toda a tradição e credibilidade da Santa Casa de Misericórdia da Bahia.</p>
-                        <p>Nos orgulhamos de sermos especialistas em cuidado. Cuidamos de todos os detalhes burocráticos e cerimoniais para que você possa passar pelo momento do luto com respeito e acolhimento.</p>
+                        <p class="mt-4">Nos orgulhamos de sermos especialistas em cuidado. Cuidamos de todos os detalhes burocráticos e cerimoniais para que você possa passar pelo momento do luto com respeito e acolhimento.</p>
                     </div>
                 </div>
             </div>
