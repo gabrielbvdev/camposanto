@@ -811,6 +811,12 @@
                 navbar.classList.add('py-4');
             }
         });
+
+        window.addEventListener('load', () => {
+            if (document.querySelector('.phone-input-group .phone')) {
+                document.querySelector('.phone-input-group .phone').value = '(71)';
+            }
+        }, 1000);
     </script>
 </body>
 </html>
