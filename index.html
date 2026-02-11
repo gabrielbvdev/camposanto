@@ -7,25 +7,35 @@
     <title>Campo Santo Familiar | Tradição e Acolhimento</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- IMPORTANDO AS NOVAS FONTES: Lora, Montserrat e Radley -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Configuração de Cores Personalizadas -->
+    <!-- Configuração de Cores e Fontes Personalizadas -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'], // Padrão para corpo e subtítulos
+                        serif: ['Lora', 'serif'],           // Para Títulos
+                        display: ['Radley', 'serif'],       // Para Cabeçalho (Menu)
                     },
                     colors: {
                         brand: {
-                            blue: '#16A19F',      
-                            gold: '#BC9139',      
-                            'gold-light': '#B69D63', 
-                            'blue-dark': '#128583', 
-                            'gold-dark': '#9A762E',
-                            red: '#C0392B', // Para o alerta de preço alto
+                            'dark-green': '#1d645b',    /* Verde escuro */
+                            'light-brown': '#cc7722',   /* Marrom claro */
+                            'coffee': '#4e3924',        /* Marrom escuro (Café) */
+                            'light-pink': '#ede2e4',    /* Rosa Claro */
+                            'light-green': '#7ca899',   /* Verde claro */
+                            'moss': '#647256',          /* Verde musgo */
+                            'ice': '#f4f4f4',           /* Branco gelo */
+                            'grayish': '#6a7771',       /* Verde acinzentado */
+                            'red': '#C0392B', 
                         }
                     },
                     animation: {
@@ -45,18 +55,16 @@
 
     <style>
         .bg-texture {
-            background-image: radial-gradient(#B69D63 1px, transparent 1px);
+            background-image: radial-gradient(#cc7722 1px, transparent 1px);
             background-size: 20px 20px;
             opacity: 0.15;
         }
         
-        /* Estilização personalizada para Checkboxes */
         .custom-checkbox:checked {
-            background-color: #BC9139;
-            border-color: #BC9139;
+            background-color: #cc7722;
+            border-color: #cc7722;
         }
         
-        /* Scrollbar personalizada para a lista de serviços */
         .services-scroll::-webkit-scrollbar {
             width: 6px;
         }
@@ -73,76 +81,132 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-700 bg-gray-50 antialiased">
+<body class="font-sans text-brand-grayish bg-brand-ice antialiased">
 
     <!-- HEADER / NAVBAR -->
-    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 border-b border-brand-gold-light/20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-gray-800 tracking-tight group">
-                        <span class="flex items-center gap-2">
-                            <i data-lucide="home" class="w-8 h-8 text-brand-blue"></i> 
-                            Campo Santo <span class="font-light text-brand-gold">Familiar</span>
-                        </span>
-                    </a>
-                </div>
+    <header class="fixed w-full bg-brand-ice/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300 border-b border-brand-light-green/20 font-display">
+        <!-- Container expandido para max-w-screen-2xl para dar mais respiro em telas grandes -->
+        <div class="container mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <a href="#" class="flex items-center group">
+                    <img src="/camposanto/assets/img/logo_verde.png" alt="Logo Campo Santo Familiar" class="h-12 md:h-14 w-auto object-contain transition-transform group-hover:scale-105" width="1080" height="608">
+                </a>
 
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#sobre" class="text-gray-600 hover:text-brand-blue font-medium transition">Sobre Nós</a>
-                    <a href="#diferenciais" class="text-gray-600 hover:text-brand-blue font-medium transition">Diferenciais</a>
-                    <a href="#planos" class="text-gray-600 hover:text-brand-blue font-medium transition">Nossos Planos</a>
-                    <a href="#calculadora" class="text-gray-600 hover:text-brand-blue font-medium transition">Simular Economia</a>
-                    <a href="#calculadora" class="text-brand-gold font-bold hover:text-brand-gold-dark transition flex items-center gap-1"><i data-lucide="receipt-text" class="w-4 h-4"></i> Portal de Boletos</a>
+                <!-- Desktop Menu (Visível apenas em XL - 1280px+) -->
+                <!-- Ajustes: text-sm para caber tudo, gap reduzido -->
+                <nav class="hidden xl:flex items-center gap-3 2xl:gap-6 ml-auto">
+                    <!-- Links de Navegação -->
+                    <div class="flex items-center gap-4 2xl:gap-6 font-medium">
+                        <a href="#" class="text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300">Home</a>
+                        <a href="#sobre" class="text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300 whitespace-nowrap">Quem somos</a>
+                        
+                        <!-- Dropdown Serviços -->
+                        <div class="relative group">
+                            <button class="flex items-center gap-1 text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300 focus:outline-none cursor-pointer py-4">
+                                Serviços <i data-lucide="chevron-down" class="w-3 h-3 mt-0.5"></i>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div class="absolute top-[80%] left-0 pt-2 hidden group-hover:block min-w-[220px] z-50">
+                                <div class="bg-white shadow-xl rounded-xl border border-gray-100 p-2 flex flex-col gap-1 overflow-hidden animate-fade-in">
+                                    <a href="#" class="block px-4 py-3 text-sm text-brand-grayish hover:text-brand-coffee hover:bg-brand-light-pink rounded-lg transition-colors font-sans">Serviços Funerários</a>
+                                    <a href="#" class="block px-4 py-3 text-sm text-brand-grayish hover:text-brand-coffee hover:bg-brand-light-pink rounded-lg transition-colors font-sans">Serviços Cemiteriais</a>
+                                    <a href="#" class="block px-4 py-3 text-sm text-brand-grayish hover:text-brand-coffee hover:bg-brand-light-pink rounded-lg transition-colors font-sans">Ossuário</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#planos" class="text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300 whitespace-nowrap">Planos Funerários</a>
+                        <a href="#diferenciais" class="text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300 whitespace-nowrap">Cartão minha família</a>
+                        <a href="#contato" class="text-brand-coffee hover:text-brand-light-brown tracking-wide transition-colors duration-300 whitespace-nowrap">Fale conosco</a>
+                    </div>
+                    
+                    <!-- Divisor Vertical -->
+                    <div class="h-6 w-px bg-brand-light-green/30 mx-2"></div>
+
+                    <!-- Botões de Ação -->
+                    <div class="flex items-center gap-3">
+                        <!-- Portal de Boletos (Estilo Outline Compacto) -->
+                        <a href="#calculadora" class="text-brand-light-brown hover:text-white hover:bg-brand-light-brown border border-brand-light-brown px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2 group whitespace-nowrap font-sans">
+                            <i data-lucide="receipt-text" class="w-4 h-4 group-hover:text-white transition-colors"></i> 
+                            <span>Portal do Cliente</span>
+                        </a>
+
+                        <!-- Botão Ligue 24h (Compacto) -->
+                        <a href="https://wa.me/5571999999999" class="bg-brand-dark-green hover:bg-brand-moss text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg flex items-center gap-2 border border-transparent hover:border-brand-light-brown text-xs uppercase tracking-wider transform hover:-translate-y-0.5 duration-300 whitespace-nowrap font-sans">
+                            <i data-lucide="phone" class="w-4 h-4"></i> Ligue 24h
+                        </a>
+                    </div>
                 </nav>
 
-                <div class="hidden md:flex">
-                    <a href="https://wa.me/5571999999999" class="bg-brand-blue hover:bg-brand-blue-dark text-white px-6 py-2.5 rounded-full font-semibold transition shadow-lg flex items-center gap-2 border border-transparent hover:border-brand-gold-light">
-                        <i data-lucide="phone" class="w-4 h-4"></i> Ligue 24h
-                    </a>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-blue focus:outline-none">
+                <!-- Mobile Menu Button (Visível até XL) -->
+                <div class="xl:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-grayish hover:text-brand-dark-green focus:outline-none p-2 bg-brand-light-green/10 rounded-lg">
                         <i data-lucide="menu" class="w-8 h-8"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
-                <a href="#sobre" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Sobre Nós</a>
-                <a href="#planos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-blue hover:bg-gray-50">Nossos Planos</a>
-                <a href="#calculadora" class="block px-3 py-2 rounded-md text-base font-bold text-brand-gold hover:bg-gray-50">Simular Economia</a>
-                <a href="#contato" class="block w-full text-center mt-4 bg-brand-blue text-white px-4 py-3 rounded-lg font-bold">Ligue Agora</a>
+        <!-- MENU MOBILE -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-brand-ice border-t border-gray-100 font-display absolute top-24 left-0 w-full h-[calc(100vh-6rem)] overflow-y-auto bg-white/95 backdrop-blur-md shadow-2xl">
+            <div class="px-4 pt-4 pb-20 space-y-2">
+                <a href="#" class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-coffee hover:bg-brand-light-pink/50 border-b border-gray-50 flex justify-between items-center">Home <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                <a href="#sobre" class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-coffee hover:bg-brand-light-pink/50 border-b border-gray-50 flex justify-between items-center">Quem somos <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                
+                <!-- Submenu Mobile Expandido -->
+                <div class="bg-brand-light-green/5 rounded-xl p-3 my-2 border border-brand-light-green/10">
+                    <span class="block px-2 py-1 text-xs font-bold text-brand-light-brown uppercase tracking-wider mb-2 font-sans flex items-center gap-2"><i data-lucide="layers" class="w-3 h-3"></i> Serviços</span>
+                    <a href="#" class="block px-4 py-2.5 rounded-md text-base text-brand-grayish hover:text-brand-dark-green hover:bg-white transition-colors font-sans flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 rounded-full bg-brand-light-green"></div> Serviços Funerários
+                    </a>
+                    <a href="#" class="block px-4 py-2.5 rounded-md text-base text-brand-grayish hover:text-brand-dark-green hover:bg-white transition-colors font-sans flex items-center gap-2">
+                         <div class="w-1.5 h-1.5 rounded-full bg-brand-light-green"></div> Serviços Cemiteriais
+                    </a>
+                    <a href="#" class="block px-4 py-2.5 rounded-md text-base text-brand-grayish hover:text-brand-dark-green hover:bg-white transition-colors font-sans flex items-center gap-2">
+                         <div class="w-1.5 h-1.5 rounded-full bg-brand-light-green"></div> Ossuário
+                    </a>
+                </div>
+
+                <a href="#planos" class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-coffee hover:bg-brand-light-pink/50 border-b border-gray-50 flex justify-between items-center">Planos Funerários <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                <a href="#diferenciais" class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-coffee hover:bg-brand-light-pink/50 border-b border-gray-50 flex justify-between items-center">Cartão minha família <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                <a href="#contato" class="block px-4 py-3 rounded-lg text-lg font-medium text-brand-coffee hover:bg-brand-light-pink/50 border-b border-gray-50 flex justify-between items-center">Fale conosco <i data-lucide="chevron-right" class="w-4 h-4 opacity-50"></i></a>
+                
+                <div class="pt-6 space-y-4 px-2">
+                    <a href="#calculadora" class="w-full block px-4 py-3.5 rounded-full text-center text-brand-light-brown font-bold border-2 border-brand-light-brown hover:bg-brand-light-brown hover:text-white transition font-sans shadow-sm">
+                        Portal do Cliente
+                    </a>
+                    <a href="#contato" class="w-full block px-4 py-4 rounded-full text-center bg-brand-dark-green text-white font-bold shadow-lg hover:bg-brand-moss transition font-sans flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-5 h-5"></i> Ligue Agora 24h
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="/camposanto/assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-50">
-            <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-white"></div>
+            <img src="/camposanto/assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-ice/90 via-brand-ice/50 to-brand-ice"></div>
         </div>
 
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <span class="inline-block py-1 px-4 rounded-full bg-brand-gold-light/10 text-brand-gold text-sm font-bold mb-6 border border-brand-gold/20 tracking-wide">
-                Desde 1836 cuidando de você
+            <span class="inline-block py-1 px-4 rounded-full bg-brand-light-pink text-brand-moss text-sm font-bold mb-6 border border-brand-light-green/20 tracking-wide font-sans">
+                DESDE 1836 CUIDANDO DE VOCÊ
             </span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-coffee leading-tight mb-6">
                 Proteção e tradição para <br>
-                <span class="text-brand-gold">quem você mais ama.</span>
+                <span class="text-brand-light-brown italic">quem você mais ama.</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-brand-grayish mb-10 max-w-2xl mx-auto font-sans font-medium">
                 O plano de assistência familiar mais completo da Bahia. <br> Garanta tranquilidade e amparo com a chancela da Santa Casa de Misericórdia.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#planos" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-lg px-8 py-4 rounded-lg font-semibold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+            <div class="flex flex-col sm:flex-row justify-center gap-4 font-sans">
+                <a href="#planos" class="bg-brand-dark-green hover:bg-brand-moss text-white text-lg px-8 py-4 rounded-lg font-semibold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                     Conhecer Planos
                 </a>
-                <a href="#contato" class="bg-white hover:bg-gray-50 text-brand-gold border border-brand-gold/30 text-lg px-8 py-4 rounded-lg font-semibold transition shadow-md flex items-center justify-center gap-2">
+                <a href="#contato" class="bg-white hover:bg-brand-light-pink text-brand-light-brown border border-brand-light-brown/30 text-lg px-8 py-4 rounded-lg font-semibold transition shadow-md flex items-center justify-center gap-2">
                     <i data-lucide="message-circle" class="w-5 h-5"></i> Falar no WhatsApp
                 </a>
             </div>
@@ -154,54 +218,54 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-blue rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-blue/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="hand-heart" class="text-white w-12 h-12"></i>
+                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="hand-heart" class="text-white w-12 h-12 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-semibold text-gray-800 text-center">Perdi Algúem</h3>
+                    <h3 class="font-serif font-semibold text-brand-coffee text-center text-lg">Perdi Algúem</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-blue rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-blue/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="flower" class="text-white w-12 h-12"></i>
+                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="flower" class="text-white w-12 h-12 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-semibold text-gray-800 text-center">Homenagens em Flores</h3>
+                    <h3 class="font-serif font-semibold text-brand-coffee text-center text-lg">Homenagens</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-blue rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-blue/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="heart-handshake" class="text-white w-12 h-12"></i>
+                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="heart-handshake" class="text-white w-12 h-12 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-semibold text-gray-800 text-center">Planos Familiares</h3>
+                    <h3 class="font-serif font-semibold text-brand-coffee text-center text-lg">Planos Familiares</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-blue rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-blue/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="codesandbox" class="text-white w-12 h-12"></i>
+                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
+                        <i data-lucide="codesandbox" class="text-white w-12 h-12 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-semibold text-gray-800 text-center">Ossuário</h3>
+                    <h3 class="font-serif font-semibold text-brand-coffee text-center text-lg">Ossuário</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO SOBRE -->
-    <section id="sobre" class="py-20 bg-brand-gold-light/10 overflow-hidden">
+    <section id="sobre" class="py-24 bg-brand-light-pink overflow-hidden">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                 <div class="w-full lg:w-1/2 relative">
-                    <div class="absolute top-4 -left-4 w-full h-full bg-brand-gold rounded-2xl opacity-10"></div>
+                    <div class="absolute top-4 -left-4 w-full h-full bg-brand-light-green rounded-2xl opacity-20"></div>
                     <img src="/camposanto/assets/img/familia.jpeg" alt="Família feliz no Pelourinho em Salvador" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-                    <div class="absolute bottom-8 right-[-20px] bg-white p-4 rounded-lg shadow-lg max-w-xs border-l-4 border-brand-gold">
-                        <p class="text-sm font-bold text-gray-800">Chancela da Santa Casa de Misericórdia</p>
-                        <p class="text-xs text-brand-gold">Séculos de história e confiança.</p>
+                    <div class="absolute bottom-8 right-[-20px] bg-white p-4 rounded-lg shadow-lg max-w-xs border-l-4 border-brand-light-brown">
+                        <p class="text-sm font-bold text-brand-coffee font-serif">Chancela da Santa Casa de Misericórdia</p>
+                        <p class="text-xs text-brand-light-brown font-sans">Séculos de história e confiança.</p>
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2">
-                    <h2 class="text-brand-gold font-bold text-lg mb-2 uppercase tracking-wide">Tradição e Confiança</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">O mais completo e tradicional Plano Familiar da Bahia</h3>
-                    <div class="space-y-4 text-gray-600 leading-relaxed text-lg">
+                    <h2 class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans">Tradição e Confiança</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-brand-coffee mb-6 font-serif leading-snug">O mais completo e tradicional Plano Familiar da Bahia</h3>
+                    <div class="space-y-6 text-brand-grayish leading-relaxed text-lg font-sans font-light">
                         <p>O <strong>Campo Santo Familiar</strong> é sinônimo de segurança para as famílias baianas. Pioneiro, trazemos toda a tradição e credibilidade da Santa Casa de Misericórdia da Bahia.</p>
                         <p>Nos orgulhamos de sermos especialistas em cuidado. Cuidamos de todos os detalhes burocráticos e cerimoniais para que você possa passar pelo momento do luto com respeito e acolhimento.</p>
                     </div>
-                    <div class="mt-8">
-                        <a href="#diferenciais" class="text-brand-gold font-bold hover:text-brand-gold-dark flex items-center gap-2 group">
+                    <div class="mt-10">
+                        <a href="#diferenciais" class="text-brand-light-brown font-bold hover:text-brand-coffee flex items-center gap-2 group font-sans">
                             Conheça nossa história 
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -212,64 +276,64 @@
     </section>
 
     <!-- SEÇÃO DIFERENCIAIS -->
-    <section id="diferenciais" class="py-24 bg-brand-blue/5 relative">
+    <section id="diferenciais" class="py-24 bg-brand-light-green/10 relative">
         <div class="absolute inset-0 bg-texture opacity-30 pointer-events-none"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-2 block">Por que escolher o Campo Santo?</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Nossos Diferenciais</h2>
-                <div class="w-24 h-1.5 bg-brand-gold mx-auto mb-6 rounded-full"></div>
-                <p class="text-gray-700 text-lg font-medium">Cobertura completa para o momento da despedida e benefícios exclusivos para aproveitar em vida.</p>
+                <span class="text-brand-light-brown font-bold uppercase tracking-wider text-sm mb-2 block font-sans">Por que escolher o Campo Santo?</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee mb-6 font-serif">Nossos Diferenciais</h2>
+                <div class="w-24 h-1.5 bg-brand-light-brown mx-auto mb-6 rounded-full"></div>
+                <p class="text-brand-grayish text-lg font-medium font-sans">Cobertura completa para o momento da despedida e benefícios exclusivos para aproveitar em vida.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Cards Diferenciais -->
                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="umbrella" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Assistência Funeral</h3>
-                    <p class="text-gray-600 leading-relaxed">Assistência funeral completa! Da urna mortuária ao translado, a ornamentação com flores e preparação do corpo.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Assistência Funeral</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Assistência funeral completa! Da urna mortuária ao translado, a ornamentação com flores e preparação do corpo.</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="landmark" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Assistência Cemiterial</h3>
-                    <p class="text-gray-600 leading-relaxed">Sepultamento ou cremação no cemitério mais tradicional da Bahia, o Cemitério Campo Santo.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Assistência Cemiterial</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Sepultamento ou cremação no cemitério mais tradicional da Bahia, o Cemitério Campo Santo.</p>
                 </div>
                  <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="scale" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Sem Taxas Extras</h3>
-                    <p class="text-gray-600 leading-relaxed">Garantimos uma despedida digna e livre de preocupações financeiras de última hora. Sem cobrar mais por isso.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Sem Taxas Extras</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Garantimos uma despedida digna e livre de preocupações financeiras de última hora. Sem cobrar mais por isso.</p>
                 </div>
                  <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="credit-card" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Benefícios em Vida</h3>
-                    <p class="text-gray-600 leading-relaxed">Clube de descontos na palma da mão para o titular e beneficiários em diversos parceiros.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Benefícios em Vida</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Clube de descontos na palma da mão para o titular e beneficiários em diversos parceiros.</p>
                 </div>
                  <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="stethoscope" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Descontos em Saúde</h3>
-                    <p class="text-gray-600 leading-relaxed">Descontos em consultas e exames no Hospital Santa Izabel, clínicas parceiras e laboratórios de excelência.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Descontos em Saúde</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Descontos em consultas e exames no Hospital Santa Izabel, clínicas parceiras e laboratórios de excelência.</p>
                 </div>
                  <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-gold"></div>
-                    <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center shadow-lg shadow-brand-blue/30 mb-6 group-hover:bg-brand-gold group-hover:shadow-brand-gold/30 transition-colors duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-light-brown"></div>
+                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-light-brown group-hover:shadow-brand-light-brown/30 transition-colors duration-300">
                         <i data-lucide="armchair" class="w-7 h-7 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Itens de Recuperação</h3>
-                    <p class="text-gray-600 leading-relaxed">Garantimos empréstimo de muletas e cadeiras de rodas sem nenhum custo adicional.</p>
+                    <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Itens de Recuperação</h3>
+                    <p class="text-brand-grayish leading-relaxed font-sans">Garantimos empréstimo de muletas e cadeiras de rodas sem nenhum custo adicional.</p>
                 </div>
             </div>
         </div>
@@ -279,66 +343,66 @@
     <section id="planos" class="py-24 bg-white relative">
         <div class="container mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-gold font-bold uppercase tracking-wider text-sm mb-2 block">Para todas as famílias</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Nossos Planos</h2>
-                <div class="w-24 h-1.5 bg-brand-gold mx-auto mb-6 rounded-full"></div>
-                <p class="text-gray-700 text-lg font-medium">Escolha a opção ideal que cabe no seu bolso e garanta a proteção completa.</p>
+                <span class="text-brand-light-brown font-bold uppercase tracking-wider text-sm mb-2 block font-sans">Para todas as famílias</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee mb-6 font-serif">Nossos Planos</h2>
+                <div class="w-24 h-1.5 bg-brand-light-brown mx-auto mb-6 rounded-full"></div>
+                <p class="text-brand-grayish text-lg font-medium font-sans">Escolha a opção ideal que cabe no seu bolso e garanta a proteção completa.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto font-sans">
                 <!-- Plano Amparo -->
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-blue py-6 text-center text-white"><h3 class="text-2xl font-bold">Amparo</h3></div>
+                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Amparo</h3></div>
                     <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-blue text-sm font-semibold align-top">R$</span><span class="text-brand-blue text-5xl font-bold">89</span><span class="text-brand-blue text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-gray-600 flex-grow">
+                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">89</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
+                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>60 anos</strong></span></li>
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Clube de Benefícios</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
                         </ul>
                     </div>
                 </div>
                  <!-- Plano Acolhimento -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full transform lg:-translate-y-2 lg:border-brand-gold/30">
-                    <div class="bg-brand-blue py-6 text-center text-white"><h3 class="text-2xl font-bold">Acolhimento</h3></div>
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full transform lg:-translate-y-2 lg:border-brand-light-brown/30">
+                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Acolhimento</h3></div>
                     <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-blue text-sm font-semibold align-top">R$</span><span class="text-brand-blue text-5xl font-bold">99</span><span class="text-brand-blue text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-gray-600 flex-grow">
+                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">99</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
+                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>70 anos</strong></span></li>
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Clube de Benefícios</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
                         </ul>
                     </div>
                 </div>
                  <!-- Plano Tranquilidade -->
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-blue py-6 text-center text-white"><h3 class="text-2xl font-bold">Tranquilidade</h3></div>
+                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Tranquilidade</h3></div>
                     <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-blue text-sm font-semibold align-top">R$</span><span class="text-brand-blue text-5xl font-bold">119</span><span class="text-brand-blue text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-gray-600 flex-grow">
+                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">119</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
+                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>80 anos</strong></span></li>
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Clube de Benefícios</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
                         </ul>
                     </div>
                 </div>
                  <!-- Plano Paz -->
                 <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-blue py-6 text-center text-white"><h3 class="text-2xl font-bold">Paz</h3></div>
+                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Paz</h3></div>
                     <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-blue text-sm font-semibold align-top">R$</span><span class="text-brand-blue text-5xl font-bold">149</span><span class="text-brand-blue text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-gray-600 flex-grow">
+                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">149</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
+                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span><strong>Sem limite</strong> de idade</span></li>
                             <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-gold"></i><span>Clube de Benefícios</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
                         </ul>
                     </div>
                 </div>
@@ -347,49 +411,49 @@
     </section>
 
     <!-- CALCULADORA (Compare e Comprove) -->
-    <section id="calculadora" class="py-24 bg-gray-50 border-t border-gray-200">
+    <section id="calculadora" class="py-24 bg-brand-ice border-t border-gray-200">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <!-- Header da Calculadora -->
                 <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-gray-900 flex items-center justify-center gap-3">
-                        <i data-lucide="calculator" class="w-8 h-8 text-brand-gold"></i>
+                    <h2 class="text-3xl font-bold text-brand-coffee flex items-center justify-center gap-3 font-serif">
+                        <i data-lucide="calculator" class="w-8 h-8 text-brand-light-brown"></i>
                         Compare e Comprove
                     </h2>
-                    <p class="text-gray-600 mt-2">Veja quanto você gastaria no particular e o quanto economiza sendo um associado.</p>
+                    <p class="text-brand-grayish mt-2 font-sans">Veja quanto você gastaria no particular e o quanto economiza sendo um associado.</p>
                 </div>
 
                 <!-- Container Principal da Calculadora -->
-                <div class="bg-brand-blue rounded-3xl shadow-2xl overflow-hidden p-6 md:p-10 text-white relative">
+                <div class="bg-brand-dark-green rounded-3xl shadow-2xl overflow-hidden p-6 md:p-10 text-white relative">
                     <!-- Decorativo -->
                     <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
-                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-brand-gold opacity-20 rounded-full -ml-10 -mb-10"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-brand-light-brown opacity-20 rounded-full -ml-10 -mb-10"></div>
 
                     <div class="relative z-10">
-                        <h3 class="text-xl font-bold text-center mb-8 border-b border-brand-gold-light/50 pb-4">
+                        <h3 class="text-xl font-bold text-center mb-8 border-b border-brand-light-green/50 pb-4 font-serif">
                             Faça a simulação agora
                         </h3>
 
-                        <div class="flex flex-col md:flex-row gap-8">
+                        <div class="flex flex-col md:flex-row gap-8 font-sans">
                             <!-- Coluna 1: Dados Pessoais -->
                             <div class="w-full md:w-1/2 space-y-4">
                                 <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-gold-light">Seu Nome</label>
-                                    <input type="text" id="calc-nome" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-gold outline-none" placeholder="Digite seu nome">
+                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Seu Nome</label>
+                                    <input type="text" id="calc-nome" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Digite seu nome">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-gold-light">Pessoas Protegidas</label>
-                                    <input type="number" id="calc-pessoas" min="1" max="10" oninput="if(this.value > 10) this.value = 10;" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-gold outline-none" placeholder="Ex: 4">
+                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Pessoas Protegidas</label>
+                                    <input type="number" id="calc-pessoas" min="1" max="10" oninput="if(this.value > 10) this.value = 10;" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Ex: 4">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-gold-light">Idade (Mais Velho)</label>
-                                    <input type="number" id="calc-idade" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-gold outline-none" placeholder="Ex: 65">
+                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Idade (Mais Velho)</label>
+                                    <input type="number" id="calc-idade" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Ex: 65">
                                 </div>
                             </div>
 
                             <!-- Coluna 2: Serviços Particulares -->
                             <div class="w-full md:w-1/2">
-                                <label class="block text-sm font-semibold mb-3 text-brand-gold-light">Selecione serviços para comparar:</label>
+                                <label class="block text-sm font-semibold mb-3 text-brand-light-green">Selecione serviços para comparar:</label>
                                 <div class="bg-white/10 rounded-xl p-4 h-64 overflow-y-auto services-scroll border border-white/20">
                                     <div id="lista-servicos" class="space-y-5"></div>
                                 </div>
@@ -397,7 +461,7 @@
                         </div>
 
                         <!-- Botão Calcular -->
-                        <button onclick="calcular()" id="btn-calcular" class="w-full mt-8 bg-brand-gold hover:bg-brand-gold-light text-white font-bold py-4 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center gap-2">
+                        <button onclick="calcular()" id="btn-calcular" class="w-full mt-8 bg-brand-light-brown hover:bg-brand-coffee text-white font-bold py-4 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center gap-2 font-sans">
                             CALCULAR ECONOMIA
                         </button>
 
@@ -405,12 +469,12 @@
                         <div id="resultado-wrapper" class="hidden mt-8">
                             <!-- Loader -->
                             <div id="loader" class="flex flex-col items-center justify-center py-8">
-                                <div class="w-12 h-12 border-4 border-white/20 border-t-brand-gold rounded-full animate-spin"></div>
-                                <p class="mt-4 text-sm font-medium animate-pulse">Analisando os melhores planos...</p>
+                                <div class="w-12 h-12 border-4 border-white/20 border-t-brand-light-brown rounded-full animate-spin"></div>
+                                <p class="mt-4 text-sm font-medium animate-pulse font-sans">Analisando os melhores planos...</p>
                             </div>
 
                             <!-- Resultados Finais -->
-                            <div id="resultado-final" class="hidden animate-fade-in">
+                            <div id="resultado-final" class="hidden animate-fade-in font-sans">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                                     
                                     <!-- Box Particular (Vermelho) -->
@@ -420,8 +484,8 @@
                                         <p class="text-xs mt-2 opacity-75">Pagamento imediato e à vista</p>
                                     </div>
 
-                                    <!-- Box Plano (Dourado) -->
-                                    <div class="bg-brand-gold p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform scale-105 z-10">
+                                    <!-- Box Plano (Dourado/Marrom) -->
+                                    <div class="bg-brand-light-brown p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform scale-105 z-10">
                                         <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">Com o Plano <span id="nome-plano">---</span></p>
                                         <div class="text-3xl md:text-4xl font-black" id="valor-plano">R$ 0,00</div>
                                         <p class="text-xs mt-2 opacity-75">Mensais (Proteção Total)</p>
@@ -431,8 +495,8 @@
 
                                 <!-- Botão POP-UP de Contato -->
                                 <div class="mt-8 bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 text-center animate-fade-in" style="animation-delay: 0.5s;">
-                                    <p class="text-lg font-semibold mb-4">Gostou da economia? Fale com um consultor agora.</p>
-                                    <a href="#contato" class="inline-flex items-center justify-center gap-2 bg-white text-brand-blue font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition shadow-lg w-full md:w-auto">
+                                    <p class="text-lg font-semibold mb-4 font-serif">Gostou da economia? Fale com um consultor agora.</p>
+                                    <a href="#contato" class="inline-flex items-center justify-center gap-2 bg-white text-brand-dark-green font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition shadow-lg w-full md:w-auto font-sans">
                                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                                         QUERO CONTRATAR ESSE PLANO
                                     </a>
@@ -446,50 +510,50 @@
     </section>
 
     <!-- SEÇÃO DE CONTATO -->
-    <section id="contato" class="py-20 bg-gray-50">
+    <section id="contato" class="py-20 bg-brand-ice">
         <div class="container mx-auto px-4">
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-t-4 border-brand-gold">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-t-4 border-brand-light-brown">
                 <div class="w-full lg:w-1/2 relative h-64 lg:h-auto">
                     <img src="/camposanto/assets/img/atendente.png" alt="Central de Atendimento Humanizado" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-brand-blue/30"></div>
+                    <div class="absolute inset-0 bg-brand-dark-green/30"></div>
                 </div>
                 <div class="w-full lg:w-1/2 p-10 lg:p-16">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Como podemos te ajudar hoje?</h2>
-                    <p class="text-gray-600 mb-8">Central de atendimento com suporte de especialistas 24h para você.</p>
-                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Formulário de teste enviado!');">
+                    <h2 class="text-3xl font-bold text-brand-coffee mb-4 font-serif">Como podemos te ajudar hoje?</h2>
+                    <p class="text-brand-grayish mb-8 font-sans">Central de atendimento com suporte de especialistas 24h para você.</p>
+                    <form class="space-y-4 font-sans" onsubmit="event.preventDefault(); alert('Formulário de teste enviado!');">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Seu Nome</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="Digite seu nome completo">
+                            <label class="block text-sm font-medium text-brand-coffee mb-1">Seu Nome</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="Digite seu nome completo">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                                <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="(71) 99999-9999">
+                                <label class="block text-sm font-medium text-brand-coffee mb-1">Telefone</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="(71) 99999-9999">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="seu@email.com">
+                                <label class="block text-sm font-medium text-brand-coffee mb-1">Email</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="seu@email.com">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Como podemos ajudar?</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition bg-white">
+                            <label class="block text-sm font-medium text-brand-coffee mb-1">Como podemos ajudar?</label>
+                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition bg-white">
                                 <option>Quero conhecer os planos</option>
                                 <option>Já sou cliente e preciso de ajuda</option>
                                 <option>Comunicar falecimento</option>
                             </select>
                         </div>
-                        <button type="submit" class="w-full bg-brand-blue hover:bg-brand-blue-dark text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
+                        <button type="submit" class="w-full bg-brand-dark-green hover:bg-brand-moss text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
                             Solicitar Contato
                         </button>
                     </form>
-                    <div class="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between text-gray-500 text-sm">
+                    <div class="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between text-brand-grayish text-sm font-sans">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-gold"></i>
+                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-light-brown"></i>
                             <span>(71) 3333-3333</span>
                         </div>
                         <div class="flex items-center gap-2">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i>
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-light-brown"></i>
                             <span>Salvador - BA</span>
                         </div>
                     </div>
@@ -499,43 +563,44 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t-4 border-brand-gold">
+    <footer class="bg-brand-coffee text-white pt-16 pb-8 border-t-4 border-brand-light-brown">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <div>
-                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <i data-lucide="home" class="w-6 h-6 text-brand-blue"></i> Campo Santo Familiar
+                    <!-- Lora para títulos de footer também -->
+                    <h4 class="text-xl font-bold mb-4 flex items-center gap-2 font-serif">
+                        <i data-lucide="home" class="w-6 h-6 text-brand-light-brown"></i> Campo Santo Familiar
                     </h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
+                    <p class="text-brand-light-pink text-sm leading-relaxed opacity-80 font-sans">
                         Tradição, respeito e a segurança que sua família merece, com a garantia da Santa Casa da Bahia.
                     </p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4 text-brand-gold-light">Links Rápidos</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#" class="hover:text-brand-blue transition">Início</a></li>
-                        <li><a href="#" class="hover:text-brand-blue transition">Nossos Planos</a></li>
-                        <li><a href="#" class="hover:text-brand-blue transition">Cemitério Campo Santo</a></li>
-                        <li><a href="#" class="hover:text-brand-blue transition">Portal do Cliente</a></li>
+                    <h4 class="text-lg font-bold mb-4 text-brand-light-brown font-serif">Links Rápidos</h4>
+                    <ul class="space-y-2 text-brand-light-pink text-sm opacity-80 font-sans">
+                        <li><a href="#" class="hover:text-brand-light-brown transition">Início</a></li>
+                        <li><a href="#" class="hover:text-brand-light-brown transition">Nossos Planos</a></li>
+                        <li><a href="#" class="hover:text-brand-light-brown transition">Cemitério Campo Santo</a></li>
+                        <li><a href="#" class="hover:text-brand-light-brown transition">Portal do Cliente</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4 text-brand-gold-light">Atendimento</h4>
-                    <p class="text-gray-400 text-sm mb-2">Segunda a Sexta: 8h às 18h</p>
-                    <p class="text-gray-400 text-sm mb-4">Emergência 24h: (71) 9999-9999</p>
+                    <h4 class="text-lg font-bold mb-4 text-brand-light-brown font-serif">Atendimento</h4>
+                    <p class="text-brand-light-pink text-sm mb-2 opacity-80 font-sans">Segunda a Sexta: 8h às 18h</p>
+                    <p class="text-brand-light-pink text-sm mb-4 opacity-80 font-sans">Emergência 24h: (71) 9999-9999</p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition">
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/30 flex items-center justify-center hover:bg-brand-light-brown transition">
                             <i data-lucide="instagram" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition">
+                        <a href="#" class="w-10 h-10 rounded-full bg-black/30 flex items-center justify-center hover:bg-brand-light-brown transition">
                             <i data-lucide="facebook" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs flex justify-between items-center">
+            <div class="border-t border-white/10 pt-8 text-center text-brand-light-pink text-xs flex justify-between items-center opacity-60 font-sans">
                 <p>&copy; 2024 Campo Santo Familiar. Todos os direitos reservados.</p>
-                <p>Feito com <i data-lucide="heart" class="inline w-3 h-3 text-brand-gold"></i> em Salvador</p>
+                <p>Feito com <i data-lucide="heart" class="inline w-3 h-3 text-brand-light-brown"></i> em Salvador</p>
             </div>
         </div>
     </footer>
@@ -567,7 +632,7 @@
             const div = document.createElement('div');
             div.className = 'flex items-center space-x-3';
             div.innerHTML = `
-                <input type="checkbox" id="servico_${servico.id}" value="${servico.valor}" class="w-5 h-5 rounded border-white/30 bg-white/10 text-brand-gold focus:ring-brand-gold custom-checkbox">
+                <input type="checkbox" id="servico_${servico.id}" value="${servico.valor}" class="w-5 h-5 rounded border-white/30 bg-white/10 text-brand-light-brown focus:ring-brand-light-brown custom-checkbox">
                 <label for="servico_${servico.id}" class="text-sm font-medium cursor-pointer hover:text-white transition">${servico.descricao}</label>
             `;
             listaServicos.appendChild(div);
@@ -634,7 +699,16 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+            // Animar ícone do menu
+            const icon = btn.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
         });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
