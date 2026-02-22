@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conheça a história e o legado do Campo Santo Familiar, com a chancela da Santa Casa da Bahia.">
+    <title>Quem Somos | Campo Santo Familiar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTES: Lora (Títulos), Montserrat (Corpo), Radley (Menu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores e Fontes Personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Lora', 'serif'],           
+                        display: ['Radley', 'serif'],       
+                    },
+                    colors: {
+                        brand: {
+                            'dark-green': '#1d645b',    
+                            'light-brown': '#cc7722',   
+                            'coffee': '#4e3924',        
+                            'light-pink': '#ede2e4',    
+                            'light-green': '#7ca899',   
+                            'moss': '#647256',          
+                            'ice': '#f4f4f4',           
+                            'grayish': '#6a7771',       
+                            'red': '#C0392B', 
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-brand-grayish bg-brand-ice antialiased flex flex-col min-h-screen">
+
+    <!-- CABEÇALHO (O mesmo da Home) -->
+    <div id="header-placeholder"></div>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow pt-24"> <!-- pt-24 para compensar o header -->
+        
+        <!-- HERO SECTION DAS PÁGINAS INTERNAS -->
+        <section class="relative py-20 lg:py-28 overflow-hidden bg-brand-dark-green">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="/camposanto/assets/img/catedral.png" alt="Catedral de Salvador" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-brand-dark-green mix-blend-multiply"></div>
+            </div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-light-brown text-white text-xs font-bold mb-4 uppercase tracking-widest font-sans shadow-md">
+                    Conheça-nos
+                </span>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Quem Somos</h1>
+                <p class="text-brand-light-pink text-lg font-sans max-w-xl mx-auto">Tradição, acolhimento e a segurança que só o ecossistema Santa Casa pode oferecer.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 1: CUIDADO E RESPEITO -->
+        <section class="py-20 bg-brand-ice border-b border-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="w-16 h-16 bg-brand-light-pink rounded-2xl flex items-center justify-center mx-auto mb-6 text-brand-light-brown">
+                        <i data-lucide="heart-handshake" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-6">Cuidado e Respeito quando Mais Precisa</h2>
+                    <p class="text-xl text-brand-grayish font-sans leading-relaxed">
+                        No <strong class="text-brand-dark-green">Campo Santo Familiar</strong>, entendemos o quão desafiador é lidar com a perda. Com a essência acolhedora da Santa Casa da Bahia, estamos aqui para oferecer tranquilidade e apoio em todos os momentos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: A ESSÊNCIA DA SANTA CASA -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                    
+                    <div class="w-full lg:w-1/2">
+                        <span class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans block">A essência da Santa Casa da Bahia</span>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-6 leading-snug">Um serviço moldado pelo respeito e acolhimento</h2>
+                        
+                        <div class="space-y-6 text-brand-grayish leading-relaxed text-lg font-sans font-light">
+                            <p>
+                                O Campo Santo Familiar é o Plano Funerário do cemitério mais tradicional de Salvador: o Campo Santo. Um Plano Funerário sem surpresas, para você passar pelo luto com respeito e acolhimento, sem se preocupar com burocracias.
+                            </p>
+                            <p>
+                                O Cemitério Campo Santo é muito bem localizado e oferece o Plano Funerário mais completo da cidade, com a chancela do ecossistema Santa Casa e que garante suporte e assistência durante momentos difíceis, com profissionalismo e respeito para você e sua família.
+                            </p>
+                        </div>
+
+                        <!-- Highlight Box -->
+                        <div class="mt-10 bg-brand-light-pink p-6 rounded-2xl border-l-4 border-brand-light-brown">
+                            <p class="font-serif text-brand-coffee text-xl font-medium italic">
+                                "O Plano Funerário protege sua família de qualquer preocupação com apenas uma ligação. Nós cuidamos de tudo, para você não precisar se preocupar com nada."
+                            </p>
+                            <p class="mt-3 text-sm font-bold text-brand-light-brown font-sans uppercase tracking-widest">
+                                Tranquilidade para quem fica, dignidade para quem vai.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 relative">
+                        <!-- Substitua a imagem abaixo por uma foto institucional real da sua pasta -->
+                        <div class="absolute top-6 -right-6 w-full h-full border-2 border-brand-light-green rounded-2xl"></div>
+                        <img src="/camposanto/assets/img/atendente.png" alt="Atendimento humanizado Campo Santo Familiar" class="relative rounded-2xl shadow-2xl w-full object-cover h-[550px] z-10">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: LEGADO -->
+        <section class="py-24 bg-brand-dark-green relative overflow-hidden">
+            <!-- Padrão de fundo (decorativo) -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    
+                    <div class="w-full lg:w-5/12 text-center lg:text-left">
+                        <div class="inline-flex items-center justify-center w-20 h-20 bg-brand-light-brown rounded-full mb-6 text-white shadow-lg">
+                            <i data-lucide="landmark" class="w-10 h-10"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">Um Legado de Confiança e Tradição</h2>
+                        <div class="w-20 h-1.5 bg-brand-light-brown rounded-full mb-8 mx-auto lg:mx-0"></div>
+                    </div>
+
+                    <div class="w-full lg:w-7/12">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 md:p-10 rounded-3xl">
+                            <p class="text-brand-ice font-sans text-lg md:text-xl leading-relaxed font-light">
+                                Descubra a história do Campo Santo, o cemitério mais emblemático de Salvador, fundado em <strong class="text-brand-light-brown font-bold">1836</strong> e adquirido pela Santa Casa da Bahia em <strong class="text-brand-light-brown font-bold">1840</strong>. 
+                                <br><br>
+                                Inicialmente recebido com resistência, o Campo Santo transformou-se em um símbolo de prestígio e confiança, graças à credibilidade da Santa Casa. Este cemitério simboliza uma mudança cultural significativa, saindo dos tradicionais sepultamentos em igrejas para um espaço dedicado ao ar livre, marcando uma nova era de respeito e memória na cidade.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/camposanto/formataCabecalhoRodape.js"></script>
+
+    <!-- Scripts de Funcionalidade -->
+    <script>
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

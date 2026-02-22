@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cartão Minha Família - O clube de benefícios exclusivo do Campo Santo Familiar. Descontos em saúde, lazer e muito mais.">
+    <title>Cartão Minha Família | Campo Santo Familiar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTES: Lora (Títulos), Montserrat (Corpo), Radley (Menu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores e Fontes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Lora', 'serif'],           
+                        display: ['Radley', 'serif'],       
+                    },
+                    colors: {
+                        brand: {
+                            'dark-green': '#1d645b',    
+                            'light-brown': '#cc7722',   
+                            'coffee': '#4e3924',        
+                            'light-pink': '#ede2e4',    
+                            'light-green': '#7ca899',   
+                            'moss': '#647256',          
+                            'ice': '#f4f4f4',           
+                            'grayish': '#6a7771',       
+                            'red': '#C0392B', 
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-brand-grayish bg-brand-ice antialiased flex flex-col min-h-screen">
+
+    <!-- CABEÇALHO -->
+    <div id="header-placeholder"></div>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow pt-24">
+        
+        <!-- HERO SECTION: CARTÃO MINHA FAMÍLIA -->
+        <section class="relative py-16 lg:py-24 overflow-hidden bg-brand-light-pink">
+            <div class="absolute inset-0 z-0 opacity-40">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-light-pink via-brand-light-pink/90 to-transparent z-10"></div>
+                <!-- Imagem de fundo feliz (pessoas sorrindo, saúde, vida) -->
+                <img src="/camposanto/assets/img/familia.jpeg" alt="Família feliz e saudável" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="container mx-auto px-4 relative z-20 flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-3/5 text-center lg:text-left">
+                    <span class="inline-block py-1 px-4 rounded-full bg-white text-brand-light-brown text-xs font-bold mb-4 uppercase tracking-widest font-sans shadow-sm border border-brand-light-brown/20">
+                        Um Clube de Vantagens
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-coffee mb-6 leading-tight">
+                        Cuidado que está presente em <span class="text-brand-light-brown italic">todos os momentos.</span>
+                    </h1>
+                    <p class="text-brand-grayish text-lg md:text-xl font-sans max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-medium">
+                        Mais que um plano familiar, um plano de cuidado em vida. O Cartão Minha Família promove bem-estar, economia e praticidade para você aproveitar o melhor da vida hoje.
+                    </p>
+                    <a href="#beneficios" class="inline-flex items-center gap-2 bg-brand-dark-green hover:bg-brand-moss text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl hover:-translate-y-1 font-sans uppercase tracking-wider text-sm">
+                        Conheça os Benefícios <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <div class="w-full lg:w-2/5 hidden lg:flex justify-center animate-float">
+                    <!-- Utilizando a imagem enviada pelo usuário -->
+                    <img src="/camposanto/assets/img/cartao_minha_familia.png" alt="Cartão e Aplicativo Minha Família" class="w-full max-w-sm drop-shadow-2xl rounded-3xl object-contain">
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUÇÃO: O QUE É O CARTÃO -->
+        <section class="py-16 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="w-16 h-16 bg-brand-light-green/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-brand-dark-green">
+                        <i data-lucide="gift" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-5">Exclusivo, Gratuito e Feito para Você</h2>
+                    <div class="w-20 h-1.5 bg-brand-light-green mx-auto mb-6 rounded-full"></div>
+                    <p class="text-lg md:text-xl text-brand-grayish font-sans leading-relaxed font-light">
+                        Todo cliente que possui qualquer um de nossos Planos Familiares tem acesso <strong>100% gratuito</strong> ao Cartão Minha Família. Todas as pessoas incluídas na grade do seu plano também têm direito, garantindo que o cuidado se estenda a todos que você ama, sem taxas de adesão ou mensalidades extras.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID DE BENEFÍCIOS (Ajustado para 4 itens perfeitamente alinhados) -->
+        <section id="beneficios" class="py-20 bg-brand-ice relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#cc7722 2px, transparent 2px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-brand-light-brown font-bold text-sm mb-3 uppercase tracking-widest font-sans block">Hub de parceiros em expansão</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee font-serif leading-snug">Economia Real no seu Dia a Dia</h2>
+                </div>
+
+                <!-- Grid com 2 colunas para comportar os 4 itens -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    
+                    <!-- Saúde: Hospital Santa Izabel -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-light-green/20 hover:shadow-xl hover:border-brand-dark-green transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center text-white mb-6 group-hover:bg-brand-light-brown transition-colors">
+                            <i data-lucide="stethoscope" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Saúde de Excelência</h3>
+                        <p class="text-brand-grayish leading-relaxed font-sans text-sm">
+                            Consultas médicas a partir de R$ 95 e até <strong>50% de desconto</strong> em procedimentos no <strong class="text-brand-dark-green">Hospital Santa Izabel</strong> e em clínicas parceiras selecionadas.
+                        </p>
+                    </div>
+
+                    <!-- Exames Laboratoriais -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-light-green/20 hover:shadow-xl hover:border-brand-dark-green transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center text-white mb-6 group-hover:bg-brand-light-brown transition-colors">
+                            <i data-lucide="microscope" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Descontos em Exames</h3>
+                        <p class="text-brand-grayish leading-relaxed font-sans text-sm">
+                            Faça seus exames preventivos e de rotina com <strong>até 70% de desconto</strong> em laboratórios e clínicas da nossa rede credenciada.
+                        </p>
+                    </div>
+
+                    <!-- Lazer e Lojas -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-light-green/20 hover:shadow-xl hover:border-brand-dark-green transition-all duration-300 group">
+                        <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center text-white mb-6 group-hover:bg-brand-light-brown transition-colors">
+                            <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Lazer e Varejo</h3>
+                        <p class="text-brand-grayish leading-relaxed font-sans text-sm">
+                            Muito além da saúde. Descontos exclusivos em farmácias, cinemas, restaurantes, escolas e diversas lojas do varejo nacional.
+                        </p>
+                    </div>
+
+                    <!-- Foco no Titular e Dependentes -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-brand-light-green/20 hover:shadow-xl hover:border-brand-dark-green transition-all duration-300 group bg-brand-light-pink/30">
+                        <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center text-white mb-6 group-hover:bg-brand-light-brown transition-colors">
+                            <i data-lucide="users" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-coffee mb-3 font-serif">Sua Família Protegida</h3>
+                        <p class="text-brand-grayish leading-relaxed font-sans text-sm font-medium">
+                            Beneficiários cadastrados no seu plano (cônjuge, filhos, pais, sogros...) recebem acesso próprio. O cuidado se estende a toda a sua rede de apoio.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SUSTENTABILIDADE E APP -->
+        <section class="py-20 bg-brand-dark-green text-white overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
+                    
+                    <div class="w-full lg:w-1/2 order-2 lg:order-1 relative">
+                        <!-- Imagem mock do App / Sustentabilidade -->
+                        <div class="absolute inset-0 bg-brand-light-green blur-3xl opacity-20 rounded-full"></div>
+                        <img src="/camposanto/assets/img/cartao_minha_familia.png" alt="Aplicativo Cartão Minha Família na tela do celular" class="relative z-10 w-full max-w-sm mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500 rounded-3xl">
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 text-sm font-bold tracking-wider uppercase">
+                            <i data-lucide="leaf" class="w-4 h-4 text-brand-light-brown"></i> 100% Digital e Sustentável
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Compactuamos com a economia verde.</h2>
+                        <p class="text-brand-ice opacity-90 text-lg leading-relaxed font-sans font-light mb-8">
+                            Adotamos uma política de menos plástico, mas sem perda de eficiência. Todos os descontos e benefícios do Cartão Família estão <strong>a um clique de você</strong>, direto no aplicativo no seu celular. 
+                            <br><br>
+                            Sem produção de resíduos plásticos, sem espera de entrega por correio e sem riscos de perda ou esquecimento do cartão físico.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <!-- Botões ilustrativos para baixar o app -->
+                            <div class="flex items-center gap-3 bg-black/40 hover:bg-black/60 border border-white/10 px-6 py-3 rounded-xl cursor-pointer transition">
+                                <i data-lucide="play" class="w-8 h-8"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase opacity-70">Disponível no</div>
+                                    <div class="font-bold font-sans">Google Play</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 bg-black/40 hover:bg-black/60 border border-white/10 px-6 py-3 rounded-xl cursor-pointer transition">
+                                <i data-lucide="apple" class="w-8 h-8"></i>
+                                <div class="text-left">
+                                    <div class="text-[10px] uppercase opacity-70">Baixar na</div>
+                                    <div class="font-bold font-sans">App Store</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTEMUNHOS (FEEDBACKS REAIS) -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand-light-brown font-bold text-sm mb-3 uppercase tracking-widest font-sans block">O que dizem nossos associados</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee">Um plano que faz a diferença na vida real</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Depoimento 1 -->
+                    <div class="bg-brand-ice p-8 rounded-3xl border border-gray-200 relative">
+                        <i data-lucide="quote" class="absolute top-6 right-6 w-12 h-12 text-brand-light-green/20"></i>
+                        <p class="text-brand-grayish italic font-sans leading-relaxed text-lg mb-6 relative z-10">
+                            "Com o plano do Campo Santo Familiar adquiri o Cartão Minha Família o que me ajudou a ter mais opções de lazer para minha família, além de me ajudar a cuidar mais do meu neném."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-brand-light-brown rounded-full flex items-center justify-center text-white font-bold font-serif">M</div>
+                            <div>
+                                <h4 class="font-bold text-brand-coffee text-sm uppercase tracking-wider">Cliente Associada</h4>
+                                <div class="flex text-yellow-500">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 2 -->
+                    <div class="bg-brand-ice p-8 rounded-3xl border border-gray-200 relative">
+                        <i data-lucide="quote" class="absolute top-6 right-6 w-12 h-12 text-brand-light-green/20"></i>
+                        <p class="text-brand-grayish italic font-sans leading-relaxed text-lg mb-6 relative z-10">
+                            "Contratei o plano pensando na minha família, no ano de 2024. O atendimento sem burocracia já me conquistou. Com os benefícios em vida então, me deixou feliz demais."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-brand-dark-green rounded-full flex items-center justify-center text-white font-bold font-serif">J</div>
+                            <div>
+                                <h4 class="font-bold text-brand-coffee text-sm uppercase tracking-wider">Cliente Associado</h4>
+                                <div class="flex text-yellow-500">
+                                    <i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FAQ (RESTAURADA COM OS DADOS EXATOS DA PÁGINA CARTÃO MINHA FAMÍLIA) -->
+        <section id="faq" class="py-16 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-12">
+                    <span class="text-brand-light-brown font-bold text-sm mb-3 uppercase tracking-widest font-sans block">Sua família, suas dúvidas</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-5">Perguntas Frequentes</h2>
+                    <div class="w-20 h-1.5 bg-brand-light-brown mx-auto rounded-full"></div>
+                </div>
+
+                <div class="space-y-4 font-sans">
+                    
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">O Cartão Minha Família tem algum custo adicional?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Não.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">A utilização dos benefícios em vida interfere na minha cobertura funerária?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Não.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">Quem tem direito ao cartão?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Todas as pessoas incluídas na grade do Plano Familiar completo (com assistência funeral e cemiterial completa) podem ter acesso ao cartão desde que cadastradas previamente.
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">Posso comprar o cartão separadamente?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            O Cartão Minha Família é um benefício exclusivo dos Planos Familiares do Campo Santo Familiar (plano completo de assistência funeral e cemiterial).
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">Os descontos são válidos apenas no estado da Bahia?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Alguns descontos do clube de benefícios do Cartão Minha Família estão disponíveis em outros estados do Brasil. Para acessá-los, basta baixar o App e filtrar pelo estado e cidade e aproveitar.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section id="contato" class="py-16 bg-brand-light-pink/40 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#cc7722 1px, transparent 1px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center border-t-4 border-brand-light-brown">
+                    <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center text-left">
+                        <span class="text-brand-light-brown font-bold text-sm mb-3 uppercase tracking-widest font-sans block">Acesso Imediato</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee mb-5 font-serif leading-snug">Quer ter acesso a todos esses benefícios?</h2>
+                        <div class="w-20 h-1.5 bg-brand-light-brown rounded-full mb-5"></div>
+                        <p class="text-brand-grayish text-lg leading-relaxed font-sans font-medium mb-8">
+                            Escolha um dos nossos Planos Familiares. Além de proteger quem você ama contra os imprevistos do futuro, você começa a economizar hoje mesmo no presente.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="planos.html" class="bg-brand-ice border-2 border-brand-dark-green hover:bg-brand-dark-green text-brand-dark-green hover:text-white font-bold py-4 px-8 rounded-full shadow-sm transition duration-300 transform text-center font-sans">
+                                Ver Planos
+                            </a>
+                            <a href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" target="_blank" class="bg-brand-dark-green hover:bg-brand-moss text-white font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1 text-center font-sans flex items-center justify-center gap-2">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                Assinar via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 h-64 lg:h-[400px] relative">
+                        <img src="/camposanto/assets/img/atendente.png" alt="Atendimento no WhatsApp" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-dark-green/20"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/camposanto/formataCabecalhoRodape.js"></script>
+
+    <!-- Scripts de Funcionalidade -->
+    <script>
+        // Inicialização de Ícones e Menu Mobile
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Lógica do Acordeão do FAQ
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                
+                // Abre/Fecha a resposta
+                content.classList.toggle('hidden');
+                // Gira o ícone da setinha
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Planejar é um gesto de amor. Conheça os Planos Familiares do Campo Santo e proteja quem você ama.">
+    <title>Planos Funerários | Campo Santo Familiar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTES: Lora (Títulos), Montserrat (Corpo), Radley (Menu) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores e Fontes Personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Lora', 'serif'],           
+                        display: ['Radley', 'serif'],       
+                    },
+                    colors: {
+                        brand: {
+                            'dark-green': '#1d645b',    
+                            'light-brown': '#cc7722',   
+                            'coffee': '#4e3924',        
+                            'light-pink': '#ede2e4',    
+                            'light-green': '#7ca899',   
+                            'moss': '#647256',          
+                            'ice': '#f4f4f4',           
+                            'grayish': '#6a7771',       
+                            'red': '#C0392B', 
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'spin-slow': 'spin 3s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .custom-checkbox:checked {
+            background-color: #cc7722;
+            border-color: #cc7722;
+        }
+        
+        .services-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .services-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        .services-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+        .services-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-grayish bg-brand-ice antialiased flex flex-col min-h-screen">
+
+    <!-- CABEÇALHO -->
+    <div id="header-placeholder"></div>
+
+    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <main class="flex-grow pt-24">
+        
+        <!-- HERO SECTION: PLANOS -->
+        <section class="relative py-20 lg:py-32 overflow-hidden bg-brand-dark-green">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <img src="/camposanto/assets/img/catedral.png" alt="Catedral de Salvador" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-brand-dark-green mix-blend-multiply"></div>
+            </div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-light-brown text-white text-xs font-bold mb-6 uppercase tracking-widest font-sans shadow-md">
+                    O Cuidado Que Vai Além
+                </span>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+                    Planejar É Um <br> Gesto de Amor.
+                </h1>
+                <p class="text-brand-light-pink text-lg font-sans max-w-xl mx-auto">
+                    A base do Plano Familiar é o nosso compromisso mais profundo: o cuidado que vai além da despedida. Fazemos isso através de planos completos, poupando seus entes queridos de decisões difíceis e custos inesperados.
+                </p>
+                <br>
+                <a href="#planos-grid" class="inline-flex items-center gap-2 bg-brand-light-brown hover:bg-brand-coffee text-white px-8 py-4 rounded-full font-bold transition-all shadow-xl hover:-translate-y-1 font-sans uppercase tracking-wider text-sm">
+                    Fale com um consultor <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- INTRODUÇÃO: O PLANO QUE CUIDA DA SUA FAMÍLIA -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans block">Um legado de cuidado</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-6">O Plano que cuida da sua família</h2>
+                    <div class="w-20 h-1.5 bg-brand-light-green mx-auto mb-8 rounded-full"></div>
+                    <p class="text-lg md:text-xl text-brand-grayish font-sans leading-relaxed font-light">
+                        Fazemos isso através de planos familiares completos, que garantem serviços funerários já planejados e cobertos, desde a documentação até a cerimônia, poupando seus entes queridos de decisões difíceis e custos inesperados. <strong class="text-brand-dark-green font-medium">É a paz de espírito que só um planejamento feito com amor pode oferecer.</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CÍRCULO DE CUIDADO (FEATURES 01, 02, 03) -->
+        <section class="py-24 bg-brand-ice relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#1d645b 2px, transparent 2px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee font-serif leading-snug">Faça Parte do Círculo de Cuidado Mais Completo de Salvador.</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 relative group">
+                        <div class="absolute -top-6 -right-4 text-8xl font-serif font-bold text-brand-light-pink opacity-50 group-hover:text-brand-light-brown transition-colors duration-500">01</div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold text-brand-coffee mb-4 font-serif flex flex-col gap-2">
+                                <span class="text-brand-light-brown text-lg font-sans uppercase tracking-widest font-bold">Cobertura Funeral</span> 
+                                Completa
+                            </h3>
+                            <p class="text-brand-grayish leading-relaxed font-sans">
+                                Cuidamos de todos os detalhes da despedida. Da preparação do corpo e ornamentação à cerimônia, nosso amparo garante a paz e a tranquilidade para toda a sua família.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 relative group">
+                        <div class="absolute -top-6 -right-4 text-8xl font-serif font-bold text-brand-light-pink opacity-50 group-hover:text-brand-light-brown transition-colors duration-500">02</div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold text-brand-coffee mb-4 font-serif flex flex-col gap-2">
+                                <span class="text-brand-light-brown text-lg font-sans uppercase tracking-widest font-bold">Cobertura Cemiterial</span> 
+                                Completa
+                            </h3>
+                            <p class="text-brand-grayish leading-relaxed font-sans">
+                                Garantimos uma morada digna e perpétua para a memória. Seja no sepultamento em jazigo ou no ossuário, asseguramos um lugar de paz para o descanso do seu ente querido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow duration-300 relative group">
+                        <div class="absolute -top-6 -right-4 text-8xl font-serif font-bold text-brand-light-pink opacity-50 group-hover:text-brand-light-brown transition-colors duration-500">03</div>
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold text-brand-coffee mb-4 font-serif flex flex-col gap-2">
+                                <span class="text-brand-light-brown text-lg font-sans uppercase tracking-widest font-bold">Clube de Vantagens</span> 
+                                para o seu Bem-Estar
+                            </h3>
+                            <p class="text-brand-grayish leading-relaxed font-sans">
+                                Nosso cuidado vai além, com benefícios para o seu dia a dia. Com o Cartão Minha Família, você tem descontos em saúde, serviços, lazer e em uma ampla rede de parceiros.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID DE PLANOS DETALHADOS -->
+        <section id="planos-grid" class="py-24 bg-white relative">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto font-sans">
+                    
+                    <!-- Plano Amparo -->
+                    <div class="bg-brand-ice rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full group">
+                        <div class="bg-brand-dark-green py-6 text-center text-white transition-colors group-hover:bg-brand-moss"><h3 class="text-2xl font-bold font-serif">Amparo</h3></div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">89</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-brand-grayish text-xs mt-1 uppercase tracking-widest font-bold">mensais</div></div>
+                            <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="cake" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>60 anos</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="users" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>10 pessoas</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
+                                <li class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-brand-light-brown"></i><span>Acesso ao Cartão Minha Família</span></li>
+                            </ul>
+                            <a href="#contato" class="mt-8 block w-full border-2 border-brand-dark-green text-brand-dark-green hover:bg-brand-dark-green hover:text-white text-center py-3 rounded-lg font-bold transition">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                     <!-- Plano Acolhimento -->
+                    <div class="bg-white rounded-xl shadow-2xl transition duration-300 border-2 border-brand-light-brown overflow-hidden flex flex-col h-full transform lg:-translate-y-4 relative z-10">
+                        <div class="absolute top-0 right-0 bg-brand-light-brown text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Mais Escolhido</div>
+                        <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Acolhimento</h3></div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">99</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-brand-grayish text-xs mt-1 uppercase tracking-widest font-bold">mensais</div></div>
+                            <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>70 anos</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>10 pessoas</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
+                                <li class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-brand-light-brown"></i><span>Acesso ao Cartão Minha Família</span></li>
+                            </ul>
+                            <a href="#contato" class="mt-8 block w-full bg-brand-light-brown hover:bg-brand-coffee text-white text-center py-3 rounded-lg font-bold transition shadow-lg">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                     <!-- Plano Tranquilidade -->
+                    <div class="bg-brand-ice rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full group">
+                        <div class="bg-brand-dark-green py-6 text-center text-white transition-colors group-hover:bg-brand-moss"><h3 class="text-2xl font-bold font-serif">Tranquilidade</h3></div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">119</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-brand-grayish text-xs mt-1 uppercase tracking-widest font-bold">mensais</div></div>
+                            <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="cake" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>80 anos</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="users" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>10 pessoas</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
+                                <li class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-brand-light-brown"></i><span>Acesso ao Cartão Minha Família</span></li>
+                            </ul>
+                            <a href="#contato" class="mt-8 block w-full border-2 border-brand-dark-green text-brand-dark-green hover:bg-brand-dark-green hover:text-white text-center py-3 rounded-lg font-bold transition">Saiba Mais</a>
+                        </div>
+                    </div>
+
+                     <!-- Plano Paz -->
+                    <div class="bg-brand-ice rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full group">
+                        <div class="bg-brand-dark-green py-6 text-center text-white transition-colors group-hover:bg-brand-moss"><h3 class="text-2xl font-bold font-serif">Paz</h3></div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">149</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-brand-grayish text-xs mt-1 uppercase tracking-widest font-bold">mensais</div></div>
+                            <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="infinity" class="w-5 h-5 text-brand-light-green"></i><span><strong>Sem limite</strong> de idade</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="users" class="w-5 h-5 text-brand-light-green"></i><span>Até <strong>10 pessoas</strong></span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura funeral</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Cobertura cemiterial</span></li>
+                                <li class="flex items-center gap-3 pb-3 border-b border-gray-200"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-light-brown"></i><span>Clube de Benefícios</span></li>
+                                <li class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5 text-brand-light-brown"></i><span>Acesso ao Cartão Minha Família</span></li>
+                            </ul>
+                            <a href="#contato" class="mt-8 block w-full border-2 border-brand-dark-green text-brand-dark-green hover:bg-brand-dark-green hover:text-white text-center py-3 rounded-lg font-bold transition">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULADORA (Compare e Comprove) -->
+        <section id="calculadora" class="py-24 bg-brand-light-pink/40 border-t border-brand-light-pink">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-brand-coffee flex items-center justify-center gap-3 font-serif">
+                            <i data-lucide="calculator" class="w-8 h-8 text-brand-light-brown"></i>
+                            Compare e Comprove a Economia
+                        </h2>
+                        <p class="text-brand-grayish mt-2 font-sans">Faça uma simulação e veja quanto custaria um atendimento no particular versus a tranquilidade do nosso plano.</p>
+                    </div>
+
+                    <div class="bg-brand-dark-green rounded-3xl shadow-2xl overflow-hidden p-6 md:p-10 text-white relative">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-brand-light-brown opacity-20 rounded-full -ml-10 -mb-10"></div>
+
+                        <div class="relative z-10">
+                            <h3 class="text-xl font-bold text-center mb-8 border-b border-brand-light-green/50 pb-4 font-serif">
+                                Preencha os dados da simulação
+                            </h3>
+
+                            <div class="flex flex-col md:flex-row gap-8 font-sans">
+                                <div class="w-full md:w-1/2 space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2 text-brand-light-green">Seu Nome</label>
+                                        <input type="text" id="calc-nome" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Digite seu nome">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2 text-brand-light-green">Pessoas Protegidas</label>
+                                        <input type="number" id="calc-pessoas" min="1" max="10" oninput="if(this.value > 10) this.value = 10;" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Até 10 pessoas">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2 text-brand-light-green">Idade (Pessoa Mais Velha)</label>
+                                        <input type="number" id="calc-idade" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-light-brown outline-none" placeholder="Ex: 65">
+                                    </div>
+                                </div>
+
+                                <div class="w-full md:w-1/2">
+                                    <label class="block text-sm font-semibold mb-3 text-brand-light-green">Selecione serviços para comparar os custos:</label>
+                                    <div class="bg-white/10 rounded-xl p-4 h-64 overflow-y-auto services-scroll border border-white/20">
+                                        <div id="lista-servicos" class="space-y-5"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="calcular()" id="btn-calcular" class="w-full mt-8 bg-brand-light-brown hover:bg-brand-coffee text-white font-bold py-4 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center gap-2 font-sans">
+                                CALCULAR ECONOMIA
+                            </button>
+
+                            <div id="resultado-wrapper" class="hidden mt-8">
+                                <div id="loader" class="flex flex-col items-center justify-center py-8">
+                                    <div class="w-12 h-12 border-4 border-white/20 border-t-brand-light-brown rounded-full animate-spin-slow"></div>
+                                    <p class="mt-4 text-sm font-medium animate-pulse font-sans">Analisando os melhores planos...</p>
+                                </div>
+
+                                <div id="resultado-final" class="hidden animate-fade-in font-sans">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                                        
+                                        <div class="bg-brand-red p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform hover:scale-105 transition duration-300">
+                                            <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">Custo no Particular</p>
+                                            <div class="text-3xl md:text-4xl font-black" id="valor-particular">R$ 0,00</div>
+                                            <p class="text-xs mt-2 opacity-75">Pagamento imediato e à vista</p>
+                                        </div>
+
+                                        <div class="bg-brand-light-brown p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform scale-105 z-10">
+                                            <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">Com o Plano <span id="nome-plano">---</span></p>
+                                            <div class="text-3xl md:text-4xl font-black" id="valor-plano">R$ 0,00</div>
+                                            <p class="text-xs mt-2 opacity-75">Mensais (Proteção Total)</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="mt-8 bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 text-center animate-fade-in" style="animation-delay: 0.5s;">
+                                        <p class="text-lg font-semibold mb-4 font-serif">A economia é visível. Garanta sua proteção agora mesmo.</p>
+                                        <a href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" class="inline-flex items-center justify-center gap-2 bg-white text-brand-dark-green font-bold px-8 py-3 rounded-full hover:bg-brand-ice transition shadow-lg w-full md:w-auto font-sans">
+                                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                            CONTRATAR PLANO PELO WHATSAPP
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- SEÇÃO FAQ -->
+        <section id="faq" class="py-24 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans block">Tire suas dúvidas</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-6">Perguntas Frequentes</h2>
+                    <div class="w-20 h-1.5 bg-brand-light-brown mx-auto rounded-full"></div>
+                </div>
+
+                <div class="space-y-4 font-sans">
+                    
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">O que está incluído nos Planos Familiares?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Os planos incluem os serviços cemiteriais (cerimônia fúnebre, translado, sepultamento no Cemitério Campo Santo, sala para velório) e os serviços funerários (translado do corpo, preparação do corpo para velório - não incluso tanatopraxia, urna de primeira linha, ornamentação floral, coroa de flores) e apoio com documentação, entre outros serviços.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">Posso escolher entre sepultamento ou cremação?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Sim, nossos planos são flexíveis para acomodar diferentes tipos de cerimônias, seja sepultamento ou cremação. Em ambos os casos, não há custo adicional.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">Como os Planos Funerários ajudam em momentos de luto?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Eles oferecem suporte completo, reduzindo as preocupações financeiras e organizacionais para a família.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">O Cartão Minha Família tem algum custo adicional?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Não. O acesso ao clube de benefícios é uma vantagem exclusiva e gratuita para os membros do Plano Familiar. Não há mensalidades ou taxas de adesão extras.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">A utilização dos benefícios em vida interfere na minha cobertura funerária?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            De forma alguma. Os benefícios do Cartão Minha Família são um extra para o seu bem-estar hoje. Sua cobertura de assistência funeral permanece integral e garantida para o futuro, independentemente do uso do cartão.
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-2xl bg-brand-ice overflow-hidden transition-all duration-300">
+                        <button class="faq-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                            <span class="font-bold text-brand-coffee text-lg pr-4">No Plano Familiar, quantas pessoas estão cobertas?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-brand-light-brown transform transition-transform duration-300 flex-shrink-0"></i>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-brand-grayish leading-relaxed">
+                            Cada Plano Familiar protege até 10 pessoas indicadas no ato da contratação ou em até 07 dias após a contratação.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CONTATO (APENAS WHATSAPP E IMAGEM) -->
+        <section id="contato" class="py-20 bg-brand-dark-green relative overflow-hidden">
+            <!-- Textura de fundo -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+            
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row items-center">
+                    <div class="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center bg-brand-light-pink/30 text-left">
+                        <span class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans block">Nossa Essência em Cuidar</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-coffee mb-6 font-serif leading-snug">Dê o Primeiro Passo Para a Tranquilidade da Sua Família.</h2>
+                        <div class="w-20 h-1.5 bg-brand-light-brown rounded-full mb-6"></div>
+                        <p class="text-brand-grayish text-lg leading-relaxed font-sans font-medium mb-10">
+                            Permita que nossa equipe mostre a você como um simples gesto de planejamento pode se transformar em um legado de cuidado e amor. Entre em contato com nossos consultores para uma simulação sem compromisso.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row">
+                             <a href="https://wa.me/5571999999999" target="_blank" class="bg-brand-dark-green hover:bg-brand-moss text-white font-bold py-4 px-8 rounded-full shadow-lg transition duration-300 transform hover:-translate-y-1 text-center font-sans flex items-center justify-center gap-2 text-lg">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                                Falar com um Consultor
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 h-64 lg:h-[500px] relative">
+                        <img src="/camposanto/assets/img/atendente.png" alt="Atendimento Humanizado no WhatsApp" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/camposanto/formataCabecalhoRodape.js"></script>
+
+    <!-- Scripts de Funcionalidade -->
+    <script>
+        // Dados da Calculadora
+        const planosFunerarios = {
+            'amparo': { valor: 89.9, idade: 60, nome: 'Amparo' },
+            'acolhimento': { valor: 99.9, idade: 70, nome: 'Acolhimento' },
+            'tranquilidade': { valor: 119.9, idade: 80, nome: 'Tranquilidade' },
+            'paz': { valor: 149.9, idade: 999, nome: 'Paz' } 
+        };
+
+        const servicos = [
+            { id: 1, descricao: 'Cobertura Funeral Completa', valor: 5000.0 },
+            { id: 2, descricao: 'Cobertura Cemiterial / Terreno', valor: 3500.0 },
+            { id: 3, descricao: 'Sala para Velório Privativa', valor: 1800.0 },
+            { id: 4, descricao: 'Cremação', valor: 5000.0 },
+            { id: 5, descricao: 'Urna funerária (Primeira linha)', valor: 3000.0 },
+            { id: 6, descricao: 'Ornamentação com flores naturais', valor: 300.0 },
+            { id: 7, descricao: 'Coroa de flores', valor: 400.0 },
+            { id: 8, descricao: 'Preparação do corpo', valor: 1000.0 },
+            { id: 9, descricao: 'Translado fúnebre (Até 200km)', valor: 2500.0 }
+        ];
+
+        // 1. Renderizar Checkboxes
+        const listaServicos = document.getElementById('lista-servicos');
+        servicos.forEach(servico => {
+            const div = document.createElement('div');
+            div.className = 'flex items-center space-x-3';
+            div.innerHTML = `
+                <input type="checkbox" id="servico_${servico.id}" value="${servico.valor}" class="w-5 h-5 rounded border-white/30 bg-white/10 text-brand-light-brown focus:ring-brand-light-brown custom-checkbox">
+                <label for="servico_${servico.id}" class="text-sm font-medium cursor-pointer hover:text-white transition">${servico.descricao}</label>
+            `;
+            listaServicos.appendChild(div);
+        });
+
+        // 2. Lógica da Calculadora
+        function calcular() {
+            const idadeInput = document.getElementById('calc-idade').value;
+            const btnCalcular = document.getElementById('btn-calcular');
+            const wrapper = document.getElementById('resultado-wrapper');
+            const loader = document.getElementById('loader');
+            const resultadoFinal = document.getElementById('resultado-final');
+
+            if (!idadeInput) {
+                alert("Por favor, informe a idade da pessoa mais velha para indicar o plano exato.");
+                return;
+            }
+
+            // Mostrar Loading
+            wrapper.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            resultadoFinal.classList.add('hidden');
+            btnCalcular.disabled = true;
+            btnCalcular.innerHTML = "Processando Simulação...";
+            btnCalcular.classList.add('opacity-75');
+
+            // Simular Processamento
+            setTimeout(() => {
+                let totalServicos = 0;
+                const checkboxes = document.querySelectorAll('#lista-servicos input[type="checkbox"]:checked');
+                checkboxes.forEach(chk => {
+                    totalServicos += parseFloat(chk.value);
+                });
+
+                let planoEscolhido = planosFunerarios['paz']; 
+                if (idadeInput <= 60) planoEscolhido = planosFunerarios['amparo'];
+                else if (idadeInput <= 70) planoEscolhido = planosFunerarios['acolhimento'];
+                else if (idadeInput <= 80) planoEscolhido = planosFunerarios['tranquilidade'];
+                
+                document.getElementById('valor-particular').innerText = totalServicos.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                document.getElementById('nome-plano').innerText = planoEscolhido.nome;
+                document.getElementById('valor-plano').innerText = planoEscolhido.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+                loader.classList.add('hidden');
+                resultadoFinal.classList.remove('hidden');
+                btnCalcular.disabled = false;
+                btnCalcular.innerHTML = "REFAZER SIMULAÇÃO";
+                btnCalcular.classList.remove('opacity-75');
+                
+            }, 2000); // 2 segundos de loading
+        }
+
+        // 3. Inicializar Ícones e Menu Mobile
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // 4. Lógica do Acordeão do FAQ
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                
+                // Abre/Fecha a resposta
+                content.classList.toggle('hidden');
+                // Gira o ícone da setinha
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html> 
