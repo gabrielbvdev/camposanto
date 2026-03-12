@@ -45,7 +45,7 @@
                                 dark: '#1d645b',    // Verde escuro
                                 light: '#7ca899',   // Verde claro
                                 moss: '#647256',    // Verde musgo
-                                gray: '#6a7771',    // Verde acinzentado
+                                gray: '#6a7771',    // Verde acinzetado
                             },
                             brown: {
                                 light: '#cc7722',   // Marrom claro
@@ -60,6 +60,7 @@
                     boxShadow: {
                         'soft': '0 4px 20px -2px rgba(29, 100, 91, 0.08)',
                         'card': '0 10px 30px -5px rgba(78, 57, 36, 0.1)',
+                        'whatsapp': '0 10px 25px -5px rgba(37, 211, 102, 0.4)',
                     }
                 }
             }
@@ -289,7 +290,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO SOBRE -->
+    <!-- SEÇÃO SOBRE (Tradição e Confiança) -->
     <section id="sobre" class="py-20 bg-white overflow-hidden">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -726,8 +727,9 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
                 <!-- Footer Logo -->
-                <div class="flex-shrink-0">
-                <img src="/camposanto/assets/img/logo_branca.png" alt="Logo Campo Santo Familiar" class="h-16 md:h-20 w-auto object-contain" width="1080" height="608">
+                <div class="flex flex-row items-center gap-4">
+                    <img src="/camposanto/assets/img/logo_branca.png" alt="Logo Campo Santo Familiar" class="h-16 md:h-20 w-auto object-contain" width="1080" height="608">
+                    <img src="/camposanto/assets/img/logo_cemiterio_camposanto.jpeg" alt="Logo Cemitério Campo Santo" class="h-16 md:h-20 w-auto object-contain" width="1080" height="608">
                 </div>
                 
                 <!-- Footer Info -->
@@ -739,10 +741,17 @@
         </div>
     </footer>
 
-    <script>
+    <!-- Botão Flutuante WhatsApp -->
+    <a id="whatsapp-fab" 
+       href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-[60] w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-whatsapp hover:scale-110 transition-all duration-500 opacity-0 pointer-events-none translate-y-10">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+    </a>
 
-// Dados do Carrossel
-const slides = [
+    <script>
+        // Dados do Carrossel
+        const slides = [
             {
                 url: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Mausol%C3%A9u_da_Fam%C3%ADlia_do_Bar%C3%A3o_de_Caja%C3%ADbas_e_Imagens_da_F%C3%A9_Salvador_2021-8918.jpg",
                 caption: "Federação, Salvador"
@@ -759,18 +768,13 @@ const slides = [
         const dots = document.querySelectorAll('.carousel-dot');
 
         function updateCarousel() {
-            // Efeito de fade
             imgElement.classList.add('carousel-fade-out');
-            
             setTimeout(() => {
                 imgElement.src = slides[currentIdx].url;
                 captionElement.innerText = slides[currentIdx].caption;
-                
-                // Atualiza dots
                 dots.forEach((dot, idx) => {
                     dot.style.opacity = idx === currentIdx ? '1' : '0.4';
                 });
-                
                 imgElement.classList.remove('carousel-fade-out');
             }, 500);
         }
@@ -793,13 +797,10 @@ const slides = [
             const btn = document.getElementById('btnCalcular');
 
             if (gastoFarmacia === 0 && gastoSaude === 0) {
-                resultadoBox.innerHTML = `
-                    <p class="text-brand-brown-light font-bold">Por favor, insira valores para simular.</p>
-                `;
+                resultadoBox.innerHTML = `<p class="text-brand-brown-light font-bold">Por favor, insira valores para simular.</p>`;
                 return;
             }
 
-            // Iniciar animação de carregamento
             btn.disabled = true;
             const originalBtnContent = btn.innerHTML;
             btn.innerHTML = `<i class="ph ph-circle-notch animate-spin"></i> Calculando...`;
@@ -811,7 +812,6 @@ const slides = [
                 </div>
             `;
 
-            // Timeout de 2 segundos solicitado
             setTimeout(() => {
                 const economiaFarmacia = gastoFarmacia * 0.20;
                 const economiaSaude = gastoSaude * 0.40;
@@ -831,7 +831,6 @@ const slides = [
                         <div class="bg-green-100 text-brand-green-dark font-black px-6 py-4 rounded-xl border border-green-200">
                             <i class="ph-fill ph-sparkle mr-2"></i>O PLANO SE PAGA!
                         </div>
-                        <p class="text-[10px] text-brand-green-gray mt-3">Sua economia é maior que a mensalidade.</p>
                     `;
                 } else {
                     const custoReal = Math.abs(saldo);
@@ -839,7 +838,6 @@ const slides = [
                         <div class="bg-brand-brown-light/5 border border-brand-brown-light/20 p-4 rounded-xl">
                             <span class="text-brand-brown-light font-bold text-xs block mb-1 uppercase">Custo Real Ajustado:</span>
                             <span class="text-brand-brown-light font-black text-2xl">R$ ${custoReal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                            <p class="text-[10px] text-brand-green-gray mt-1">Sua mensalidade efetiva após os descontos.</p>
                         </div>
                     `;
                 }
@@ -870,29 +868,31 @@ const slides = [
             document.body.style.overflow = '';
         }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            const btn = event.target.querySelector('button');
-            const originalText = btn.innerText;
-            btn.innerText = "Enviando...";
-            btn.disabled = true;
-
-            setTimeout(() => {
-                alert('Proposta enviada com sucesso! Um consultor entrará em contato em breve via WhatsApp.');
-                btn.innerText = originalText;
-                btn.disabled = false;
-                event.target.reset();
-            }, 1500);
-        }
-
+        // Lógica de Scroll: Navbar e Botão WhatsApp
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
+            const whatsappFab = document.getElementById('whatsapp-fab');
+            const sobreSection = document.getElementById('sobre');
+            
+            // Navbar behavior
             if (window.scrollY > 50) {
                 navbar.classList.add('py-2', 'shadow-md');
                 navbar.classList.remove('py-4');
             } else {
                 navbar.classList.remove('py-2', 'shadow-md');
                 navbar.classList.add('py-4');
+            }
+
+            // WhatsApp FAB behavior (aparece ao chegar na seção "sobre")
+            if (sobreSection) {
+                const triggerPoint = sobreSection.offsetTop - 500;
+                if (window.scrollY > triggerPoint) {
+                    whatsappFab.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    whatsappFab.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    whatsappFab.classList.add('opacity-0', 'pointer-events-none', 'translate-y-10');
+                    whatsappFab.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
             }
         });
 
