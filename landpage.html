@@ -45,7 +45,7 @@
                                 dark: '#1d645b',    // Verde escuro
                                 light: '#7ca899',   // Verde claro
                                 moss: '#647256',    // Verde musgo
-                                gray: '#6a7771',    // Verde acinzetado
+                                gray: '#6a7771',    // Verde acinzentado
                             },
                             brown: {
                                 light: '#cc7722',   // Marrom claro
@@ -831,6 +831,7 @@
                         <div class="bg-green-100 text-brand-green-dark font-black px-6 py-4 rounded-xl border border-green-200">
                             <i class="ph-fill ph-sparkle mr-2"></i>O PLANO SE PAGA!
                         </div>
+                        <p class="text-[10px] text-brand-green-gray mt-3">Sua economia é maior que a mensalidade.</p>
                     `;
                 } else {
                     const custoReal = Math.abs(saldo);
@@ -839,6 +840,7 @@
                             <span class="text-brand-brown-light font-bold text-xs block mb-1 uppercase">Custo Real Ajustado:</span>
                             <span class="text-brand-brown-light font-black text-2xl">R$ ${custoReal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
                         </div>
+                        <p class="text-[10px] text-brand-green-gray mt-1">Sua mensalidade efetiva após os descontos.</p>
                     `;
                 }
                 
