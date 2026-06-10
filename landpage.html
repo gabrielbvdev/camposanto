@@ -81,6 +81,10 @@
             transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
+        #cookie-banner {
+            z-index: 10005; /* Camada mais alta para o aviso de cookies */
+        }
+
         .banner-active {
             display: flex !important;
         }
@@ -222,7 +226,7 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-center">
             <div class="flex items-center gap-2 font-bold text-[10px] md:text-sm uppercase tracking-tight">
                 <i class="ph-fill ph-ticket text-lg animate-pulse text-white"></i>
-                <span>Semana do Consumidor: <span class="underline decoration-2 underline-offset-2">Taxa de Adesão Gratuita!</span></span>
+                <span>Campanha exclusiva do mês de junho: <span class="underline decoration-2 underline-offset-2">Taxa de Adesão Gratuita!</span></span>
             </div>
             <div class="flex items-center gap-2">
                 <span class="text-[9px] md:text-xs font-bold opacity-90 uppercase">Termina em:</span>
@@ -794,6 +798,21 @@
         </div>
     </footer>
 
+    <!-- BANNER DE COOKIES (LGPD) -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-brand-green-dark text-white p-4 shadow-2xl transition-transform duration-500 translate-y-full">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <i class="ph ph-cookie text-2xl text-brand-brown-light"></i>
+                <p class="text-sm opacity-90 text-center md:text-left leading-tight">
+                    Utilizamos cookies para personalizar conteúdos e melhorar a sua experiência. Ao continuar a navegar, concorda com a nossa <a href="#" class="underline hover:text-brand-brown-light">Política de Privacidade</a>.
+                </p>
+            </div>
+            <button onclick="acceptCookies()" class="px-8 py-2 bg-brand-brown-light hover:bg-brand-brown-dark text-white font-bold rounded-full transition-all whitespace-nowrap shadow-lg">
+                Aceitar Cookies
+            </button>
+        </div>
+    </div>
+
     <!-- Botão Flutuante WhatsApp (MANTIDO COMENTADO CONFORME SOLICITAÇÃO) -->
     <!-- <a id="whatsapp-fab" 
        href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" 
@@ -911,9 +930,26 @@
             }, 2000);
         }
 
+        // LÓGICA DE COOKIES (LGPD)
+        function checkCookies() {
+            if (!localStorage.getItem('cookies-accepted')) {
+                const banner = document.getElementById('cookie-banner');
+                // Pequeno atraso para o banner entrar suavemente após o carregamento
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-full');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookies-accepted', 'true');
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.add('translate-y-full');
+        }
+
         // CONFIGURAÇÃO DA PROMOÇÃO
-        const PROMO_START_DATE = new Date("2026-03-01T00:00:00");
-        const PROMO_END_DATE = new Date("2026-03-21T23:59:59");
+        const PROMO_START_DATE = new Date("2026-06-01T00:00:00");
+        const PROMO_END_DATE = new Date("2026-06-20T23:59:59");
         const banner = document.getElementById('promo-banner');
         const navbar = document.getElementById('navbar');
 
@@ -973,7 +1009,7 @@
             document.body.style.overflow = '';
         }
 
-        // Lógica de Scroll: Navbar e Botão WhatsApp
+        // Lógica de Scroll: Navbar
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             
@@ -992,6 +1028,7 @@
                 document.querySelector('.phone-input-group .phone').value = '(71)';
             }
             updatePromotion();
+            checkCookies(); // Verificar LGPD no carregamento
         }, 1000);
 
         window.addEventListener('resize', updatePromotion);
