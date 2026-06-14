@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?planocamposantofamiliar\.com\.br$ [NC]
+RewriteCond %{REQUEST_URI} !^/landingpage/
+RewriteRule ^(.*)$ /landingpage/$1 [L]
