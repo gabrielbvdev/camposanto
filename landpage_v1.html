@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Campo Santo Familiar - Benefícios em Vida</title>
+    <!-- Google Fonts: Lora, Radley, Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIÁVEIS & RESET (PALETA REFERÊNCIA ACOLHEDORA) --- */
+        :root {
+            /* Cores Institucionais */
+            --green-dark: #1d645b;       /* Verde escuro (Logo/Botões/Footer) */
+            --green-light: #7ca899;      /* Verde claro (Detalhes) */
+            --green-moss: #647256;       /* Verde musgo (Subtítulos) */
+            
+            /* Cores Quentes (Acolhimento & Leitura) */
+            --coffee: #4e3924;           /* Marrom Café (Títulos - Contraste e Elegância) */
+            --orange-clay: #cc7722;      /* Marrom Claro (CTA/Ação - Destaque) */
+            --orange-hover: #a85d18;
+            
+            /* Fundos */
+            --bg-pink: #ede2e4;          /* Rosa Claro (Fundo suave da referência) */
+            --bg-ice: #f4f4f4;           /* Branco gelo */
+            --white: #ffffff;
+            
+            /* UI */
+            --shadow: 0 12px 40px rgba(78, 57, 36, 0.08); /* Sombra suave */
+            --radius: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* Texto Geral -> Montserrat */
+            font-family: 'Montserrat', sans-serif;
+            color: #555; 
+            line-height: 1.6;
+            background-color: var(--bg-ice);
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Ajuste de Scroll para o Header fixo não cobrir títulos */
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        /* Títulos -> Lora */
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Lora', serif; 
+            font-weight: 700; 
+            color: var(--coffee);
+            letter-spacing: -0.02em; /* Ajuste fino para elegância */
+        }
+        
+        /* Cabeçalho (Header tag e seus filhos diretos como Logo/Nav) -> Radley */
+        header {
+            font-family: 'Radley', serif;
+            background: var(--white);
+            padding: 18px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--bg-pink);
+        }
+        
+        a { text-decoration: none; transition: 0.3s; }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES (Montserrat para legibilidade) --- */
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+            padding: 15px 35px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta {
+            background-color: var(--orange-clay);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(204, 119, 34, 0.3);
+        }
+        
+        .btn-cta:hover {
+            background-color: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 119, 34, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--green-dark);
+        }
+
+        /* --- HEADER & LOGO --- */
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            /* Reforçando Radley no Logo */
+            font-family: 'Radley', serif;
+            font-size: 1.6rem; 
+            font-weight: 400; /* Radley é naturalmente espessa/serifada */
+            color: var(--green-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i { color: var(--orange-clay); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(29, 100, 91, 0.92) 0%, rgba(78, 57, 36, 0.6) 100%), url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0 140px; 
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, var(--bg-pink), transparent);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Wrapper para os botões do hero ficarem flexíveis */
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag-hero {
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            /* Lora ajustada: sem itálico, mais compacta */
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-style: normal; /* Removido o itálico para ficar mais sóbrio */
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            /* Subtítulo -> Montserrat */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 45px;
+            font-weight: 400;
+            color: #f1f8f6;
+        }
+
+        /* --- SIMULADOR DE ECONOMIA --- */
+        .simulator-section {
+            background: var(--bg-pink); 
+            padding: 0 0 80px;
+            position: relative;
+        }
+
+        .simulator-container {
+            margin-top: -80px; 
+            position: relative;
+            z-index: 10;
+        }
+
+        .simulator-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 4px solid var(--green-dark);
+        }
+
+        .sim-title { text-align: center; margin-bottom: 35px; }
+        .sim-title h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--green-dark); }
+        .sim-title p { font-size: 1rem; color: var(--coffee); font-family: 'Montserrat', sans-serif; }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr auto; 
+            gap: 20px;
+            width: 100%;
+            align-items: end;
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--coffee);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .input-wrapper { position: relative; }
+        
+        .input-wrapper i.icon-field {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--green-light);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+
+        /* --- Correção Visual do Select --- */
+        .input-wrapper select {
+            width: 100%;
+            padding: 15px 35px 15px 45px; 
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: var(--coffee);
+            background: var(--white-ice);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #dcdcdc;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            color: var(--coffee);
+            background: var(--white-ice);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .input-wrapper input:focus, .input-wrapper select:focus {
+            border-color: var(--green-dark);
+            background: var(--white);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(29, 100, 91, 0.1);
+        }
+        
+        .select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--orange-clay);
+            pointer-events: none;
+            font-size: 0.8rem;
+        }
+
+        .result-box {
+            width: 100%;
+            background: #fffbf5; 
+            border: 1px dashed var(--orange-clay);
+            padding: 25px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 25px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .result-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--green-dark);
+        }
+
+        .result-msg { font-size: 1rem; color: var(--coffee); margin-top: 5px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- BENEFÍCIOS --- */
+        .benefits { padding: 90px 0; background: var(--bg-ice); }
+        
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.6rem; margin-bottom: 15px; } /* Lora Title */
+        .section-header p { color: var(--green-moss); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+
+        .benefit-item {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .benefit-item:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow);
+            border-color: var(--bg-pink);
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-pink); 
+            color: var(--coffee);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            transition: 0.3s;
+        }
+        
+        .benefit-item:hover .icon-circle {
+            background: var(--green-dark);
+            color: var(--white);
+        }
+
+        .benefit-item h3 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 600; }
+        .benefit-item p { font-size: 0.95rem; }
+
+        /* --- TRUST BAR --- */
+        .trust-bar {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+            border-top: 5px solid var(--green-moss);
+        }
+        .trust-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .trust-item { display: flex; align-items: center; gap: 18px; }
+        .trust-item i { font-size: 2.2rem; color: var(--orange-clay); }
+        .trust-text { text-align: left; }
+        .trust-text strong { display: block; font-size: 1.3rem; font-family: 'Lora', serif; }
+        .trust-text span { font-size: 0.9rem; color: var(--green-light); letter-spacing: 0.5px; font-family: 'Montserrat', sans-serif; }
+
+        /* --- PLANOS --- */
+        .plans-section { 
+            padding: 100px 0; 
+            background: linear-gradient(to bottom, var(--bg-ice) 50%, var(--bg-pink) 50%);
+        }
+        
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            align-items: center;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 25px;
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .plan-card.featured {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 20px 50px rgba(78, 57, 36, 0.15);
+            border: 2px solid var(--orange-clay);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .plan-name { 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            color: var(--coffee); 
+            margin-bottom: 10px; 
+            /* Lora aqui também fica bonito */
+            font-family: 'Lora', serif; 
+        }
+        
+        .plan-price { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem; 
+            font-weight: 800; 
+            color: var(--green-dark); 
+            margin-bottom: 25px; 
+            letter-spacing: -1px; 
+        }
+        .plan-price small { font-size: 0.9rem; font-weight: 500; color: var(--green-gray); }
+        
+        .plan-list { list-style: none; margin-bottom: 35px; text-align: left; padding: 0; }
+        .plan-list li { margin-bottom: 15px; font-size: 0.9rem; color: #666; display: flex; align-items: flex-start; gap: 12px; }
+        .plan-list li i { color: var(--orange-clay); margin-top: 4px; font-size: 0.9rem; flex-shrink: 0; }
+
+        /* --- FORMULÁRIO (CTA FINAL) --- */
+        .cta-section {
+            background: var(--bg-pink);
+            padding: 80px 0 100px;
+        }
+
+        .form-wrapper {
+            background: var(--white);
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--green-dark), var(--green-light));
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .form-header { text-align: center; margin-bottom: 35px; }
+        .form-header h3 { color: var(--coffee); font-size: 2rem; margin-bottom: 10px; }
+        .form-header p { color: #666; }
+        
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: var(--bg-ice);
+            color: var(--coffee);
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-input:focus { border-color: var(--orange-clay); outline: none; background: var(--white); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--coffee); 
+            color: #d8c6b9;
+            padding: 70px 0 30px;
+            font-size: 0.95rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        .footer-col h4 { 
+            color: var(--orange-clay); 
+            margin-bottom: 25px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+            letter-spacing: 1px; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d8c6b9; transition: 0.3s; }
+        .footer-col a:hover { color: var(--white); padding-left: 5px; }
+        
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        /* --- RESPONSIVIDADE OTIMIZADA --- */
+        
+        /* 1. Telas Médias (Tablets e Laptops Pequenos - abaixo de 1100px) */
+        @media (max-width: 1100px) {
+            .benefit-grid, .plans-container {
+                grid-template-columns: repeat(2, 1fr); /* Mantém pares */
+                gap: 25px;
+            }
+            
+            .hero h1 { font-size: 2.8rem; }
+            .plan-card.featured { transform: scale(1); border-width: 2px; } 
+        }
+
+        /* 2. Tablets Portrait e Mobiles Grandes (abaixo de 900px) */
+        @media (max-width: 900px) {
+            .sim-grid { 
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+            
+            .hero { padding: 80px 0 120px; }
+            
+            .trust-flex { 
+                flex-direction: row; 
+                flex-wrap: wrap;
+                gap: 30px; 
+                justify-content: center;
+                align-items: center; 
+                text-align: left;
+            }
+            .trust-item { 
+                width: auto; 
+                justify-content: flex-start; 
+                flex-direction: row; 
+                text-align: left;
+            }
+
+            .form-wrapper { padding: 40px 30px; }
+        }
+
+        /* 3. Mobile (abaixo de 650px) */
+        @media (max-width: 650px) {
+            .nav-flex { flex-direction: column; gap: 15px; }
+            
+            .hero h1 { font-size: 2.2rem; line-height: 1.3; }
+            .hero p { font-size: 1.1rem; }
+            .tag-hero { font-size: 0.75rem; }
+            
+            /* Botões do Hero LADO A LADO */
+            .hero .btn { 
+                display: inline-block; 
+                width: auto; 
+                padding: 12px 20px; 
+                font-size: 0.8rem;
+                margin: 0 !important; 
+            }
+            
+            .benefit-grid, .plans-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .simulator-container { margin-top: -40px; }
+            .simulator-card { padding: 30px 20px; }
+            .sim-title h3 { font-size: 1.5rem; }
+            
+            .trust-bar { padding: 40px 20px; }
+            .trust-item { 
+                flex-direction: row; 
+                text-align: left; 
+                gap: 15px; 
+                width: auto; 
+                align-items: center;
+            }
+            .trust-text { text-align: left; }
+
+            .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .footer-col a:hover { padding-left: 0; color: var(--white); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-flex">
+            <div class="logo">
+                <i class="fa-solid fa-church"></i> CAMPO SANTO
+            </div>
+            <a href="#contato" class="btn btn-cta" style="font-size: 0.8rem; padding: 12px 25px;">Falar com Consultor</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="tag-hero">Plano Familiar & Clube de Vantagens</span>
+            <h1>O plano que <span style="border-bottom: 3px solid var(--orange-clay);">se paga sozinho</span> antes de você precisar.</h1>
+            <p>Economize em farmácias, consultas médicas e lazer com a tradição da Santa Casa da Bahia.</p>
+            <!-- Wrapper flex para manter botões lado a lado -->
+            <div class="hero-buttons">
+                <a href="#simulador" class="btn btn-cta">Calcular Minha Economia</a>
+                <a href="#planos" class="btn btn-outline">Ver Planos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulador Interativo -->
+    <section class="simulator-section" id="simulador">
+        <div class="container simulator-container">
+            <div class="simulator-card">
+                <div class="sim-title">
+                    <h3>Veja quanto sua família economiza por mês</h3>
+                    <p>Insira seus gastos médios e escolha um plano para simular:</p>
+                </div>
+                
+                <div class="sim-grid">
+                    <!-- Seleção do Plano -->
+                    <div class="input-group">
+                        <label>Plano Escolhido</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-file-shield icon-field"></i>
+                            <select id="selectPlano">
+                                <option value="89.90">Plano Amparo (R$ 89,90)</option>
+                                <option value="99.90" selected>Plano Acolhimento (R$ 99,90)</option>
+                                <option value="119.90">Plano Tranquilidade (R$ 119,90)</option>
+                                <option value="149.90">Plano Paz (R$ 149,90)</option>
+                            </select>
+                            <span class="select-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Gasto Farmácia -->
+                    <div class="input-group">
+                        <label>Gastos com Farmácia (R$)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pills icon-field"></i>
+                            <input type="number" id="inputFarmacia" placeholder="Ex: 200">
+                        </div>
+                    </div>
+
+                    <!-- Gasto Saúde -->
+                    <div class="input-group">
+                        <label>Gastos com Consultas (R$)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user-doctor icon-field"></i>
+                            <input type="number" id="inputSaude" placeholder="Ex: 300">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button onclick="calcularEconomia()" class="btn btn-cta" style="width: 100%;">Calcular</button>
+                    </div>
+                </div>
+
+                <div id="resultadoCalculo" class="result-box">
+                    <!-- Resultado via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Muito mais que um plano funerário</h2>
+                <p>Nossos clientes usam o plano toda semana. Veja por que:</p>
+            </div>
+            
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <div class="icon-circle"><i class="fa-solid fa-percent"></i></div>
+                    <h3>Descontos em Farmácia</h3>
+                    <p>Economize até 30% em medicamentos nas maiores redes (Drogasil, Pague Menos) apenas apresentando seu CPF.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-circle"><i class="fa-solid fa-hospital-user"></i></div>
+                    <h3>Hospital Santa Izabel</h3>
+                    <p>Acesso à qualidade Santa Casa com tabela de preços exclusiva para consultas e exames.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-circle"><i class="fa-solid fa-wallet"></i></div>
+                    <h3>Cashback Real</h3>
+                    <p>Compre em parceiros pelo App e receba dinheiro de volta para usar como quiser.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon-circle"><i class="fa-solid fa-wheelchair"></i></div>
+                    <h3>Empréstimo de Equipamentos</h3>
+                    <p>Cadeiras de rodas, muletas e camas hospitalares sem custo de aluguel (sujeito a disponibilidade).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="container trust-flex">
+            <div class="trust-item">
+                <i class="fa-solid fa-star"></i>
+                <div class="trust-text">
+                    <strong>Santa Casa da Bahia</strong>
+                    <span>Garantia de solidez</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-clock"></i>
+                <div class="trust-text">
+                    <strong>Desde 1836</strong>
+                    <span>Tradição secular</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-users"></i>
+                <div class="trust-text">
+                    <strong>+50.000 Famílias</strong>
+                    <span>Protegidas em Salvador</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Planos -->
+    <section class="plans-section" id="planos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Escolha a proteção ideal</h2>
+                <p>Todos os planos incluem o <strong>Cartão Minha Família</strong></p>
+            </div>
+
+            <div class="plans-container">
+                <!-- Plano 1: Amparo -->
+                <div class="plan-card">
+                    <div class="plan-name">Plano Amparo</div>
+                    <div class="plan-price">R$ 89,90<small>/mês</small></div>
+                    <ul class="plan-list">
+                        <li><i class="fa-solid fa-check"></i> Titular até 60 anos</li>
+                        <li><i class="fa-solid fa-check"></i> Até 10 dependentes</li>
+                        <li><i class="fa-solid fa-check"></i> Clube de Descontos</li>
+                        <li><i class="fa-solid fa-check"></i> Cobertura Padrão</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-outline" style="border-color:var(--green-moss); color:var(--green-dark);">Selecionar</a>
+                </div>
+
+                <!-- Plano 2: Acolhimento (AGORA DESTAQUE) -->
+                <div class="plan-card featured">
+                    <span class="badge-popular">Mais Escolhido</span>
+                    <div class="plan-name">Plano Acolhimento</div>
+                    <div class="plan-price">R$ 99,90<small>/mês</small></div>
+                    <ul class="plan-list">
+                        <li><i class="fa-solid fa-check"></i> <strong>Titular até 70 anos</strong></li>
+                        <li><i class="fa-solid fa-check"></i> Até 10 dependentes</li>
+                        <li><i class="fa-solid fa-check"></i> Clube de Descontos</li>
+                        <li><i class="fa-solid fa-check"></i> Assistência Completa</li>
+                        <li><i class="fa-solid fa-check"></i> Proteção Ideal</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-cta" style="width: 100%;">Quero Este</a>
+                </div>
+
+                <!-- Plano 3: Tranquilidade -->
+                <div class="plan-card">
+                    <div class="plan-name">Plano Tranquilidade</div>
+                    <div class="plan-price">R$ 119,90<small>/mês</small></div>
+                    <ul class="plan-list">
+                        <li><i class="fa-solid fa-check"></i> Titular até 80 anos</li>
+                        <li><i class="fa-solid fa-check"></i> Até 10 dependentes</li>
+                        <li><i class="fa-solid fa-check"></i> Descontos Santa Izabel</li>
+                        <li><i class="fa-solid fa-check"></i> Telemedicina Inclusa</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-outline" style="border-color:var(--green-moss); color:var(--green-dark);">Selecionar</a>
+                </div>
+
+                <!-- Plano 4: Paz -->
+                <div class="plan-card">
+                    <div class="plan-name">Plano Paz</div>
+                    <div class="plan-price">R$ 149,90<small>/mês</small></div>
+                    <ul class="plan-list">
+                        <li><i class="fa-solid fa-check"></i> <strong>Sem limite de idade</strong></li>
+                        <li><i class="fa-solid fa-check"></i> Até 10 dependentes</li>
+                        <li><i class="fa-solid fa-check"></i> Todos benefícios inclusos</li>
+                        <li><i class="fa-solid fa-check"></i> Assessoria Jurídica</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-outline" style="border-color:var(--green-moss); color:var(--green-dark);">Selecionar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário Final -->
+    <section class="cta-section" id="contato">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h3>Garanta sua economia hoje</h3>
+                    <p>Preencha para receber atendimento via WhatsApp.</p>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Em produção, isso enviaria os dados ao CRM!');">
+                    <input type="text" class="form-input" placeholder="Seu Nome Completo" required>
+                    <input type="tel" class="form-input" placeholder="Seu WhatsApp (com DDD)" required>
+                    <select class="form-input">
+                        <option>Tenho interesse no Plano Acolhimento</option>
+                        <option>Tenho interesse no Plano Tranquilidade</option>
+                        <option>Tenho interesse no Plano Amparo</option>
+                        <option>Tenho interesse no Plano Paz</option>
+                    </select>
+                    <button type="submit" class="btn btn-cta" style="width: 100%; border: none;">Falar com Consultor</button>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.8rem; color: #666;">
+                        <i class="fa-solid fa-lock"></i> Seus dados estão 100% seguros.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Campo Santo Familiar</h4>
+                    <p>O cuidado que sua família merece, com a tradição que você confia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Área do Cliente</a></li>
+                        <li><a href="#">Rede Credenciada</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fa-brands fa-whatsapp"></i> (71) 2203-9890</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Salvador - BA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Plano Campo Santo Familiar. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script da Calculadora -->
+    <script>
+        function calcularEconomia() {
+            // Pegando valores
+            const gastoFarmacia = parseFloat(document.getElementById('inputFarmacia').value) || 0;
+            const gastoSaude = parseFloat(document.getElementById('inputSaude').value) || 0;
+            
+            // Pegando valor do plano selecionado no dropdown
+            const valorPlano = parseFloat(document.getElementById('selectPlano').value);
+
+            // Lógica de estimativa
+            const economiaFarmacia = gastoFarmacia * 0.20;
+            const economiaSaude = gastoSaude * 0.40;
+            
+            const economiaTotal = economiaFarmacia + economiaSaude;
+            const saldo = economiaTotal - valorPlano;
+
+            const resultadoBox = document.getElementById('resultadoCalculo');
+            
+            let htmlResultado = '';
+
+            if (economiaTotal > 0) {
+                htmlResultado = `
+                    <div style="margin-bottom: 10px; color:var(--coffee); font-weight:600;">Sua economia estimada: <span style="color:var(--green-dark); font-weight:800; font-size:1.2em;">R$ ${economiaTotal.toFixed(2)}</span></div>
+                `;
+
+                if (saldo >= 0) {
+                    htmlResultado += `
+                        <div class="result-val" style="color:var(--green-dark)">O PLANO SE PAGA!</div>
+                        <div class="result-msg" style="color:#666">Você cobre a mensalidade de <strong>R$ ${valorPlano.toFixed(2).replace('.', ',')}</strong> e ainda sobra <strong>R$ ${saldo.toFixed(2)}</strong>.</div>
+                    `;
+                } else {
+                    const custoReal = Math.abs(saldo);
+                    htmlResultado += `
+                        <div class="result-val" style="color:var(--orange-clay)">CUSTO REAL: R$ ${custoReal.toFixed(2)}</div>
+                        <div class="result-msg" style="color:#666">Com os descontos, a mensalidade de R$ ${valorPlano.toFixed(2).replace('.', ',')} cai drasticamente.</div>
+                    `;
+                }
+                
+                resultadoBox.innerHTML = htmlResultado;
+                resultadoBox.style.display = 'block';
+            } else {
+                resultadoBox.innerHTML = '<span style="color:var(--orange-clay); font-weight:bold;">Por favor, insira algum valor de gasto para simular.</span>';
+                resultadoBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

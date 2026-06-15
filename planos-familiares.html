@@ -16,42 +16,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Configuração de Cores e Fontes Personalizadas -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'], 
-                        serif: ['Lora', 'serif'],           
-                        display: ['Radley', 'serif'],       
-                    },
-                    colors: {
-                        brand: {
-                            'dark-green': '#1d645b',    
-                            'light-brown': '#cc7722',   
-                            'coffee': '#4e3924',        
-                            'light-pink': '#ede2e4',    
-                            'light-green': '#7ca899',   
-                            'moss': '#647256',          
-                            'ice': '#f4f4f4',           
-                            'grayish': '#6a7771',       
-                            'red': '#C0392B', 
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                        'spin-slow': 'spin 3s linear infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="./twconfig.js"></script>
     
     <style>
         .custom-checkbox:checked {
@@ -533,6 +498,28 @@
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqButtons = document.querySelectorAll('.faq-button');
+            
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    // Tenta encontrar o SVG (se o Lucide já carregou) ou o 'i' original
+                    const icon = this.querySelector('svg') || this.querySelector('i');
+                    
+                    // Abre/Fecha a resposta
+                    if (content) {
+                        content.classList.toggle('hidden');
+                    }
+                    
+                    // Gira o ícone da setinha (sem quebrar se não encontrar de primeira)
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            });
+        });
+
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
             const icon = btn.querySelector('svg');

@@ -16,41 +16,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Configuração de Cores e Fontes -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'], 
-                        serif: ['Lora', 'serif'],           
-                        display: ['Radley', 'serif'],       
-                    },
-                    colors: {
-                        brand: {
-                            'dark-green': '#1d645b',    
-                            'light-brown': '#cc7722',   
-                            'coffee': '#4e3924',        
-                            'light-pink': '#ede2e4',    
-                            'light-green': '#7ca899',   
-                            'moss': '#647256',          
-                            'ice': '#f4f4f4',           
-                            'grayish': '#6a7771',       
-                            'red': '#C0392B', 
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <script src="./twconfig.js"></script>
 </head>
 <body class="font-sans text-brand-grayish bg-brand-ice antialiased flex flex-col min-h-screen">
 

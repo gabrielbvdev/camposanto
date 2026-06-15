@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - Campo Santo Familiar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            background-color: #f3f4f6; /* Fundo cinza para visualização na tela */
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            background-color: white;
+            width: 210mm; /* Largura A4 */
+            min-height: 297mm; /* Altura A4 */
+            padding: 20mm;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* Estilos de Impressão */
+        @media print {
+            body { background-color: white; padding: 0; }
+            .page { box-shadow: none; margin: 0; width: 100%; height: auto; }
+            @page { margin: 0; }
+        }
+
+        /* Cabeçalho */
+        header {
+            border-bottom: 2px solid #1e293b;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-left h1 {
+            font-size: 24px;
+            color: #1e293b;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-left p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Conteúdo */
+        h2 {
+            color: #1e293b;
+            font-size: 16px;
+            border-left: 4px solid #3b82f6; /* Azul Tailwind */
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        /* Destaque de Preço */
+        .highlight-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #1e293b;
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 12px;
+            font-style: italic;
+            color: #94a3b8;
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info p {
+            margin: 2px 0;
+            font-size: 13px;
+        }
+
+        .signature-line {
+            width: 200px;
+            border-top: 1px solid #333;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <header>
+            <div class="header-left">
+                <h1>Proposta Técnica</h1>
+                <p>Desenvolvimento Web & Engenharia de Software</p>
+            </div>
+            <div class="header-right">
+                <p><strong>Para:</strong> Campo Santo Familiar</p>
+            </div>
+        </header>
+
+        <h2>1. O Objetivo</h2>
+        <p>Modernizar a presença digital do Campo Santo Familiar, substituindo a plataforma atual por uma solução desenvolvida sob medida. O foco é entregar um site de alta performance, segurança elevada e design responsivo, preparado para evoluir para um sistema de gestão completo no futuro.</p>
+
+        <h2>2. Escopo Técnico do Projeto</h2>
+        <p>Este projeto envolve engenharia de software aplicada para garantir velocidade e otimização para SEO (Google).</p>
+        <ul>
+            <li><strong>Front-End de Alta Performance:</strong> Desenvolvimento utilizando tecnologias modernas (HTML5, Tailwind CSS e Javascript), garantindo carregamento instantâneo.</li>
+            <li><strong>Design Responsivo:</strong> Otimização total para dispositivos móveis (celulares e tablets).</li>
+            <li><strong>Integração Personalizada:</strong> Inclusão de 01 (uma) integração externa à escolha do cliente (ex: API de pagamento ou WhatsApp).</li>
+        </ul>
+
+        <h2>3. Infraestrutura e Hospedagem</h2>
+        <p>O cliente terá a titularidade direta da infraestrutura, eliminando intermediários.</p>
+        <ul>
+            <li><strong>Custo Estimado:</strong> Aprox. R$ 20,00 a R$ 35,00 mensais (pagos diretamente à provedora).</li>
+            <li><strong>Recomendação:</strong> Hostinger ou HostGator.</li>
+            <li><strong>Migração Segura:</strong> Transição via DNS sem deixar o site atual fora do ar.</li>
+        </ul>
+
+        <h2>4. Investimento e Prazos (Setup)</h2>
+        <div class="highlight-box">
+            <p>O valor abrange levantamento de requisitos, codificação, testes, configuração e publicação.</p>
+            <p class="price">Investimento Total: R$ 2.000,00</p>
+            <ul>
+                <li><strong>Forma de Pagamento:</strong> 50% no aceite e 50% na entrega (ou a combinar).</li>
+                <li><strong>Prazo de Entrega:</strong> 30 dias corridos após recebimento do material.</li>
+                <li><strong>Garantia Estendida:</strong> 90 dias de suporte técnico gratuito após a entrega.</li>
+            </ul>
+        </div>
+        <br><br><br><br><br>
+        <h2>5. Plano de Manutenção e Suporte Contínuo</h2>
+        <p>Após o período de garantia (3 meses), inicia-se o plano de sustentação para manter o site atualizado e seguro.</p>
+        
+        <div class="highlight-box">
+            <p class="price">Valor Mensal: R$ 200,00</p>
+            <p class="note">(Cobrado apenas após o término dos 90 dias de garantia)</p>
+            <p><strong>Incluso no plano:</strong></p>
+            <ul>
+                <li>Gestão de conteúdo das páginas atuais.</li>
+                <li>Criação de até 2 novas páginas simples seguindo o padrão visual já desenvolvido.</li>
+                <li>Monitoramento de segurança e servidor.</li>
+            </ul>
+        </div>
+        <p style="font-size: 12px; color: #666;">* No caso de desenvolvimento de funcionalidades complexas ou sistemas novos, será realizado um orçamento à parte mediante acordo prévio.</p>
+
+        <div class="footer">
+            <div class="contact-info">
+                <p><strong>Gabriel Bomfim</strong></p>
+                <p>Engenheiro de Computação / Full Stack</p>
+                <p>📞 (71) 99676-9290</p>
+                <p>✉️ gabrielbvdev@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
