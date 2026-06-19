@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Navegando pelo luto: entenda como encontrar conforto e apoio em momentos de perda com o Campo Santo Familiar.">
+    <title>Navegando pelo Luto: Conforto em Momentos de Perda | Campo Santo Familiar</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- IMPORTANDO AS NOVAS FONTES: Lora, Montserrat e Radley -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração de Cores e Fontes Personalizadas -->
+    <script src="./twconfig.js"></script>
+</head>
+<body class="font-sans text-brand-grayish bg-brand-ice antialiased">
+
+    <!-- HEADER / NAVBAR -->
+    <div id="header-placeholder"></div>
+
+    <main class="py-16 md:py-24">
+        <article class="container mx-auto px-4 max-w-4xl">
+            <br>
+            <div class="text-center mb-12">
+                <span class="inline-block py-1 px-4 rounded-full bg-brand-light-pink text-brand-dark-green text-xs font-bold mb-4 uppercase tracking-widest font-sans">Luto e Acolhimento</span>
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-brand-coffee mb-6">Navegando pelo Luto: Conforto em Momentos de Perda</h1>
+                <p class="text-brand-grayish text-lg">Por Equipe Campo Santo Familiar • 14 de Junho, 2026</p>
+            </div>
+
+            <figure class="mb-12">
+                <img src="https://camposantofamiliar.com.br/wp-content/uploads/sites/85/2023/11/cropped-view-of-man-touching-woman-on-funeral-768x513.jpg" class="w-full h-96 object-cover rounded-3xl shadow-xl">
+                <figcaption class="text-sm text-center mt-4 italic text-brand-grayish opacity-70">Encontrar apoio é o primeiro passo para o conforto.</figcaption>
+            </figure>
+
+            <div class="prose prose-lg text-brand-grayish leading-relaxed max-w-none">
+                <p class="mb-6">Perder alguém que amamos é, sem dúvida, um dos desafios mais profundos que enfrentamos na vida. O luto não é um processo linear, nem algo que possamos apressar. É, na verdade, uma jornada individual, repleta de altos e baixos, onde cada pessoa vivencia a dor à sua maneira.</p>
+                
+                <h2 class="text-2xl font-serif font-bold text-brand-coffee mt-10 mb-4">A importância de se permitir sentir</h2>
+                <p class="mb-6">Muitas vezes, a pressão social nos leva a acreditar que precisamos "ser fortes". No entanto, o verdadeiro conforto começa no momento em que nos permitimos sentir e expressar nossa dor. Negar a tristeza pode apenas retardar o processo de cura. Chorar, falar sobre a pessoa que partiu ou simplesmente ficar em silêncio são formas legítimas de navegar por esses sentimentos.</p>
+                
+                <blockquote class="border-l-4 border-brand-light-brown bg-brand-light-pink/30 p-6 my-8 italic text-brand-coffee text-xl">
+                    "O luto é o preço que pagamos pelo amor. E, embora a dor seja intensa, é também a prova de que a conexão que criamos foi real e valiosa."
+                </blockquote>
+
+                <h2 class="text-2xl font-serif font-bold text-brand-coffee mt-10 mb-4">Como o Campo Santo Familiar pode ajudar</h2>
+                <p class="mb-6">Sabemos que, nos momentos de despedida, a carga burocrática e emocional pode ser avassaladora. Nossa missão é aliviar esse peso, cuidando de cada detalhe prático para que a sua única preocupação seja estar com a sua família e honrar a memória de quem partiu.</p>
+                
+                <ul class="list-disc list-inside space-y-2 mb-6 ml-4">
+                    <li><strong>Apoio Prático:</strong> Cuidamos de toda a organização cerimonial e documental.</li>
+                    <li><strong>Ambiente Acolhedor:</strong> Nossas instalações foram projetadas para oferecer paz e privacidade.</li>
+                    <li><strong>Escuta Empática:</strong> Nossa equipe está preparada para lidar com os detalhes com o máximo de humanidade.</li>
+                </ul>
+
+                <p>Lembre-se: você não precisa atravessar esse momento sozinho. O acolhimento é fundamental para reconstruir o equilíbrio necessário para seguir em frente, guardando com carinho as memórias vividas.</p>
+            </div>
+
+            <div class="mt-16 bg-brand-dark-green rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
+                <h3 class="text-2xl md:text-3xl font-serif font-bold mb-4">Precisa de apoio ou quer conversar?</h3>
+                <p class="text-brand-light-pink mb-8 max-w-lg mx-auto">Nossos consultores estão disponíveis 24h por dia para oferecer o suporte que você e sua família necessitam neste momento.</p>
+                <a href="fale-conosco.html" class="inline-block bg-brand-light-brown hover:bg-white hover:text-brand-light-brown text-white font-bold py-4 px-8 rounded-full transition duration-300 transform hover:-translate-y-1">
+                    Falar com um consultor
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <script src="./formataCabecalhoRodape.js"></script>
+
+    <script>
+        // Inicialização de Ícones e Menu Mobile
+        lucide.createIcons();
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const icon = btn.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons();
+        });
+
+        // Simulação do envio do formulário
+        function enviarFormulario() {
+            const btnSubmit = document.getElementById('btnSubmit');
+            const msgSucesso = document.getElementById('msgSucesso');
+            const form = document.getElementById('contactForm');
+
+            // Feedback visual do botão
+            const textoOriginal = btnSubmit.innerHTML;
+            btnSubmit.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Enviando...`;
+            btnSubmit.disabled = true;
+            btnSubmit.classList.add('opacity-75');
+            lucide.createIcons();
+
+            // Simula um delay de rede (1.5 segundos)
+            setTimeout(() => {
+                // Restaura o botão
+                btnSubmit.innerHTML = textoOriginal;
+                btnSubmit.disabled = false;
+                btnSubmit.classList.remove('opacity-75');
+                lucide.createIcons();
+
+                // Mostra mensagem de sucesso
+                msgSucesso.classList.remove('hidden');
+                
+                // Limpa os campos do formulário
+                form.reset();
+
+                // Oculta a mensagem após 5 segundos
+                setTimeout(() => {
+                    msgSucesso.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
