@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,131 +8,183 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- IMPORTANDO AS NOVAS FONTES: Lora, Montserrat e Radley -->
+    <!-- IMPORTANDO AS NOVAS FONTES: Lora, Montserrat e Radley (Sora) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Radley:ital@0;1&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Configuração de Cores e Fontes Personalizadas -->
     <script src="./twconfig.js"></script>
+    <script>
+        // Fallback Tailwind Config baseado no seu twconfig.js
+        if(!window.tailwind) {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Sora', 'sans-serif'], 
+                            serif: ['Lora', 'serif'],           
+                            display: ['Sora', 'serif'],       
+                        },
+                        colors: {
+                            brand: {
+                                'dark-green': '#1d645b',
+                                'light-brown': '#2FB17C',
+                                'coffee': '#072723',
+                                'light-pink': '#E9ECEA',
+                                'light-green': '#7ca899',
+                                'moss': '#2FB17C',
+                                'ice': '#f4f4f4',
+                                'grayish': '#6a7771',
+                                'red': '#C0392B',
+                                'primary': '#E9ECEA',   // Fundo claro
+                                'secondary': '#2FB17C', // Verde claro/vibrante
+                                'tertiary': '#072723',  // Verde muito escuro
+                                'neutral': '#787776',   // Cinza
+                            }
+                        },
+                        animation: {
+                            'spin-slow': 'spin 3s linear infinite',
+                            'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                                '100%': { opacity: '1', transform: 'translateY(0)' },
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         .bg-texture {
-            background-image: radial-gradient(#cc7722 1px, transparent 1px);
+            background-image: radial-gradient(#2FB17C 1px, transparent 1px);
             background-size: 20px 20px;
             opacity: 0.15;
         }
         
         .custom-checkbox:checked {
-            background-color: #cc7722;
-            border-color: #cc7722;
+            background-color: #2FB17C;
+            border-color: #2FB17C;
         }
         
-        .services-scroll::-webkit-scrollbar {
-            width: 6px;
+        /* Ocultar scrollbars onde for scrollable horizontal/verticalmente */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .services-scroll::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-        .services-scroll::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
-            border-radius: 4px;
-        }
-        .services-scroll::-webkit-scrollbar-thumb:hover {
-            background: rgba(255,255,255,0.5);
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body class="font-sans text-brand-grayish bg-brand-ice antialiased">
+<body class="font-sans text-brand-neutral bg-[#FDFDFD] antialiased"> <!-- Fundo super claro -->
 
     <!-- HEADER / NAVBAR -->
     <div id="header-placeholder"></div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+    <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden bg-brand-primary/20">
         <div class="absolute inset-0 z-0">
-            <img src="./assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-b from-brand-ice/90 via-brand-ice/50 to-brand-ice"></div>
+            <img src="./assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-30 mix-blend-multiply filter grayscale">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#FDFDFD]/90 via-[#FDFDFD]/70 to-[#FDFDFD]"></div>
         </div>
 
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <span class="inline-block py-1 px-4 rounded-full bg-brand-primary text-brand-secondary text-sm font-bold mb-6 border border-brand-light-green/20 tracking-wide font-sans">
-                DESDE 1836 CUIDANDO DE VOCÊ
+            <span class="inline-block py-1.5 px-4 rounded-full bg-brand-secondary/10 text-brand-secondary text-xs font-bold mb-6 tracking-widest font-sans uppercase">
+                Desde 1836 cuidando de você
             </span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-tertiary leading-tight mb-6">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-medium text-brand-tertiary leading-tight mb-6 tracking-tight">
                 Proteção e tradição para <br>
                 <span class="text-brand-secondary italic">quem você mais ama.</span>
             </h1>
-            <p class="text-lg md:text-xl text-brand-grayish mb-10 max-w-2xl mx-auto font-sans font-medium">
+            <p class="text-lg md:text-xl text-brand-neutral mb-10 max-w-2xl mx-auto font-sans font-light leading-relaxed">
                 O plano de assistência familiar mais completo da Bahia. <br> Garanta tranquilidade e amparo com a chancela da Santa Casa de Misericórdia.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 font-sans">
-                <a href="#planos" class="bg-brand-dark-green hover:bg-brand-secondary text-white text-lg px-8 py-4 rounded-lg font-semibold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                <a href="#planos" class="bg-brand-secondary hover:bg-brand-tertiary text-white text-base px-8 py-4 rounded-full font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Conhecer Planos
                 </a>
-                <a href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" class="bg-white hover:bg-brand-primary text-brand-secondary border border-brand-secondary/30 text-lg px-8 py-4 rounded-lg font-semibold transition shadow-md flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i> Falar no WhatsApp
+                <a href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" class="bg-white hover:bg-brand-primary text-brand-tertiary border border-gray-200 text-base px-8 py-4 rounded-full font-semibold transition-all shadow-sm flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-brand-secondary"></i> Falar no WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
     <!-- ÍCONES DE VALORES -->
-    <section class="py-12 bg-white relative border-b border-gray-100">
+    <section class="py-12 bg-[#FDFDFD] relative border-b border-gray-100">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="hand-heart" class="text-white w-12 h-12 stroke-[1.5]"></i>
+                    <div class="w-20 h-20 bg-brand-tertiary rounded-3xl flex items-center justify-center mb-4 transform group-hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="hand-heart" class="text-brand-secondary w-8 h-8 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-serif font-semibold text-brand-tertiary text-center text-lg">Perdi Algúem</h3>
+                    <h3 class="font-serif font-medium text-brand-tertiary text-center text-base">Perdi Alguém</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="flower" class="text-white w-12 h-12 stroke-[1.5]"></i>
+                    <div class="w-20 h-20 bg-brand-tertiary rounded-3xl flex items-center justify-center mb-4 transform group-hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="flower" class="text-brand-secondary w-8 h-8 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-serif font-semibold text-brand-tertiary text-center text-lg">Homenagens</h3>
+                    <h3 class="font-serif font-medium text-brand-tertiary text-center text-base">Homenagens</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="heart-handshake" class="text-white w-12 h-12 stroke-[1.5]"></i>
+                    <div class="w-20 h-20 bg-brand-tertiary rounded-3xl flex items-center justify-center mb-4 transform group-hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="users-round" class="text-brand-secondary w-8 h-8 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-serif font-semibold text-brand-tertiary text-center text-lg">Planos Familiares</h3>
+                    <h3 class="font-serif font-medium text-brand-tertiary text-center text-base">Planos Familiares</h3>
                 </div>
                 <div class="flex flex-col items-center group cursor-default">
-                    <div class="w-24 h-24 bg-brand-dark-green rounded-3xl flex items-center justify-center mb-4 shadow-lg shadow-brand-dark-green/20 transform group-hover:scale-110 transition duration-300">
-                        <i data-lucide="cuboid" class="text-white w-12 h-12 stroke-[1.5]"></i>
+                    <div class="w-20 h-20 bg-brand-tertiary rounded-3xl flex items-center justify-center mb-4 transform group-hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="house-heart" class="text-brand-secondary w-8 h-8 stroke-[1.5]"></i>
                     </div>
-                    <h3 class="font-serif font-semibold text-brand-tertiary text-center text-lg">Ossuário</h3>
+                    <h3 class="font-serif font-medium text-brand-tertiary text-center text-base">Ossuário</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO SOBRE -->
-    <section id="sobre" class="py-24 bg-brand-primary overflow-hidden">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-                <div class="w-full lg:w-1/2 relative">
-                    <div class="absolute top-4 -left-4 w-full h-full bg-brand-light-green rounded-2xl opacity-20"></div>
-                    <img src="./assets/img/familia.jpeg" alt="Família feliz no Pelourinho em Salvador" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-                    <div class="absolute bottom-8 right-[-20px] bg-white p-4 rounded-lg shadow-lg max-w-xs border-l-4 border-brand-secondary">
-                        <p class="text-sm font-bold text-brand-tertiary font-serif">Chancela da Santa Casa de Misericórdia</p>
-                        <p class="text-xs text-brand-secondary font-sans">Séculos de história e confiança.</p>
+    <section id="sobre" class="py-24 bg-[#FDFDFD] overflow-hidden">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+                
+                <!-- Imagem na Esquerda -->
+                <div class="w-full lg:w-1/2 relative group">
+                    <div class="overflow-hidden rounded-[32px] shadow-lg">
+                        <!-- Imagem original restaurada -->
+                        <img src="./assets/img/familia.jpeg" alt="Família" class="w-full object-cover h-[500px] lg:h-[650px] transform group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                    </div>
+                    
+                    <!-- Badge Flutuante (Chancela) -->
+                    <div class="absolute -bottom-6 right-4 lg:-right-8 bg-[#E9ECEA] p-6 rounded-3xl shadow-xl max-w-[280px] z-10 border border-white">
+                        <div class="flex items-start gap-3 mb-2">
+                            <i data-lucide="badge-check" class="text-brand-secondary w-6 h-6 flex-shrink-0 mt-1"></i>
+                            <p class="text-[10px] font-bold text-brand-tertiary uppercase tracking-widest leading-relaxed">Chancela da Santa Casa da Misericórdia</p>
+                        </div>
+                        <p class="text-sm text-brand-tertiary italic font-serif">"Desde 1836 cuidando de você e da sua família"</p>
                     </div>
                 </div>
+
+                <!-- Conteúdo na Direita -->
                 <div class="w-full lg:w-1/2">
-                    <h2 class="text-brand-secondary font-bold text-sm mb-4 uppercase tracking-widest font-sans">Tradição e Confiança</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-brand-tertiary mb-6 font-serif leading-snug">O mais completo e tradicional Plano Familiar da Bahia</h3>
-                    <div class="space-y-6 text-brand-grayish leading-relaxed text-lg font-sans font-light">
-                        <p>O <strong>Campo Santo Familiar</strong> é sinônimo de segurança para as famílias baianas. Pioneiro, trazemos toda a tradição e credibilidade da Santa Casa de Misericórdia da Bahia.</p>
-                        <p>Nos orgulhamos de sermos especialistas em cuidado. Cuidamos de todos os detalhes burocráticos e cerimoniais para que você possa passar pelo momento do luto com respeito e acolhimento.</p>
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-brand-secondary/15 text-brand-secondary text-xs font-bold mb-6 tracking-widest font-sans uppercase">
+                        Tradição e Confiança
+                    </span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium text-brand-tertiary mb-8 font-serif leading-tight">O mais completo e tradicional Plano Familiar da Bahia</h2>
+                    
+                    <div class="space-y-6 text-brand-neutral leading-relaxed text-base font-sans font-light">
+                        <p>Nossa missão é proporcionar tranquilidade e segurança nos momentos que mais importam. Com quase dois séculos de história, o Campo Santo Familiar combina o respeito à tradição com soluções modernas de assistência e proteção para todas as gerações.</p>
+                        <p>Oferecemos uma rede de proteção completa que vai além do essencial, garantindo dignidade, suporte humanizado e amparo financeiro para que você possa focar no que realmente importa: a vida.</p>
                     </div>
+                    
                     <div class="mt-10">
-                        <a href="./quem-somos.html" class="text-brand-secondary font-bold hover:text-brand-tertiary flex items-center gap-2 group font-sans">
+                        <a href="./quem-somos.html" class="text-brand-secondary font-semibold hover:text-brand-tertiary flex items-center gap-2 group font-sans text-sm tracking-wide">
                             Conheça nossa história 
                             <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -143,370 +195,319 @@
     </section>
 
     <!-- SEÇÃO DIFERENCIAIS -->
-    <section id="diferenciais" class="py-24 bg-brand-light-green/10 relative">
-        <div class="absolute inset-0 bg-texture opacity-30 pointer-events-none"></div>
-        <div class="container mx-auto px-4 relative z-10">
+    <section id="diferenciais" class="py-24 bg-[#FDFDFD]">
+        <div class="container mx-auto px-4 max-w-7xl">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm mb-2 block font-sans">Por que escolher o Campo Santo?</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-tertiary mb-6 font-serif">Nossos Diferenciais</h2>
-                <div class="w-24 h-1.5 bg-brand-secondary mx-auto mb-6 rounded-full"></div>
-                <p class="text-brand-grayish text-lg font-medium font-sans">Cobertura completa para o momento da despedida e benefícios exclusivos para aproveitar em vida.</p>
+                <span class="text-brand-secondary font-bold uppercase tracking-widest text-xs mb-3 block font-sans">Por que escolher o Campo Santo?</span>
+                <h2 class="text-4xl md:text-5xl font-medium text-brand-tertiary font-serif">Nossos Diferenciais</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cards Diferenciais -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="umbrella" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Assistência Funeral</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Assistência funeral completa! Da urna mortuária ao translado, a ornamentação com flores e preparação do corpo.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="headset" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Assistência Funeral</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Suporte completo e humanizado 24 horas por dia, cuidando de todos os detalhes burocráticos e práticos.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="landmark" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Assistência Cemiterial</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Sepultamento ou cremação no cemitério mais tradicional da Bahia, o Cemitério Campo Santo.</p>
+                <!-- Card 2 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="landmark" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Assistência Cemiterial</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Serviços exclusivos no Cemitério Campo Santo, garantindo o melhor atendimento em locais de prestígio.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="scale" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Sem Taxas Extras</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Garantimos uma despedida digna e livre de preocupações financeiras de última hora. Sem cobrar mais por isso.</p>
+                <!-- Card 3 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="banknote-x" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Sem Taxas Extras</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Transparência total em nossos planos. Você sabe exatamente o que está pagando, sem surpresas futuras.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="credit-card" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Benefícios em Vida</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Clube de descontos na palma da mão para o titular e beneficiários em diversos parceiros.</p>
+                <!-- Card 4 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="heart" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Benefícios em Vida</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Descontos reais em farmácias, consultas médicas e uma rede parceira de bem-estar para toda a família.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="stethoscope" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Descontos em Saúde</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Descontos em consultas e exames no Hospital Santa Izabel, clínicas parceiras e laboratórios de excelência.</p>
+                <!-- Card 5 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="shield-plus" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Descontos em Saúde</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Acesso a telemedicina e laboratórios com valores diferenciados, cuidando da saúde de quem você ama.</p>
                 </div>
-                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition duration-300 group relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-secondary"></div>
-                    <div class="w-14 h-14 bg-brand-dark-green rounded-xl flex items-center justify-center shadow-lg shadow-brand-dark-green/30 mb-6 group-hover:bg-brand-secondary group-hover:shadow-brand-secondary/30 transition-colors duration-300">
-                        <i data-lucide="armchair" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-tertiary mb-3 font-serif">Itens de Recuperação</h3>
-                    <p class="text-brand-grayish leading-relaxed font-sans">Garantimos empréstimo de muletas e cadeiras de rodas sem nenhum custo adicional.</p>
+                <!-- Card 6 -->
+                <div class="bg-white p-10 rounded-[32px] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <i data-lucide="activity" class="w-8 h-8 text-brand-secondary mb-6 stroke-[1.5]"></i>
+                    <h3 class="text-2xl font-serif text-brand-tertiary mb-4">Itens de Recuperação</h3>
+                    <p class="text-brand-neutral text-sm leading-relaxed font-light">Empréstimo de aparelhos ortopédicos (cadeiras de rodas, muletas) para recuperação em casa.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SEÇÃO PLANOS -->
-    <section id="planos" class="py-24 bg-white relative">
-        <div class="container mx-auto px-4">
+    <section id="planos" class="py-24 bg-[#FDFDFD] relative">
+        <div class="container mx-auto px-4 max-w-[1400px]">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-brand-secondary font-bold uppercase tracking-wider text-sm mb-2 block font-sans">Para todas as famílias</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-brand-tertiary mb-6 font-serif">Nossos Planos</h2>
-                <div class="w-24 h-1.5 bg-brand-secondary mx-auto mb-6 rounded-full"></div>
-                <p class="text-brand-grayish text-lg font-medium font-sans">Escolha a opção ideal que cabe no seu bolso e garanta a proteção completa.</p>
+                <span class="text-brand-secondary font-bold uppercase tracking-widest text-xs mb-3 block font-sans">Para todas as famílias</span>
+                <h2 class="text-4xl md:text-5xl font-medium text-brand-tertiary font-serif">Nossos Planos</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto font-sans">
-                <!-- Plano Amparo -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Amparo</h3></div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">89</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>60 anos</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Clube de Benefícios</span></li>
-                        </ul>
-                    </div>
-                </div>
-                 <!-- Plano Acolhimento -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full transform lg:-translate-y-2 lg:border-brand-secondary/30">
-                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Acolhimento</h3></div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">99</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>70 anos</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Clube de Benefícios</span></li>
-                        </ul>
-                    </div>
-                </div>
-                 <!-- Plano Tranquilidade -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Tranquilidade</h3></div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">119</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span>Até <strong>80 anos</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Clube de Benefícios</span></li>
-                        </ul>
-                    </div>
-                </div>
-                 <!-- Plano Paz -->
-                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-200 overflow-hidden flex flex-col h-full">
-                    <div class="bg-brand-dark-green py-6 text-center text-white"><h3 class="text-2xl font-bold font-serif">Paz</h3></div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <div class="text-center mb-8"><span class="text-brand-dark-green text-sm font-semibold align-top">R$</span><span class="text-brand-dark-green text-5xl font-bold">149</span><span class="text-brand-dark-green text-lg font-bold align-top">,90</span><div class="text-gray-400 text-xs mt-1">mensais</div></div>
-                        <ul class="space-y-4 text-sm text-brand-grayish flex-grow">
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="cake" class="w-5 h-5 text-gray-400"></i><span><strong>Sem limite</strong> de idade</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="users" class="w-5 h-5 text-gray-400"></i><span>Até <strong>10 pessoas</strong></span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura funeral</span></li>
-                            <li class="flex items-center gap-3 pb-3 border-b border-gray-100"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Cobertura cemiterial</span></li>
-                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary"></i><span>Clube de Benefícios</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CALCULADORA (Compare e Comprove) -->
-    <section id="calculadora" class="py-24 bg-brand-ice border-t border-gray-200">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <!-- Header da Calculadora -->
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-brand-tertiary flex items-center justify-center gap-3 font-serif">
-                        <i data-lucide="calculator" class="w-8 h-8 text-brand-secondary"></i>
-                        Compare e Comprove
-                    </h2>
-                    <p class="text-brand-grayish mt-2 font-sans">Veja quanto você gastaria no particular e o quanto economiza sendo um associado.</p>
-                </div>
-
-                <!-- Container Principal da Calculadora -->
-                <div class="bg-brand-dark-green rounded-3xl shadow-2xl overflow-hidden p-6 md:p-10 text-white relative">
-                    <!-- Decorativo -->
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
-                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-brand-secondary opacity-20 rounded-full -ml-10 -mb-10"></div>
-
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-bold text-center mb-8 border-b border-brand-light-green/50 pb-4 font-serif">
-                            Faça a simulação agora
-                        </h3>
-
-                        <div class="flex flex-col md:flex-row gap-8 font-sans">
-                            <!-- Coluna 1: Dados Pessoais -->
-                            <div class="w-full md:w-1/2 space-y-4">
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Seu Nome</label>
-                                    <input type="text" id="calc-nome" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-secondary outline-none" placeholder="Digite seu nome">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Pessoas Protegidas</label>
-                                    <input type="number" id="calc-pessoas" min="1" max="10" oninput="if(this.value > 10) this.value = 10;" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-secondary outline-none" placeholder="Ex: 4">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-semibold mb-2 text-brand-light-green">Idade (Mais Velho)</label>
-                                    <input type="number" id="calc-idade" class="w-full p-3 rounded-lg text-gray-800 focus:ring-2 focus:ring-brand-secondary outline-none" placeholder="Ex: 65">
-                                </div>
-                            </div>
-
-                            <!-- Coluna 2: Serviços Particulares -->
-                            <div class="w-full md:w-1/2">
-                                <label class="block text-sm font-semibold mb-3 text-brand-light-green">Selecione serviços para comparar:</label>
-                                <div class="bg-white/10 rounded-xl p-4 h-64 overflow-y-auto services-scroll border border-white/20">
-                                    <div id="lista-servicos" class="space-y-5"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Botão Calcular -->
-                        <button onclick="calcular()" id="btn-calcular" class="w-full mt-8 bg-brand-secondary hover:bg-brand-tertiary text-white font-bold py-4 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center gap-2 font-sans">
-                            CALCULAR ECONOMIA
-                        </button>
-
-                        <!-- Área de Resultado -->
-                        <div id="resultado-wrapper" class="hidden mt-8">
-                            <!-- Loader -->
-                            <div id="loader" class="flex flex-col items-center justify-center py-8">
-                                <div class="w-12 h-12 border-4 border-white/20 border-t-brand-secondary rounded-full animate-spin"></div>
-                                <p class="mt-4 text-sm font-medium animate-pulse font-sans">Analisando os melhores planos...</p>
-                            </div>
-
-                            <!-- Resultados Finais -->
-                            <div id="resultado-final" class="hidden animate-fade-in font-sans">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                                    
-                                    <!-- Box Particular (Vermelho) -->
-                                    <div class="bg-brand-red p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform hover:scale-105 transition duration-300">
-                                        <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">Custo no Particular</p>
-                                        <div class="text-3xl md:text-4xl font-black" id="valor-particular">R$ 0,00</div>
-                                        <p class="text-xs mt-2 opacity-75">Pagamento imediato e à vista</p>
-                                    </div>
-
-                                    <!-- Box Plano (Dourado/Marrom) -->
-                                    <div class="bg-brand-secondary p-6 rounded-xl border-2 border-white/20 text-center shadow-lg transform scale-105 z-10">
-                                        <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">Com o Plano <span id="nome-plano">---</span></p>
-                                        <div class="text-3xl md:text-4xl font-black" id="valor-plano">R$ 0,00</div>
-                                        <p class="text-xs mt-2 opacity-75">Mensais (Proteção Total)</p>
-                                    </div>
-
-                                </div>
-
-                                <!-- Botão POP-UP de Contato -->
-                                <div class="mt-8 bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/30 text-center animate-fade-in" style="animation-delay: 0.5s;">
-                                    <p class="text-lg font-semibold mb-4 font-serif">Gostou da economia? Fale com um consultor agora.</p>
-                                    <a href="#contato" class="inline-flex items-center justify-center gap-2 bg-white text-brand-dark-green font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition shadow-lg w-full md:w-auto font-sans">
-                                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                                        QUERO CONTRATAR ESSE PLANO
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO DE BLOG / FEED -->
-    <section id="blog" class="py-24 bg-brand-ice relative overflow-hidden border-t border-brand-light-green/20">
-        <div class="container mx-auto px-4 max-w-7xl relative z-10">
-            <div class="text-center mb-16">
-                <span class="text-brand-light-brown font-bold text-sm mb-4 uppercase tracking-widest font-sans block">Blog</span>
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-coffee mb-6">Feed Campo Santo: Orientações e Reflexões</h2>
-                <div class="w-20 h-1.5 bg-brand-light-brown mx-auto rounded-full mb-6"></div>
-                <p class="text-brand-grayish text-lg leading-relaxed font-sans max-w-2xl mx-auto">
-                    Explore artigos informativos e reflexivos sobre luto, preparação e memória, ajudando a confortar e orientar em momentos delicados.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-sans">
                 
-                <!-- Artigo 1 -->
-                <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 border border-gray-100 flex flex-col group transform hover:-translate-y-2">
-                    <div class="h-56 overflow-hidden relative bg-brand-light-pink/50">
-                        <!-- Placeholder Genérico para Blog -->
-                        <img src="https://camposantofamiliar.com.br/wp-content/uploads/sites/85/2023/11/cropped-view-of-man-touching-woman-on-funeral-768x513.jpg" alt="[Imagem de conforto no luto]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-dark-green uppercase tracking-wider font-sans shadow-sm">
-                            Luto
+                <!-- Plano Amparo -->
+                <div class="group bg-brand-tertiary rounded-[32px] p-8 text-white hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-500 flex flex-col h-full shadow-2xl border border-transparent">
+                    <div class="text-center mb-10 mt-4">
+                        <h3 class="text-3xl font-serif font-medium mb-6">Amparo</h3>
+                        <p class="text-xs uppercase tracking-widest mb-2 opacity-70">A partir de</p>
+                        <div class="flex items-start justify-center">
+                            <span class="text-sm mt-1 font-semibold">R$</span>
+                            <span class="text-6xl font-medium tracking-tighter">49</span>
+                            <span class="text-sm mt-1 font-semibold">,90</span>
                         </div>
+                        <p class="text-[10px] uppercase tracking-widest mt-4 opacity-70">Mensais</p>
                     </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold font-serif text-brand-coffee mb-4 group-hover:text-brand-light-brown transition-colors line-clamp-2">
-                            Navegando pelo Luto: Conforto em Momentos de Perda
-                        </h3>
-                        <p class="text-brand-grayish text-sm font-sans leading-relaxed flex-grow mb-6 line-clamp-3">
-                            Explore estratégias para enfrentar o luto e descubra como o apoio do Campo Santo Familiar pode trazer conforto...
-                        </p>
-                        <a href="./navegando-pelo.html" class="inline-flex items-center gap-2 text-brand-dark-green font-bold text-sm uppercase tracking-wider group-hover:text-brand-light-brown transition-colors mt-auto font-sans">
-                            Leia mais <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-                        </a>
-                    </div>
-                </article>
+                    
+                    <ul class="space-y-4 text-sm flex-grow mb-8 font-light">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Assistência Funeral 24h</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Urna Padrão Amparo</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Descontos em Farmácias</span></li>
+                    </ul>
+                    
+                    <a href="#contato" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        Selecionar Plano
+                    </a>
+                </div>
 
-                <!-- Artigo 2 -->
-                <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 border border-gray-100 flex flex-col group transform hover:-translate-y-2">
-                    <div class="h-56 overflow-hidden relative bg-brand-light-pink/50">
-                        <img src="https://camposantofamiliar.com.br/wp-content/uploads/sites/85/2023/11/old-woman-mourning-her-husband-768x512.jpg" alt="[Imagem de planejamento antecipado]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-dark-green uppercase tracking-wider font-sans shadow-sm">
-                            PLanejamento
+                <!-- Plano Acolhimento -->
+                <div class="group bg-brand-tertiary rounded-[32px] p-8 text-white hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-500 flex flex-col h-full shadow-2xl border border-transparent">
+                    <div class="text-center mb-10 mt-4">
+                        <h3 class="text-3xl font-serif font-medium mb-6">Acolhimento</h3>
+                        <p class="text-xs uppercase tracking-widest mb-2 opacity-70">A partir de</p>
+                        <div class="flex items-start justify-center">
+                            <span class="text-sm mt-1 font-semibold">R$</span>
+                            <span class="text-6xl font-medium tracking-tighter">79</span>
+                            <span class="text-sm mt-1 font-semibold">,90</span>
                         </div>
+                        <p class="text-[10px] uppercase tracking-widest mt-4 opacity-70">Mensais</p>
                     </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold font-serif text-brand-coffee mb-4 group-hover:text-brand-light-brown transition-colors line-clamp-2">
-                            Preparação Antecipada: Aliviando o Peso da Perda
-                        </h3>
-                        <p class="text-brand-grayish text-sm font-sans leading-relaxed flex-grow mb-6 line-clamp-3">
-                            Descubra como o planejamento antecipado de um plano funerário pode trazer paz de espírito e aliviar o estresse...
-                        </p>
-                        <a href="./preparacao-antecipada.html" class="inline-flex items-center gap-2 text-brand-dark-green font-bold text-sm uppercase tracking-wider group-hover:text-brand-light-brown transition-colors mt-auto font-sans">
-                            Leia mais <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-                        </a>
-                    </div>
-                </article>
+                    
+                    <ul class="space-y-4 text-sm flex-grow mb-8 font-light">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Funeral + Cemiterial</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Translado Estadual</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Clube de Benefícios</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Aparelhos Ortopédicos</span></li>
+                    </ul>
+                    
+                    <a href="#contato" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        Selecionar Plano
+                    </a>
+                </div>
 
-                <!-- Artigo 3 -->
-                <article class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 border border-gray-100 flex flex-col group transform hover:-translate-y-2">
-                    <div class="h-56 overflow-hidden relative bg-brand-light-pink/50">
-                        <img src="https://camposantofamiliar.com.br/wp-content/uploads/sites/85/2023/11/family-laying-flowers-on-the-grave-QKURHPX-768x550.jpg" alt="[Imagem de cerimônia ou flores]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-dark-green uppercase tracking-wider font-sans shadow-sm">
-                            Homenagem
+                <!-- Plano Tranquilidade -->
+                <div class="group bg-brand-tertiary rounded-[32px] p-8 text-white hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-500 flex flex-col h-full shadow-2xl border border-transparent">
+                    <div class="text-center mb-10 mt-4">
+                        <h3 class="text-3xl font-serif font-medium mb-6">Tranquilidade</h3>
+                        <p class="text-xs uppercase tracking-widest mb-2 opacity-70">A partir de</p>
+                        <div class="flex items-start justify-center">
+                            <span class="text-sm mt-1 font-semibold">R$</span>
+                            <span class="text-6xl font-medium tracking-tighter">119</span>
+                            <span class="text-sm mt-1 font-semibold">,90</span>
                         </div>
+                        <p class="text-[10px] uppercase tracking-widest mt-4 opacity-70">Mensais</p>
                     </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-xl font-bold font-serif text-brand-coffee mb-4 group-hover:text-brand-light-brown transition-colors line-clamp-2">
-                            Honrando Memórias: Cerimônias Personalizadas de Despedida
-                        </h3>
-                        <p class="text-brand-grayish text-sm font-sans leading-relaxed flex-grow mb-6 line-clamp-3">
-                            Entenda a importância de cerimônias de despedida personalizadas e como o Campo Santo Familiar auxilia na criação de...
-                        </p>
-                        <a href="./honrando-memorias.html" class="inline-flex items-center gap-2 text-brand-dark-green font-bold text-sm uppercase tracking-wider group-hover:text-brand-light-brown transition-colors mt-auto font-sans">
-                            Leia mais <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-                        </a>
+                    
+                    <ul class="space-y-4 text-sm flex-grow mb-8 font-light">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Tudo do Acolhimento</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Serviço de Cremação</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Telemedicina 24h</span></li>
+                    </ul>
+                    
+                    <a href="#contato" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        Selecionar Plano
+                    </a>
+                </div>
+
+                <!-- Plano Paz -->
+                <div class="group bg-brand-tertiary rounded-[32px] p-8 text-white hover:bg-brand-secondary hover:text-brand-tertiary transition-all duration-500 flex flex-col h-full shadow-2xl border border-transparent">
+                    <div class="text-center mb-10 mt-4">
+                        <h3 class="text-3xl font-serif font-medium mb-6">Paz</h3>
+                        <p class="text-xs uppercase tracking-widest mb-2 opacity-70">A partir de</p>
+                        <div class="flex items-start justify-center">
+                            <span class="text-sm mt-1 font-semibold">R$</span>
+                            <span class="text-6xl font-medium tracking-tighter">189</span>
+                            <span class="text-sm mt-1 font-semibold">,90</span>
+                        </div>
+                        <p class="text-[10px] uppercase tracking-widest mt-4 opacity-70">Mensais</p>
                     </div>
-                </article>
+                    
+                    <ul class="space-y-4 text-sm flex-grow mb-8 font-light">
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Cobertura Premium</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Seguro Acidentes</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-secondary group-hover:text-brand-tertiary transition-colors"></i><span>Rede VIP Global</span></li>
+                    </ul>
+                    
+                    <a href="#contato" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        Selecionar Plano
+                    </a>
+                </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section id="calculadora" class="py-24 bg-[#FDFDFD]">
+        <div class="container mx-auto px-4 max-w-[1200px]">
+            
+            <div class="bg-brand-tertiary rounded-[40px] shadow-2xl overflow-hidden p-6 md:p-12 relative font-sans">
+                <!-- Padrão de bolinhas sutil no fundo escuro -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+                
+                <div class="flex flex-col lg:flex-row gap-12 relative z-10 items-center">
+                    
+                    <!-- Lado Esquerdo (Texto) -->
+                    <div class="w-full lg:w-5/12 text-white">
+                        <h2 class="text-4xl md:text-5xl font-serif font-medium mb-6 leading-tight">
+                            Compare e Comprove a Economia
+                        </h2>
+                        <p class="text-brand-primary opacity-80 mb-10 text-sm leading-relaxed font-light">
+                            Descubra quanto sua família pode economizar planejando o futuro hoje. O Campo Santo Familiar oferece as melhores taxas do mercado com a garantia da Santa Casa.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="trending-down" class="w-5 h-5 text-white opacity-70"></i>
+                                </div>
+                                <p class="text-sm font-light">Até 60% mais barato que serviços avulsos</p>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="wallet" class="w-5 h-5 text-white opacity-70"></i>
+                                </div>
+                                <p class="text-sm font-light">Parcelas que cabem no seu orçamento mensal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lado Direito (Formulário Branco) -->
+                    <div class="w-full lg:w-7/12">
+                        <div class="bg-[#FDFDFD] rounded-[32px] p-8 md:p-10 shadow-xl">
+                            <h3 class="text-2xl font-serif font-medium text-brand-tertiary mb-8">Faça a simulação agora</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Seu Nome</label>
+                                    <input type="text" id="calc-nome" class="w-full p-4 rounded-xl border border-gray-200 bg-white focus:ring-2 focus:ring-brand-secondary outline-none text-sm" placeholder="Digite seu nome">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Número de dependentes</label>
+                                    <input type="number" id="calc-pessoas" min="1" max="10" value="1" class="w-full p-4 rounded-xl border border-gray-200 bg-white focus:ring-2 focus:ring-brand-secondary outline-none text-sm">
+                                </div>
+                            </div>
+
+                            <div class="mb-8">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-4">Serviços de Interesse</label>
+                                <div class="grid grid-cols-2 gap-4" id="lista-servicos-simples">
+                                    <!-- Options hardcoded para manter layout do print 5 -->
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="5000" class="w-5 h-5 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary custom-checkbox" checked>
+                                        <span class="text-sm text-brand-tertiary group-hover:text-brand-secondary transition">Funeral</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="3500" class="w-5 h-5 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary custom-checkbox">
+                                        <span class="text-sm text-brand-tertiary group-hover:text-brand-secondary transition">Cemiterial</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="5000" class="w-5 h-5 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary custom-checkbox">
+                                        <span class="text-sm text-brand-tertiary group-hover:text-brand-secondary transition">Cremação</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input type="checkbox" value="0" class="w-5 h-5 rounded border-gray-300 text-brand-secondary focus:ring-brand-secondary custom-checkbox">
+                                        <span class="text-sm text-brand-tertiary group-hover:text-brand-secondary transition">Saúde em Vida</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button onclick="calcularSimples()" id="btn-calcular" class="w-full bg-brand-secondary hover:bg-[#259b6c] text-white font-medium py-4 rounded-xl transition duration-300 text-sm tracking-wide shadow-md">
+                                CALCULAR ECONOMIA
+                            </button>
+
+                            <!-- Resultado dinâmico da calculadora -->
+                            <div id="resultado-wrapper" class="hidden mt-6 pt-6 border-t border-gray-200">
+                                <div class="flex justify-between items-center bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                    <div>
+                                        <p class="text-[10px] uppercase font-bold text-gray-400">Total Particular</p>
+                                        <p class="text-lg font-bold text-brand-red line-through" id="valor-particular">R$ 0,00</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] uppercase font-bold text-brand-secondary">No Plano Recomendado</p>
+                                        <p class="text-2xl font-bold text-brand-tertiary" id="valor-plano">R$ 0,00<span class="text-xs">/mês</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- SEÇÃO DE CONTATO -->
-    <section id="contato" class="py-20 bg-brand-ice">
-        <div class="container mx-auto px-4">
-            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row border-t-4 border-brand-secondary">
-                <div class="w-full lg:w-1/2 relative h-64 lg:h-auto">
-                    <img src="./assets/img/atendente.png" alt="Central de Atendimento Humanizado" class="absolute inset-0 w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-brand-dark-green/30"></div>
+    <section id="contato" class="py-24 bg-[#FDFDFD]">
+        <div class="container mx-auto px-4 max-w-[1200px]">
+            <div class="bg-[#FDFDFD] rounded-[40px] shadow-sm border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Imagem Esquerda (Original recuperada) -->
+                <div class="w-full lg:w-5/12 h-[300px] lg:h-auto p-4">
+                    <img src="./assets/img/atendente.png" alt="Consultora" class="w-full h-full object-cover rounded-[32px]">
                 </div>
-                <div class="w-full lg:w-1/2 p-10 lg:p-16">
-                    <h2 class="text-3xl font-bold text-brand-tertiary mb-4 font-serif">Como podemos te ajudar hoje?</h2>
-                    <p class="text-brand-grayish mb-8 font-sans">Central de atendimento com suporte de especialistas 24h para você.</p>
-                    <form class="space-y-4 font-sans" onsubmit="event.preventDefault(); alert('Formulário de teste enviado!');">
+                
+                <!-- Formulário Direita -->
+                <div class="w-full lg:w-7/12 p-8 md:p-12 lg:p-16">
+                    <h2 class="text-4xl font-serif font-medium text-brand-tertiary mb-10">Como podemos te ajudar hoje?</h2>
+                    
+                    <form class="space-y-6 font-sans" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
                         <div>
-                            <label class="block text-sm font-medium text-brand-tertiary mb-1">Seu Nome</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="Digite seu nome completo">
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Nome Completo</label>
+                            <input type="text" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F9FA] focus:bg-white focus:ring-2 focus:ring-brand-secondary outline-none transition text-sm">
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-brand-tertiary mb-1">Telefone</label>
-                                <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="(71) 99999-9999">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">WhatsApp / Celular</label>
+                                <input type="tel" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F9FA] focus:bg-white focus:ring-2 focus:ring-brand-secondary outline-none transition text-sm">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-brand-tertiary mb-1">Email</label>
-                                <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition" placeholder="seu@email.com">
+                                <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">E-mail</label>
+                                <input type="email" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F9FA] focus:bg-white focus:ring-2 focus:ring-brand-secondary outline-none transition text-sm">
                             </div>
                         </div>
+
                         <div>
-                            <label class="block text-sm font-medium text-brand-tertiary mb-1">Como podemos ajudar?</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-dark-green focus:border-brand-dark-green outline-none transition bg-white">
-                                <option>Quero conhecer os planos</option>
-                                <option>Já sou cliente e preciso de ajuda</option>
-                                <option>Comunicar falecimento</option>
-                            </select>
+                            <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-[#F8F9FA] focus:bg-white focus:ring-2 focus:ring-brand-secondary outline-none transition resize-none text-sm"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-brand-dark-green hover:bg-brand-secondary text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
-                            Solicitar Contato
+                        
+                        <button type="submit" class="w-full bg-brand-tertiary hover:bg-[#0a3832] text-white font-medium py-4 rounded-full shadow-md transition duration-300 tracking-wide text-sm">
+                            SOLICITAR CONTATO
                         </button>
                     </form>
-                    <div class="mt-8 pt-8 border-t border-gray-100 flex items-center justify-between text-brand-grayish text-sm font-sans">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-secondary"></i>
-                            <span>(71) 99699-7748</span>
+
+                    <!-- Info Rodapé do Card -->
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-brand-tertiary font-sans border-t border-gray-200 pt-8">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="message-square-text" class="w-5 h-5 text-brand-secondary"></i>
+                            <span class="text-sm font-medium">WhatsApp: (71) 99999-9999</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-secondary"></i>
-                            <span>Salvador - BA</span>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone-call" class="w-5 h-5 text-brand-secondary"></i>
+                            <span class="text-sm font-medium">Emergência 24h: 0800 071 1234</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -517,89 +518,44 @@
     <script src="./formataCabecalhoRodape.js"></script>
 
     <script>
-        // Dados (Portados do PHP)
-        const planosFunerarios = {
-            'amparo': { valor: 89.9, idade: 60, nome: 'Amparo' },
-            'acolhimento': { valor: 99.9, idade: 70, nome: 'Acolhimento' },
-            'tranquilidade': { valor: 119.9, idade: 80, nome: 'Tranquilidade' },
-            'paz': { valor: 149.9, idade: 999, nome: 'Paz' } // 999 representa sem limite
-        };
-
-        const servicos = [
-            { id: 1, descricao: 'Cobertura Funeral', valor: 5000.0 },
-            { id: 2, descricao: 'Cobertura Cemiterial', valor: 3500.0 },
-            { id: 3, descricao: 'Sala para velório', valor: 1800.0 },
-            { id: 4, descricao: 'Cremação', valor: 5000.0 },
-            { id: 5, descricao: 'Urna funerária (Primeira linha)', valor: 3000.0 },
-            { id: 6, descricao: 'Ornamentação com flores naturais', valor: 300.0 },
-            { id: 7, descricao: 'Coroa de flores', valor: 400.0 },
-            { id: 8, descricao: 'Preparação do corpo', valor: 1000.0 },
-            { id: 9, descricao: 'Translado funebre (Até 200km)', valor: 2500.0 }
-        ];
-
-        // 1. Renderizar Checkboxes de Serviços ao Carregar
-        const listaServicos = document.getElementById('lista-servicos');
-        servicos.forEach(servico => {
-            const div = document.createElement('div');
-            div.className = 'flex items-center space-x-3';
-            div.innerHTML = `
-                <input type="checkbox" id="servico_${servico.id}" value="${servico.valor}" class="w-5 h-5 rounded border-white/30 bg-white/10 text-brand-secondary focus:ring-brand-secondary custom-checkbox">
-                <label for="servico_${servico.id}" class="text-sm font-medium cursor-pointer hover:text-white transition">${servico.descricao}</label>
-            `;
-            listaServicos.appendChild(div);
-        });
-
-        // 2. Função Calcular (Lógica Principal)
-        function calcular() {
-            const idadeInput = document.getElementById('calc-idade').value;
+        // Lógica da Calculadora Integrada ao HTML (como solicitado)
+        function calcularSimples() {
             const btnCalcular = document.getElementById('btn-calcular');
             const wrapper = document.getElementById('resultado-wrapper');
-            const loader = document.getElementById('loader');
-            const resultadoFinal = document.getElementById('resultado-final');
-
-            if (!idadeInput) {
-                alert("Por favor, informe a idade da pessoa mais velha.");
-                return;
-            }
-
-            // UI: Mostrar Loading
-            wrapper.classList.remove('hidden');
-            loader.classList.remove('hidden');
-            resultadoFinal.classList.add('hidden');
+            
+            // Simula loading visual no botão
+            const btnText = btnCalcular.innerHTML;
             btnCalcular.disabled = true;
             btnCalcular.innerHTML = "Calculando...";
             btnCalcular.classList.add('opacity-75');
 
-            // Simular atraso de 3 segundos (como no original)
             setTimeout(() => {
-                // A. Calcular Soma dos Serviços (Particular)
                 let totalServicos = 0;
-                const checkboxes = document.querySelectorAll('#lista-servicos input[type="checkbox"]:checked');
-                checkboxes.forEach(chk => {
+                document.querySelectorAll('#lista-servicos-simples input[type="checkbox"]:checked').forEach(chk => {
                     totalServicos += parseFloat(chk.value);
                 });
 
-                // B. Selecionar o Plano Ideal (Idade)
-                let planoEscolhido = planosFunerarios['paz']; // Default para mais velho
+                // Seleciona o plano baseado na quantidade de dependentes
+                const dependentes = document.getElementById('calc-pessoas').value || 1;
+                let valorMensal = 49.90; // Amparo padrão
                 
-                // Lógica de seleção
-                if (idadeInput <= 60) planoEscolhido = planosFunerarios['amparo'];
-                else if (idadeInput <= 70) planoEscolhido = planosFunerarios['acolhimento'];
-                else if (idadeInput <= 80) planoEscolhido = planosFunerarios['tranquilidade'];
+                if (dependentes > 10) valorMensal = 189.90; // Paz
+                else if (dependentes > 6) valorMensal = 119.90; // Tranquilidade
+                else if (dependentes > 3) valorMensal = 79.90; // Acolhimento
                 
-                // C. Atualizar Interface com Resultados
+                // Exibe os valores calculados na tela
                 document.getElementById('valor-particular').innerText = totalServicos.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                document.getElementById('nome-plano').innerText = planoEscolhido.nome;
-                document.getElementById('valor-plano').innerText = planoEscolhido.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-                // UI: Mostrar Resultado Final
-                loader.classList.add('hidden');
-                resultadoFinal.classList.remove('hidden');
+                document.getElementById('valor-plano').innerHTML = valorMensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) + '<span class="text-xs font-normal">/mês</span>';
+                
+                // Mostra a caixa de Resultado Inline
+                wrapper.classList.remove('hidden');
+                
+                // Restaura o botão
                 btnCalcular.disabled = false;
-                btnCalcular.innerHTML = "RECALCULAR";
+                btnCalcular.innerHTML = btnText;
                 btnCalcular.classList.remove('opacity-75');
                 
-            }, 3000);
+            }, 1000); // 1 segundo de "processamento"
         }
 
         // Init Lucide
@@ -610,7 +566,6 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
-            // Animar ícone do menu
             const icon = btn.querySelector('svg');
             if (menu.classList.contains('hidden')) {
                 icon.setAttribute('data-lucide', 'menu');
@@ -622,11 +577,14 @@
         
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                menu.classList.add('hidden');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    menu.classList.add('hidden');
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
     </script>
