@@ -91,7 +91,7 @@
     <!-- HERO SECTION -->
     <section class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden bg-brand-primary/20">
         <div class="absolute inset-0 z-0">
-            <img src="./assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-30 mix-blend-multiply filter grayscale">
+            <img src="./assets/img/catedral.png" alt="Catedral e céu azul" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-b from-[#FDFDFD]/90 via-[#FDFDFD]/70 to-[#FDFDFD]"></div>
         </div>
 
@@ -162,7 +162,7 @@
                     </div>
                     
                     <!-- Badge Flutuante (Chancela) -->
-                    <div class="absolute -bottom-6 right-4 lg:-right-8 bg-[#E9ECEA] p-6 rounded-3xl shadow-xl max-w-[280px] z-10 border border-white">
+                    <div class="absolute -bottom-6 right-4 lg:-right-8 bg-[#E9ECEA]/80 backdrop-blur-md p-6 rounded-3xl shadow-xl max-w-[280px] z-10 border border-white/50">
                         <div class="flex items-start gap-3 mb-2">
                             <i data-lucide="badge-check" class="text-brand-secondary w-6 h-6 flex-shrink-0 mt-1"></i>
                             <p class="text-[10px] font-bold text-brand-tertiary uppercase tracking-widest leading-relaxed">Chancela da Santa Casa da Misericórdia</p>
@@ -396,8 +396,8 @@
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                                 <div>
-                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Seu Nome</label>
-                                    <input type="text" id="calc-nome" class="w-full p-4 rounded-xl border border-gray-200 bg-white focus:ring-2 focus:ring-brand-secondary outline-none text-sm" placeholder="Digite seu nome">
+                                    <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Idade (Mais Velho)</label>
+                                    <input type="number" id="calc-idade" class="w-full p-4 rounded-xl border border-gray-200 bg-white focus:ring-2 focus:ring-brand-secondary outline-none text-sm" placeholder="Ex: 65">
                                 </div>
                                 <div>
                                     <label class="block text-[10px] font-bold uppercase tracking-wider text-brand-tertiary mb-2">Número de dependentes</label>
@@ -522,6 +522,16 @@
         function calcularSimples() {
             const btnCalcular = document.getElementById('btn-calcular');
             const wrapper = document.getElementById('resultado-wrapper');
+            const idadeInput = document.getElementById('calc-idade');
+            
+            // Validação visual simples para não usar alert()
+            if (!idadeInput.value) {
+                idadeInput.classList.add('border-brand-red', 'ring-1', 'ring-brand-red');
+                idadeInput.focus();
+                return;
+            } else {
+                idadeInput.classList.remove('border-brand-red', 'ring-1', 'ring-brand-red');
+            }
             
             // Simula loading visual no botão
             const btnText = btnCalcular.innerHTML;
@@ -535,13 +545,13 @@
                     totalServicos += parseFloat(chk.value);
                 });
 
-                // Seleciona o plano baseado na quantidade de dependentes
-                const dependentes = document.getElementById('calc-pessoas').value || 1;
-                let valorMensal = 49.90; // Amparo padrão
+                // Seleciona o plano baseado na idade da pessoa mais velha
+                const idade = parseInt(idadeInput.value);
+                let valorMensal = 189.90; // Paz (Padrão para acima de 80)
                 
-                if (dependentes > 10) valorMensal = 189.90; // Paz
-                else if (dependentes > 6) valorMensal = 119.90; // Tranquilidade
-                else if (dependentes > 3) valorMensal = 79.90; // Acolhimento
+                if (idade <= 60) valorMensal = 49.90; // Amparo
+                else if (idade <= 70) valorMensal = 79.90; // Acolhimento
+                else if (idade <= 80) valorMensal = 119.90; // Tranquilidade
                 
                 // Exibe os valores calculados na tela
                 document.getElementById('valor-particular').innerText = totalServicos.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
