@@ -319,6 +319,36 @@
                     <div role="main" id="formulario-lp-2026-9f8edd6e3e3f728c8299"></div>
                     <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
                     <script type="text/javascript"> new RDStationForms('formulario-lp-2026-9f8edd6e3e3f728c8299', 'null').createForm();</script>
+                    <script>
+                        (function () {
+                          
+                          function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():'';}
+                        
+                          var fbp = getCookie('_fbp');
+                          var fbclid = new URLSearchParams(location.search).get('fbclid');
+                          var fbc = getCookie('_fbc');
+                          if (!fbc && fbclid) { fbc = 'fb.1.' + Date.now() + '.' + fbclid; }
+                        
+                          
+                          function setNativeValue(el, val){
+                            var proto = window.HTMLInputElement.prototype;
+                            var setter = Object.getOwnPropertyDescriptor(proto, 'value').set;
+                            setter.call(el, val);
+                            el.dispatchEvent(new Event('input',  { bubbles:true }));
+                            el.dispatchEvent(new Event('change', { bubbles:true }));
+                          }
+                        
+                          function preencher(){
+                            var cFbp = document.querySelector('[name="cf_fbp"]');
+                            var cFbc = document.querySelector('[name="cf_fbc"]');
+                            if (cFbp && fbp && cFbp.value !== fbp) setNativeValue(cFbp, fbp);
+                            if (cFbc && fbc && cFbc.value !== fbc) setNativeValue(cFbc, fbc);
+                          }
+                        
+                          new MutationObserver(preencher).observe(document.body, { childList:true, subtree:true });
+                          var t=0, iv=setInterval(function(){ preencher(); if(++t>20) clearInterval(iv); }, 500);
+                        })();
+                    </script>
                 </div>
             </div>
         </div>
