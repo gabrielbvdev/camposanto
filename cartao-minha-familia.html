@@ -139,21 +139,21 @@
             <!-- Imagem Desktop (Fundo com a família à direita) -->
             <img src="./assets/img/hero_minha_familia_desk.png" class="absolute inset-0 w-full h-full object-cover object-[80%_center] hidden md:block" alt="Família feliz no sofá usando o Cartão Minha Família">
             
-            <div class="container mx-auto px-4 relative z-10 pt-16 md:pt-0">
+            <div class="container mx-auto px-4 relative z-10 pt-12 pb-4 md:pt-0">
                 <div class="max-w-xl text-center md:text-left mx-auto md:mx-0">
                     
-                    <span class="inline-block py-1.5 px-4 rounded-full bg-[#c5f25d] text-brand-dark-green text-[10px] md:text-xs font-bold mb-6 md:mb-8 uppercase tracking-widest shadow-sm">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-[#c5f25d] text-brand-dark-green text-[10px] md:text-xs font-bold mb-4 md:mb-8 uppercase tracking-widest shadow-sm">
                         Clube de Vantagens · Exclusivo para Clientes
                     </span>
                     
-                    <h1 class="text-3xl md:text-4xl lg:text-[44px] font-['Unbounded'] font-bold text-brand-dark-green mb-6 leading-tight tracking-tight">
+                    <h1 class="text-3xl md:text-4xl lg:text-[44px] font-['Unbounded'] font-bold text-brand-dark-green mb-4 leading-tight tracking-tight">
                         Cuidado que <br class="hidden md:block"> 
                         está presente<br class="hidden md:block"> 
                         em todos os<br class="hidden md:block">
                         momentos.
                     </h1>
                     
-                    <p class="text-brand-tertiary text-sm md:text-base max-w-md mx-auto md:mx-0 font-normal leading-relaxed mb-8 md:mb-10 opacity-90">
+                    <p class="text-brand-tertiary text-sm md:text-base max-w-md mx-auto md:mx-0 font-normal leading-relaxed mb-6 md:mb-10 opacity-90">
                         Mais que um plano familiar, um plano<br class="hidden md:block">
                         de cuidado em vida. O Cartão Minha<br class="hidden md:block">
                         Família promove bem-estar, economia<br class="hidden md:block">
@@ -161,8 +161,8 @@
                         o melhor da vida hoje.
                     </p>
                     
-                    <div class="mt-2">
-                        <a href="#beneficios" class="inline-flex items-center gap-2 bg-[#c5f25d] hover:bg-[#b2df4a] text-brand-dark-green px-8 py-4 rounded-full font-bold transition-all shadow-md hover:-translate-y-1 uppercase tracking-wider text-xs md:text-sm">
+                    <div>
+                        <a href="#beneficios" class="inline-flex items-center gap-2 bg-[#c5f25d] hover:bg-[#b2df4a] text-brand-dark-green px-8 py-3.5 rounded-full font-bold transition-all shadow-md hover:-translate-y-1 uppercase tracking-wider text-xs md:text-sm">
                             Conhecer Benefícios <i data-lucide="arrow-down" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -170,8 +170,10 @@
                 </div>
             </div>
 
-            <!-- Imagem Mobile (Flui naturalmente abaixo do texto no celular) -->
-            <img src="./assets/img/hero_minha_familia_mobile.png" class="w-full h-auto object-contain mt-12 md:hidden relative z-10" alt="Família feliz no sofá">
+            <!-- Imagem Mobile ajustada para subir mais (removida a restrição de altura fixa e aplicado translate negativo) -->
+            <div class="w-full overflow-hidden relative -mt-4 md:hidden z-10">
+                <img src="./assets/img/hero_minha_familia_mobile.png" class="w-full h-auto object-bottom transform scale-125 -translate-y-2" alt="Família feliz no sofá">
+            </div>
         </section>
 
         <!-- INTRODUÇÃO: O QUE É O CARTÃO -->
