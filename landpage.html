@@ -23,7 +23,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -36,30 +36,30 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Montserrat', 'sans-serif'],
+                        sans: ['Sora', 'sans-serif'],
                         serif: ['Lora', 'serif'],
                     },
                     colors: {
                         brand: {
                             green: {
-                                dark: '#1d645b',    // Verde escuro
-                                light: '#7ca899',   // Verde claro
-                                moss: '#647256',    // Verde musgo
-                                gray: '#6a7771',    // Verde acinzentado
+                                dark: '#072723',    // Tertiary
+                                light: '#2FB17C',    // Secondary
+                                moss: '#2FB17C',     // Secondary
+                                gray: '#787776',     // Neutral
                             },
                             brown: {
-                                light: '#cc7722',   // Marrom claro
-                                dark: '#4e3924',    // Marrom escuro/Café
+                                light: '#2FB17C',    // Secondary
+                                dark: '#072723',     // Tertiary
                             },
                             pink: {
-                                light: '#ede2e4',   // Rosa Claro
+                                light: '#E9ECEA',    // Primary
                             },
-                            ice: '#f4f4f4',         // Branco gelo
+                            ice: '#E9ECEA',         // Primary
                         }
                     },
                     boxShadow: {
-                        'soft': '0 4px 20px -2px rgba(29, 100, 91, 0.08)',
-                        'card': '0 10px 30px -5px rgba(78, 57, 36, 0.1)',
+                        'soft': '0 4px 20px -2px rgba(7, 39, 35, 0.08)',
+                        'card': '0 10px 30px -5px rgba(7, 39, 35, 0.1)',
                     }
                 }
             }
@@ -103,10 +103,10 @@
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f4f4f4;
+            background: #E9ECEA;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cc7722;
+            background: #2FB17C;
             border-radius: 10px;
         }
 
@@ -218,7 +218,7 @@
     </div>
 
     <!-- BANNER SEMANA DO CONSUMIDOR-->
-    <div id="promo-banner" class="fixed top-0 left-0 w-full bg-orange-500 text-white py-2 shadow-promo border-b border-orange-600/30">
+    <div id="promo-banner" class="fixed top-0 left-0 w-full bg-brand-green-light text-white py-2 shadow-promo border-b border-brand-green-dark/30">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-8 text-center">
             <div class="flex items-center gap-2 font-bold text-[10px] md:text-sm uppercase tracking-tight">
                 <i class="ph-fill ph-ticket text-lg animate-pulse text-white"></i>
@@ -273,7 +273,7 @@
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-pink-light/30">
         <!-- Background Decor - Adaptativo -->
         <div class="absolute inset-0 w-full h-full -z-10 overflow-hidden">
-            <div class="absolute inset-0 bg-brand-green-dark/10 z-10"></div> <!-- Overlay sutil -->
+            <div class="absolute inset-0 bg-brand-green-dark/20 z-10"></div> <!-- Overlay sutil -->
             <!-- Imagem Desktop -->
             <img src="./assets/img/familia_bomfim.jpeg" alt="Família" class="hidden lg:block w-full h-full object-cover object-center opacity-60">
             <!-- Imagem Mobile -->
@@ -288,13 +288,13 @@
                 
                 <!-- Hero Content -->
                 <div class="lg:w-1/2 fade-in-up z-10">
-                    <span class="inline-block py-1 px-3 rounded-full bg-brand-brown-light/10 text-brand-bronw-light text-xs font-bold tracking-wider uppercase mb-6 border border-brand-brown-light/20">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-green-dark/10 text-brand-brown-dark/70 text-xs font-bold tracking-wider uppercase mb-6 border border-brand-brown-light/20">
                         Mais que um plano funerário:
                     </span>
                     <h1 class="font-serif text-3xl lg:text-3xl xl:text-3xl font-bold text-brand-green-dark leading-tight mb-6">
                         <span class="text-brand-green-dark italic">Um plano para viver com a tradição da Santa Casa da Bahia.</span>
                     </h1>
-                    <p class="text-lg text-brand-bronw-light mb-8 leading-relaxed max-w-lg font-medium">
+                    <p class="text-lg text-brand-brown-dark/70 mb-8 leading-relaxed max-w-lg font-medium">
                         Garanta a <b>proteção completa</b> de quem você ama com a chancela da centenária Santa Casa da Bahia. Assistência funeral, cemiterial e benefícios em vida, a partir de <b>R$ 2,99 por dia</b>.                    </p>
                     
                     <!-- Feature Checks -->
@@ -521,7 +521,7 @@
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green-dark text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider z-20 shadow-md">PARA OS 10 BENEFICIÁRIOS</div>
                         
                         <div class="aspect-square bg-brand-ice rounded-[2.5rem] shadow-2xl border-8 border-brand-brown-dark/5 overflow-hidden flex items-center justify-center relative z-10">
-                            <img src="./assets/img/garota_minha_familia.png" alt="Mulher segurando o Cartão Minha Família" class="w-full h-full object-cover">
+                            <img src="./assets/img/cartao-minha-familia-frente.jpeg" alt="Mulher segurando o Cartão Minha Família" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -748,7 +748,7 @@
                     <i class="ph-fill ph-phone-call text-lg"></i>
                     (71) 9354-0047
                 </a>
-                <a href="https://api.whatsapp.com/message/SRDKRJUWWMCKK1?autoload=1&app_absent=0" target="_blank" class="flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-full hover:bg-[#128C7E] transition-all shadow-xl transform hover:scale-105 text-sm">
+                <a href="https://wa.me/557193540047?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20planos%20do%20Campo%20Santo%20Familiar." target="_blank" class="flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] text-white font-bold rounded-full hover:bg-[#128C7E] transition-all shadow-xl transform hover:scale-105 text-sm">
                     <i class="ph-fill ph-whatsapp-logo text-lg"></i>
                     WhatsApp
                 </a>
@@ -975,7 +975,7 @@
 
         // CONFIGURAÇÃO DA PROMOÇÃO
         const PROMO_START_DATE = new Date("2026-06-01T00:00:00");
-        const PROMO_END_DATE = new Date("2026-06-20T23:59:59");
+        const PROMO_END_DATE = new Date("2026-06-19T23:59:59");
         const banner = document.getElementById('promo-banner');
         const navbar = document.getElementById('navbar');
 
