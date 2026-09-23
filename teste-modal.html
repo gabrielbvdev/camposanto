@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Modal RD Station com Telefone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen p-8 font-sans flex flex-col items-center justify-center">
+
+    <div class="max-w-5xl w-full">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">Conheça nossos planos</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <button class="btn-abrir-modal bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 px-4 rounded-lg shadow-md transition-all transform hover:-translate-y-1" data-plano="Plano Paz">
+                Quero o Plano Paz
+            </button>
+            <button class="btn-abrir-modal bg-teal-600 hover:bg-teal-700 text-white font-semibold py-6 px-4 rounded-lg shadow-md transition-all transform hover:-translate-y-1" data-plano="Plano Tranquilidade">
+                Quero o Plano Tranquilidade
+            </button>
+            <button class="btn-abrir-modal bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-6 px-4 rounded-lg shadow-md transition-all transform hover:-translate-y-1" data-plano="Plano Acolhimento">
+                Quero o Plano Acolhimento
+            </button>
+            <button class="btn-abrir-modal bg-orange-600 hover:bg-orange-700 text-white font-semibold py-6 px-4 rounded-lg shadow-md transition-all transform hover:-translate-y-1" data-plano="Plano Amparo">
+                Quero o Plano Amparo
+            </button>
+        </div>
+    </div>
+
+    <!-- Estrutura do Modal -->
+    <div id="rdModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center z-50 transition-opacity">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg relative max-h-[90vh] overflow-y-auto m-4">
+            <button id="closeModalBtn" class="absolute top-4 right-5 text-gray-400 hover:text-red-500 text-3xl font-bold leading-none focus:outline-none">
+                &times;
+            </button>
+            <div class="p-8">
+                <h2 class="text-2xl font-semibold mb-6 text-center text-gray-800">Preencha seus dados</h2>
+                
+                <!-- DIV do RD Station -->
+                <div role="main" id="modal-escolha-seu-plano-0c9fe55bd18e3885b71e"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da RD Station -->
+    <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+    <script type="text/javascript"> 
+        new RDStationForms('modal-escolha-seu-plano-0c9fe55bd18e3885b71e', 'null').createForm();
+    </script>
+
+    <!-- Lógica de Funcionamento -->
+    <script>
+        const modal = document.getElementById('rdModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const botoesAbrir = document.querySelectorAll('.btn-abrir-modal');
+
+        function preencherCamposRD(nomeDoPlano) {
+            const tentarPreencher = () => {
+                // Captura os campos gerados pelo RD
+                const selectPlano = document.querySelector('#rdModal select');
+                const inputTelefone = document.querySelector('#rdModal input[type="tel"]');
+                
+                if (selectPlano) {
+                    // 1. Preenche o plano escolhido
+                    selectPlano.value = nomeDoPlano;
+                    selectPlano.dispatchEvent(new Event('change', { bubbles: true }));
+
+                    // 2. Preenche o campo do WhatsApp com o DDD 71, caso exista e esteja vazio
+                    if (inputTelefone && inputTelefone.value === '') {
+                        inputTelefone.value = '71';
+                        // O evento 'input' faz a máscara do RD formatar para (71) automaticamente
+                        inputTelefone.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+
+                    return true;
+                }
+                return false;
+            };
+
+            if (!tentarPreencher()) {
+                let tentativas = 0;
+                const intervalo = setInterval(() => {
+                    tentativas++;
+                    if (tentarPreencher() || tentativas >= 20) {
+                        clearInterval(intervalo);
+                    }
+                }, 100);
+            }
+        }
+
+        botoesAbrir.forEach(botao => {
+            botao.addEventListener('click', function() {
+                const planoEscolhido = this.getAttribute('data-plano');
+                modal.classList.remove('hidden');
+                preencherCamposRD(planoEscolhido);
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
