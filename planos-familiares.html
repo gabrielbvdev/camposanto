@@ -217,7 +217,7 @@
                             <p>* Possibilidade de quebra de carência para uso imediato</p>
                         </div>
                         
-                        <a href="https://api.whatsapp.com/send/?phone=557193540047&text=Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20e%20tenho%20interesse%20no%20Plano%20Amparo.&type=phone_number&app_absent=0" target="_blank" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        <a href="#" class="btn-abrir-modal mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide" data-plano="Plano Amparo">
                             Selecionar Plano
                         </a>
                     </div>
@@ -250,7 +250,7 @@
                             <p>* Possibilidade de quebra de carência para uso imediato</p>
                         </div>
                         
-                        <a href="https://api.whatsapp.com/send/?phone=557193540047&text=Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20e%20tenho%20interesse%20no%20Plano%20Acolhimento.&type=phone_number&app_absent=0" target="_blank" target="_blank" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        <a href="#" class="btn-abrir-modal mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide" data-plano="Plano Acolhimento">
                             Selecionar Plano
                         </a>
                     </div>
@@ -283,7 +283,7 @@
                             <p>* Possibilidade de quebra de carência para uso imediato</p>
                         </div>
                         
-                        <a href="https://api.whatsapp.com/send/?phone=557193540047&text=Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20e%20tenho%20interesse%20no%20Plano%20Tranquilidade.&type=phone_number&app_absent=0" target="_blank" target="_blank" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        <a href="#" class="btn-abrir-modal mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide" data-plano="Plano Tranquilidade">
                             Selecionar Plano
                         </a>
                     </div>
@@ -316,7 +316,7 @@
                             <p>* Possibilidade de quebra de carência para uso imediato</p>
                         </div>
                         
-                        <a href="https://api.whatsapp.com/send/?phone=557193540047&text=Ol%C3%A1!%20Fiz%20a%20simula%C3%A7%C3%A3o%20e%20tenho%20interesse%20no%20Plano%20Paz.&type=phone_number&app_absent=0" target="_blank" class="mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide">
+                        <a href="#" class="btn-abrir-modal mt-auto block w-full border border-brand-secondary text-brand-secondary group-hover:bg-brand-tertiary group-hover:text-white group-hover:border-brand-tertiary text-center py-3 rounded-full text-sm transition-all duration-500 font-medium tracking-wide" data-plano="Plano Paz">
                             Selecionar Plano
                         </a>
                     </div>
@@ -539,6 +539,16 @@
 
     </main>
 
+    <div id="rdModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="rdModalTitle">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg relative max-h-[90vh] overflow-y-auto m-4">
+            <button id="closeModalBtn" type="button" class="absolute top-4 right-5 text-gray-400 hover:text-red-500 text-3xl font-bold leading-none focus:outline-none" aria-label="Fechar formulário">&times;</button>
+            <div class="p-8">
+                <h2 id="rdModalTitle" class="text-2xl font-semibold mb-6 text-center text-gray-800">Preencha seus dados</h2>
+                <div role="main" id="modal-escolha-seu-plano-0c9fe55bd18e3885b71e"></div>
+            </div>
+        </div>
+    </div>
+
     <div id="footer-placeholder"></div>
 
     <script src="./formataCabecalhoRodape.js"></script>
@@ -685,6 +695,56 @@
                     }
                 }
             });
+        });
+    </script>
+    <script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script>
+    <script type="text/javascript">
+        new RDStationForms('modal-escolha-seu-plano-0c9fe55bd18e3885b71e', 'null').createForm();
+
+        const rdModal = document.getElementById('rdModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function preencherCamposRD(nomeDoPlano) {
+            const tentarPreencher = () => {
+                const selectPlano = rdModal.querySelector('select');
+                const inputTelefone = rdModal.querySelector('input[type="tel"]');
+                if (!selectPlano) return false;
+                selectPlano.value = nomeDoPlano;
+                selectPlano.dispatchEvent(new Event('change', { bubbles: true }));
+                if (inputTelefone && inputTelefone.value === '') {
+                    inputTelefone.value = '71';
+                    inputTelefone.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+                return true;
+            };
+            if (!tentarPreencher()) {
+                let tentativas = 0;
+                const intervalo = setInterval(() => {
+                    tentativas++;
+                    if (tentarPreencher() || tentativas >= 20) clearInterval(intervalo);
+                }, 100);
+            }
+        }
+
+        document.querySelectorAll('.btn-abrir-modal').forEach(botao => {
+            botao.addEventListener('click', event => {
+                event.preventDefault();
+                rdModal.classList.remove('hidden');
+                rdModal.classList.add('flex');
+                preencherCamposRD(botao.dataset.plano);
+            });
+        });
+
+        function fecharModalRD() {
+            rdModal.classList.add('hidden');
+            rdModal.classList.remove('flex');
+        }
+        closeModalBtn.addEventListener('click', fecharModalRD);
+        rdModal.addEventListener('click', event => {
+            if (event.target === rdModal) fecharModalRD();
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') fecharModalRD();
         });
     </script>
 </body>
