@@ -88,9 +88,16 @@
             transform: rotate(180deg);
         }
 
-        /* Padronagem sutil de fundo */
+        /* Padronagem sutil de fundo (Bege/Off-white) */
         .bg-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b69d5e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Padronagem pontilhada para os fundos Brancos */
+        .bg-white-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(rgba(24, 55, 36, 0.06) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
         }
     </style>
 </head>
@@ -115,7 +122,7 @@
         </div>
     </header>
 
-    <main class="flex-grow pt-20">
+    <main class="flex-grow pt-10 md:pt-0">
         
         <section class="relative bg-brand-light overflow-hidden pt-12 pb-20 lg:pt-24 lg:pb-32 bg-pattern">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -123,7 +130,7 @@
                     
                     <div class="lg:w-1/2 text-center lg:text-left">
                         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-accent/30 text-brand-primary text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
-                            <i class="ph-fill ph-shield-check text-brand-accent text-lg"></i>
+                            <i class="ph-fill ph-shield-chevron text-brand-accent text-lg"></i>
                             Chancela da Santa Casa da Bahia
                         </div>
                         
@@ -133,7 +140,7 @@
                         
                         <p class="text-lg text-gray-700 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Garanta a proteção completa de quem você ama com a chancela de um legado secular. Assistência funeral, cemiterial e benefícios em vida, a partir de 
-                            <strong class="text-brand-primary bg-brand-accent/10 px-2 py-1 rounded">R$ 2,99 por dia.</strong>
+                            <strong class="text-brand-primary bg-brand-accent/20 px-2 py-0.5 rounded box-decoration-clone">R$ 2,99 por dia.</strong>
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -143,19 +150,20 @@
                             </button>
                         </div>
                         
-                        <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-gray-600 font-medium">
-                            <div class="flex -space-x-2">
-                                <div class="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
-                                <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
-                                <div class="w-8 h-8 rounded-full bg-brand-accent border-2 border-white flex items-center justify-center text-white text-xs">+10k</div>
+                        <div class="mt-10 pt-6 border-t border-brand-accent/20 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-brand-accent/15 text-brand-primary shrink-0">
+                                <i class="ph-fill ph-seal-check text-2xl"></i>
                             </div>
-                            <p>Famílias já protegem as suas conosco.</p>
+                            <p class="text-sm text-gray-700 leading-snug">
+                                Junte-se a <strong class="text-brand-primary font-bold">+10.000 famílias</strong><br class="hidden sm:block">
+                                que já confiam em nossa proteção.
+                            </p>
                         </div>
                     </div>
                     
                     <div class="lg:w-1/2 w-full">
                         <div class="relative w-full max-w-lg mx-auto aspect-square rounded-[40px] rounded-tr-[120px] rounded-bl-[120px] overflow-hidden shadow-2xl border-8 border-white bg-brand-surface">
-                            <img src="https://placehold.co/800x800/183724/b69d5e?text=Família+Sorrindo" alt="Família sendo cuidada" class="w-full h-full object-cover">
+                            <img src="/assets/img/ASST-0 (10).png" alt="Acolhimento" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent"></div>
                         </div>
                     </div>
@@ -164,7 +172,7 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white relative -mt-10 rounded-t-[40px] z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+        <section class="py-16 bg-white-pattern relative -mt-10 rounded-t-[40px] z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-sm font-bold uppercase tracking-widest text-brand-accent mb-2">Por que escolher o Campo Santo Familiar?</h2>
@@ -197,7 +205,7 @@
                     <!-- Card 3 -->
                     <div class="bg-brand-light rounded-3xl p-8 border border-brand-surface hover:border-brand-accent transition-colors group">
                         <div class="w-14 h-14 bg-white text-brand-primary rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                            <i class="ph-fill ph-shield-star text-3xl"></i>
+                            <i class="ph-fill ph-hand-heart text-3xl"></i>
                         </div>
                         <h4 class="text-xl font-bold text-brand-primary mb-3">Tranquilidade completa</h4>
                         <p class="text-gray-600 text-sm leading-relaxed">
@@ -240,7 +248,6 @@
                     </div>
 
                     <div class="lg:w-7/12 w-full">
-                        <!-- Ajuste 1: Borda dourada aplicada nativamente no contêiner -->
                         <div class="bg-white rounded-[32px] p-8 md:p-10 shadow-2xl relative border-t-8 border-brand-accent overflow-hidden">
                             
                             <h4 class="text-2xl font-serif font-bold text-brand-primary mb-6">Faça sua simulação</h4>
@@ -322,13 +329,11 @@
                                 </button>
                             </form>
 
-                            <!-- Ajuste 2: Loader de carregamento animado -->
                             <div id="loader-calc" class="hidden mt-8 pt-10 pb-6 border-t border-gray-200 flex flex-col items-center justify-center">
                                 <i class="ph ph-spinner-gap text-4xl text-brand-accent animate-spin mb-3"></i>
                                 <p class="text-sm font-bold text-brand-primary animate-pulse">Calculando sua economia...</p>
                             </div>
 
-                            <!-- Resultado -->
                             <div id="resultado-calc" class="hidden mt-8 pt-6 border-t border-gray-200">
                                 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -340,7 +345,6 @@
 
                                     <div class="bg-brand-light border border-brand-accent/30 rounded-2xl p-4 text-center">
                                         <p class="text-[10px] font-bold text-brand-primary uppercase tracking-wide mb-1" id="res-nome-plano">No Plano Ideal</p>
-                                        <!-- Ajuste 3: Alterado 'font-serif' para 'font-sans' -->
                                         <h4 class="text-3xl font-sans font-bold text-brand-primary" id="res-mensalidade">R$ 0,00<span class="text-sm font-sans text-gray-500">/mês</span></h4>
                                         <p class="text-[10px] text-brand-accent font-bold mt-1 uppercase">100% Coberto</p>
                                     </div>
@@ -363,7 +367,7 @@
             </div>
         </section>
 
-        <section class="py-16 bg-white border-b border-gray-100">
+        <section class="py-16 bg-white-pattern border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-serif text-brand-primary mb-12">Como garantir sua proteção online agora:</h2>
                 
@@ -488,7 +492,7 @@
             </div>
         </section>
 
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-white-pattern">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-serif text-brand-primary mb-4">Dúvidas Frequentes</h2>
@@ -567,8 +571,9 @@
                 
                 <div class="bg-brand-secondary p-4 rounded-2xl border-l-4 border-brand-accent shadow-lg mb-8 relative">
                     <p class="text-sm font-bold text-brand-accent mb-2">Importante na próxima tela:</p>
-                    <p class="text-xs text-white">
-                        Vá direto para a coluna da direita em <strong class="text-brand-accent bg-brand-dark/50 px-1 rounded">"Criar uma nova conta"</strong> e preencha seu e-mail e CPF.
+                    <p class="text-xs text-white leading-relaxed">
+                        Vá direto para a coluna da direita em 
+                        <strong class="text-brand-accent bg-brand-dark/50 px-2 py-0.5 rounded box-decoration-clone">"Criar uma nova conta"</strong> e preencha seu e-mail e CPF.
                     </p>
                 </div>
                 
