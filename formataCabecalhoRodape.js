@@ -41,7 +41,7 @@ document.addEventListener('click', event => {
         return;
     }
 
-    const link = event.target.closest('a[href="./luz-que-ampara.html"]');
+    const link = event.target.closest('a[href="./luz-que-ampara.php"]');
     if (!link || link.target && link.target !== '_self' || link.hasAttribute('download')) {
         return;
     }
