@@ -117,6 +117,10 @@
         .carousel-fade-out {
             opacity: 0;
         }
+
+        [open] .faq-chevron {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 
@@ -251,6 +255,7 @@
                 <a href="#beneficios" class="text-base font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Coberturas</a>
                 <a href="#cartao" class="text-base font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Clube de Benefícios</a>
                 <a href="#planos" class="text-base font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Planos Familiares</a>
+                <a href="#faq" class="text-base font-medium text-brand-green-gray hover:text-brand-brown-light transition-colors">Dúvidas</a>
                 <a href="#contato" class="px-6 py-2.5 bg-brand-brown-light text-white text-base font-bold rounded-full hover:bg-brand-brown-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Falar com Consultor Agora
                 </a>
@@ -265,6 +270,7 @@
             <a href="#beneficios" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Coberturas</a>
             <a href="#cartao" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Cartão Minha Família</a>
             <a href="#planos" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Nossos Planos</a>
+            <a href="#faq" class="block text-lg font-medium text-brand-green-dark" onclick="toggleMobileMenu()">Dúvidas frequentes</a>
             <a href="#contato" class="block w-full text-center py-3 bg-brand-brown-light text-white rounded-lg font-bold mt-2" onclick="toggleMobileMenu()">Falar com Consultor</a>
         </div>
     </nav>
@@ -801,6 +807,89 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-brand-ice">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="text-brand-brown-light font-bold tracking-widest uppercase text-xs mb-2 block">Estamos aqui para ajudar</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark tracking-tight">Perguntas frequentes</h2>
+                <p class="text-brand-green-gray mt-4 max-w-2xl mx-auto">Encontre respostas sobre cobertura, benefícios e contratação do Plano Campo Santo Familiar.</p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>O plano cobre sepultamento e cremação?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        Sim. O plano prevê sepultamento ou cremação, sem custo adicional pela escolha da modalidade, conforme os serviços, os limites do contrato e os requisitos legais e documentais da cremação.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>Quantas pessoas podem entrar no plano?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        O contrato consultado prevê até 10 pessoas no total: titular e até 9 beneficiários. A inclusão observa os critérios de parentesco, idade, documentação e demais regras do plano.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>Onde são realizados o sepultamento e a cremação?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        Os serviços são realizados no Cemitério Campo Santo. O traslado coberto segue a área de abrangência definida no contrato. A família deve consultar a equipe se a situação exigir local ou percurso diferente.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>O traslado tem limite de distância?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        O contrato consultado prevê raio de até 100 km a partir do Cemitério Campo Santo, limitado a até 200 km de ida e volta. Confirme a cobertura para o endereço e a situação específicos.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>A cremação depende de documentos?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        Sim. A realização depende da documentação e dos requisitos legais aplicáveis. A equipe orienta sobre os procedimentos previstos no regulamento.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>O que não está incluído?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        Podem ficar fora da cobertura serviços adicionais, como tanatopraxia/formol, determinados traslados e despesas fora dos limites contratados. Fale com um consultor para consultar o regulamento completo.
+                    </div>
+                </details>
+
+                <details class="group border border-brand-green-light/20 rounded-2xl bg-white shadow-soft overflow-hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-bold text-brand-green-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-green-light">
+                        <span>Qual carência do plano?</span>
+                        <i class="ph-bold ph-caret-down faq-chevron shrink-0 text-brand-brown-light transition-transform"></i>
+                    </summary>
+                    <div class="px-6 pb-5 text-sm leading-relaxed text-brand-green-gray">
+                        O contrato prevê carência de 24 horas para morte acidental ou violenta e 180 dias para morte natural. Todos os planos são vendidos com possibilidade de quebra de carência, mediante pagamento de uma taxa única, a ser apresentada no momento do atendimento.
+                    </div>
+                </details>
             </div>
         </div>
     </section>
