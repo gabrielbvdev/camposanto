@@ -499,6 +499,15 @@
                         </li>
                         <li class="flex items-center gap-4 p-4 bg-brand-ice rounded-xl border border-brand-green-light/10 shadow-sm">
                             <div class="w-10 h-10 rounded-full bg-brand-green-light/10 flex items-center justify-center text-brand-green-light shrink-0">
+                                <i class="ph-fill ph-wheelchair text-xl"></i>
+                            </div>
+                            <div>
+                                <strong class="block text-brand-green-dark font-bold">Itens de Recuperação</strong>
+                                <span class="text-sm text-brand-green-gray">Empréstimo de cadeira de rodas e muletas sem custo, conforme disponibilidade e regras do benefício.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 p-4 bg-brand-ice rounded-xl border border-brand-green-light/10 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-brand-green-light/10 flex items-center justify-center text-brand-green-light shrink-0">
                                 <i class="ph-fill ph-shopping-cart text-xl"></i>
                             </div>
                             <div>
@@ -512,6 +521,12 @@
                         Ver lista de parceiros
                         <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </button>
+                    <div class="mt-4">
+                        <a href="#planos" class="inline-flex items-center gap-2 rounded-full bg-brand-green-dark px-6 py-3 font-bold text-white shadow-lg transition-all hover:bg-brand-brown-light">
+                            Conhecer os planos com o Cartão Minha Família
+                            <i class="ph-bold ph-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Image Placeholder - Ajustado para exibir o aviso -->
@@ -675,52 +690,124 @@
     </section>
 
     <!-- Calculadora Section -->
-    <section id="calculadora" class="py-16 bg-white">
+    <section id="calculadora" class="py-20 bg-brand-ice">
         <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-brown-light font-bold uppercase tracking-widest text-xs mb-3 block">Planejar é economizar</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-green-dark mb-6">Compare e Comprove</h2>
+                <p class="text-brand-green-gray text-lg">
+                    Descubra quanto sua família pode economizar garantindo o cuidado e a assistência funerária hoje.
+                </p>
+            </div>
+
             <div class="max-w-4xl mx-auto">
-                <div class="bg-brand-ice rounded-[2rem] p-6 md:p-10 shadow-soft border border-brand-green-light/10 relative overflow-hidden">
-                    
-                    <div class="text-center mb-8">
-                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-brand-green-dark mb-2">Simulador de Benefícios</h2>
-                        <p class="text-brand-green-gray text-sm max-w-md mx-auto">Simule seus gastos mensais e descubra o quanto você economiza utilizando o Cartão Minha Família <span class="text-brand-green-dark text-sm max-w-md mx-auto"><br><b>(Benefício exclusivo do cliente Campo Santo Familiar).</b></span></p>
+                <div class="bg-white rounded-[2rem] shadow-soft p-6 md:p-10 border border-brand-green-light/10">
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-brand-green-dark mb-8">Faça a simulação agora</h3>
+
+                    <div class="flex flex-col md:flex-row gap-6 mb-8">
+                        <div class="w-full md:w-1/2">
+                            <label for="calc-idade" class="block text-sm font-bold mb-2 text-brand-green-dark">Idade (mais velho)</label>
+                            <input type="number" id="calc-idade" min="0" placeholder="45" class="w-full p-4 rounded-xl border border-brand-green-light/20 bg-white focus:border-brand-green-light focus:ring-2 focus:ring-brand-green-light/20 outline-none transition-all text-brand-green-dark font-medium">
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label for="calc-pessoas" class="block text-sm font-bold mb-2 text-brand-green-dark">Número de dependentes</label>
+                            <input type="number" id="calc-pessoas" min="1" max="10" value="3" oninput="if(this.value > 10) this.value = 10;" class="w-full p-4 rounded-xl border border-brand-green-light/20 bg-white focus:border-brand-green-light focus:ring-2 focus:ring-brand-green-light/20 outline-none transition-all text-brand-green-dark font-medium">
+                        </div>
                     </div>
 
-                    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
-                        <!-- Inputs -->
-                        <div class="space-y-4">
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
-                                <label for="inputFarmacia" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Gasto em Farmácia (R$)</label>
-                                <input type="number" id="inputFarmacia" placeholder="Ex: 200" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold">
-                            </div>
-                            
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
-                                <label for="inputSaude" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Gasto em Saúde/Consultas (R$)</label>
-                                <input type="number" id="inputSaude" placeholder="Ex: 300" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold">
-                            </div>
-
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-brand-green-light/5">
-                                <label for="selectPlanoCalc" class="block text-[10px] font-bold text-brand-green-gray uppercase tracking-wider mb-2">Plano Pretendido</label>
-                                <select id="selectPlanoCalc" class="w-full px-4 py-3 rounded-lg bg-brand-ice border-none focus:ring-1 focus:ring-brand-green-dark outline-none transition-all text-brand-brown-dark font-bold appearance-none cursor-pointer">
-                                    <option value="89.90">Plano Amparo (R$ 89,90)</option>
-                                    <option value="99.90" selected>Plano Acolhimento (R$ 99,90)</option>
-                                    <option value="119.90">Plano Tranquilidade (R$ 119,90)</option>
-                                    <option value="149.90">Plano Paz (R$ 149,90)</option>
-                                </select>
-                            </div>
-
-                            <button id="btnCalcular" onclick="calcularEconomia()" class="w-full py-4 bg-brand-green-dark text-white font-bold rounded-xl hover:bg-brand-brown-dark transition-all shadow-md flex items-center justify-center gap-2">
-                                <i class="ph ph-calculator"></i>
-                                Calcular
-                            </button>
+                    <div class="mb-8">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="block text-sm font-bold text-brand-green-dark">Serviços de interesse</span>
+                            <span class="text-xs text-brand-green-gray">(desmarque o que não precisar)</span>
                         </div>
 
-                        <!-- Resultado -->
-                        <div class="bg-white rounded-2xl p-8 border border-brand-green-light/10 shadow-sm text-center flex flex-col justify-center min-h-[250px]">
-                            <div id="resultadoCalculo" class="transition-all duration-300">
-                                <i class="ph-duotone ph-chart-bar text-5xl text-brand-green-light/40 mb-3"></i>
-                                <p class="text-brand-green-gray text-sm italic">Preencha os campos ao lado e clique em calcular.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="lista-servicos-cards">
+                            <label class="flex items-start gap-4 p-5 rounded-2xl border border-brand-green-light/30 bg-brand-green-light/5 cursor-pointer hover:border-brand-green-light/50 transition-colors">
+                                <input type="checkbox" value="5000" class="w-6 h-6 mt-0.5 rounded-md border-gray-300 text-brand-green-light focus:ring-brand-green-light shrink-0" onchange="toggleCardStyle(this)" checked>
+                                <span>
+                                    <span class="text-base font-bold text-brand-green-dark block mb-1">Cobertura Funeral Completa</span>
+                                    <span class="text-xs text-brand-green-gray leading-relaxed block">Atendimento 24h, traslado, urna e documentação</span>
+                                </span>
+                            </label>
+
+                            <label class="flex items-start gap-4 p-5 rounded-2xl border border-brand-green-light/30 bg-brand-green-light/5 cursor-pointer hover:border-brand-green-light/50 transition-colors">
+                                <input type="checkbox" value="3500" class="w-6 h-6 mt-0.5 rounded-md border-gray-300 text-brand-green-light focus:ring-brand-green-light shrink-0" onchange="toggleCardStyle(this)" checked>
+                                <span>
+                                    <span class="text-base font-bold text-brand-green-dark block mb-1">Cobertura Cemiterial</span>
+                                    <span class="text-xs text-brand-green-gray leading-relaxed block">Jazigo, sepultamento e taxas cemiteriais</span>
+                                </span>
+                            </label>
+
+                            <label class="flex items-start gap-4 p-5 rounded-2xl border border-brand-green-light/30 bg-brand-green-light/5 cursor-pointer hover:border-brand-green-light/50 transition-colors">
+                                <input type="checkbox" value="5000" class="w-6 h-6 mt-0.5 rounded-md border-gray-300 text-brand-green-light focus:ring-brand-green-light shrink-0" onchange="toggleCardStyle(this)" checked>
+                                <span>
+                                    <span class="text-base font-bold text-brand-green-dark block mb-1">Cremação Inclusa</span>
+                                    <span class="text-xs text-brand-green-gray leading-relaxed block">Serviço completo de cremação com urna</span>
+                                </span>
+                            </label>
+
+                            <label class="flex items-start gap-4 p-5 rounded-2xl border border-brand-green-light/30 bg-brand-green-light/5 cursor-pointer hover:border-brand-green-light/50 transition-colors">
+                                <input type="checkbox" value="1000" class="w-6 h-6 mt-0.5 rounded-md border-gray-300 text-brand-green-light focus:ring-brand-green-light shrink-0" onchange="toggleCardStyle(this)" checked>
+                                <span>
+                                    <span class="text-base font-bold text-brand-green-dark block mb-1">Saúde em Vida (Cartão)</span>
+                                    <span class="text-xs text-brand-green-gray leading-relaxed block">Descontos em farmácias, consultas e telemedicina</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button onclick="calcularSimples()" id="btn-calcular" class="w-full bg-brand-green-dark hover:bg-brand-brown-light text-white font-bold py-4 rounded-xl shadow-lg transition-all text-lg">
+                        Calcular Economia
+                    </button>
+
+                    <div id="loader" class="hidden flex-col items-center justify-center py-6 mt-4">
+                        <div class="w-10 h-10 border-4 border-brand-ice border-t-brand-green-light rounded-full animate-spin"></div>
+                        <p class="mt-3 text-sm font-medium animate-pulse text-brand-green-gray">Calculando melhor cenário...</p>
+                    </div>
+
+                    <div id="resultado-final" class="hidden mt-8 bg-brand-ice/60 border border-brand-green-light/20 rounded-3xl p-6 md:p-8">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4">
+                            <div>
+                                <p class="text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-2">Total particular (estimado)</p>
+                                <p class="text-3xl font-bold text-brand-brown-light line-through decoration-2" id="valor-particular"></p>
+                            </div>
+                            <div class="md:text-right">
+                                <p class="text-xs font-bold text-brand-green-gray uppercase tracking-wider mb-2">No plano <span id="nome-plano-label" class="uppercase"></span></p>
+                                <div class="flex items-baseline md:justify-end gap-1">
+                                    <p class="text-4xl font-bold text-brand-green-dark" id="valor-plano"></p>
+                                    <p class="text-sm font-medium text-brand-green-gray">/mês</p>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="bg-brand-green-light/10 text-brand-green-dark font-bold text-sm py-3 px-4 rounded-xl flex flex-col md:flex-row items-center justify-center gap-2 mb-8 text-center">
+                            <i class="ph-fill ph-check-circle text-xl text-brand-green-light"></i>
+                            <span>Economia estimada de <span id="valor-economia"></span> com o Plano <span id="nome-plano-destaque"></span>!</span>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <a href="#" id="btn-contratar-plano" target="_blank" rel="noopener noreferrer" class="flex-1 bg-brand-green-dark hover:bg-brand-brown-light text-white text-center font-bold py-4 rounded-xl transition-all shadow-md text-base">
+                                Contratar Plano <span id="btn-plano-nome"></span>
+                            </a>
+                            <a href="#planos" class="flex-1 bg-transparent border-2 border-brand-green-dark hover:bg-brand-green-dark/5 text-brand-green-dark text-center font-bold py-4 rounded-xl transition-all text-base">
+                                Ver Todos os Planos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-white rounded-2xl p-6 shadow-soft border border-brand-green-light/10 text-center">
+                        <h4 class="text-3xl font-bold text-brand-green-dark mb-2">Até 60%</h4>
+                        <p class="text-sm text-brand-green-gray font-medium">Mais barato que serviços avulsos</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-soft border border-brand-green-light/10 text-center">
+                        <h4 class="text-3xl font-bold text-brand-green-dark mb-2">Até 24h</h4>
+                        <p class="text-sm text-brand-green-gray font-medium">Atendimento de emergência</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-soft border border-brand-green-light/10 text-center">
+                        <h4 class="text-3xl font-bold text-brand-green-dark mb-2">Zero</h4>
+                        <p class="text-sm text-brand-green-gray font-medium">Taxas ocultas ou surpresas</p>
                     </div>
                 </div>
             </div>
@@ -895,65 +982,75 @@
             updateCarousel();
         }
 
-        function calcularEconomia() {
-            const gastoFarmacia = parseFloat(document.getElementById('inputFarmacia').value) || 0;
-            const gastoSaude = parseFloat(document.getElementById('inputSaude').value) || 0;
-            const valorPlano = parseFloat(document.getElementById('selectPlanoCalc').value);
-            const resultadoBox = document.getElementById('resultadoCalculo');
-            const btn = document.getElementById('btnCalcular');
+        function toggleCardStyle(checkbox) {
+            const label = checkbox.closest('label');
+            if (checkbox.checked) {
+                label.classList.add('border-brand-green-light/30', 'bg-brand-green-light/5');
+                label.classList.remove('border-gray-200', 'bg-white');
+            } else {
+                label.classList.remove('border-brand-green-light/30', 'bg-brand-green-light/5');
+                label.classList.add('border-gray-200', 'bg-white');
+            }
+        }
 
-            if (gastoFarmacia === 0 && gastoSaude === 0) {
-                resultadoBox.innerHTML = `<p class="text-brand-brown-light font-bold">Por favor, insira valores para simular.</p>`;
+        function calcularSimples() {
+            const btnCalcular = document.getElementById('btn-calcular');
+            const resultado = document.getElementById('resultado-final');
+            const loader = document.getElementById('loader');
+            const idadeInput = document.getElementById('calc-idade');
+
+            if (!idadeInput.value || !Number.isFinite(Number(idadeInput.value)) || Number(idadeInput.value) < 0) {
+                idadeInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+                idadeInput.focus();
                 return;
             }
 
-            btn.disabled = true;
-            const originalBtnContent = btn.innerHTML;
-            btn.innerHTML = `<i class="ph ph-circle-notch animate-spin"></i> Calculando...`;
-            
-            resultadoBox.innerHTML = `
-                <div class="flex flex-col items-center justify-center space-y-3">
-                    <i class="ph-fill ph-spinner-gap animate-spin text-5xl text-brand-green-light"></i>
-                    <p class="text-brand-green-gray text-sm font-medium">Analisando economia...</p>
-                </div>
-            `;
+            idadeInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+            resultado.classList.add('hidden');
+            loader.classList.remove('hidden');
+            loader.classList.add('flex');
+            btnCalcular.disabled = true;
+            btnCalcular.classList.add('opacity-75');
 
             setTimeout(() => {
-                const economiaFarmacia = gastoFarmacia * 0.20;
-                const economiaSaude = gastoSaude * 0.40;
-                const economiaTotal = economiaFarmacia + economiaSaude;
-                const saldo = economiaTotal - valorPlano;
-                
-                let htmlResultado = `
-                    <div class="mb-6">
-                        <span class="text-brand-green-gray font-bold text-xs uppercase tracking-widest block mb-1">Economia de até</span>
-                        <span class="text-brand-green-dark font-black text-4xl">R$ ${economiaTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                        <p class="text-[10px] text-brand-green-gray mt-1">estimada por mês</p>
-                    </div>
-                `;
-                
-                if (saldo >= 0) {
-                    htmlResultado += `
-                        <div class="bg-green-100 text-brand-green-dark font-black px-6 py-4 rounded-xl border border-green-200">
-                            <i class="ph-fill ph-sparkle mr-2"></i>O PLANO SE PAGA!
-                        </div>
-                        <p class="text-[10px] text-brand-green-gray mt-3">Sua economia é maior que a mensalidade.</p>
-                    `;
-                } else {
-                    const custoReal = Math.abs(saldo);
-                    htmlResultado += `
-                        <div class="bg-brand-brown-light/5 border border-brand-brown-light/20 p-4 rounded-xl">
-                            <span class="text-brand-brown-light font-bold text-xs block mb-1 uppercase">Custo Real Ajustado:</span>
-                            <span class="text-brand-brown-light font-black text-2xl">R$ ${custoReal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
-                        </div>
-                        <p class="text-[10px] text-brand-green-gray mt-1">Sua mensalidade efetiva após os descontos.</p>
-                    `;
+                const totalServicos = Array.from(document.querySelectorAll('#lista-servicos-cards input[type="checkbox"]:checked'))
+                    .reduce((total, checkbox) => total + Number(checkbox.value), 0);
+                const idade = Number.parseInt(idadeInput.value, 10);
+                let valorMensal = 149.90;
+                let nomePlano = 'Paz';
+
+                if (idade <= 60) {
+                    valorMensal = 89.90;
+                    nomePlano = 'Amparo';
+                } else if (idade <= 70) {
+                    valorMensal = 99.90;
+                    nomePlano = 'Acolhimento';
+                } else if (idade <= 80) {
+                    valorMensal = 119.90;
+                    nomePlano = 'Tranquilidade';
                 }
-                
-                resultadoBox.innerHTML = htmlResultado;
-                btn.disabled = false;
-                btn.innerHTML = originalBtnContent;
-            }, 2000);
+
+                const formatter = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+                document.getElementById('valor-particular').innerText = formatter.format(totalServicos);
+                document.getElementById('valor-plano').innerText = formatter.format(valorMensal);
+
+                let economia = totalServicos - valorMensal * 12 * 5;
+                if (economia < 0) economia = totalServicos * 0.6;
+                document.getElementById('valor-economia').innerText = formatter.format(economia);
+                document.getElementById('nome-plano-label').innerText = nomePlano;
+                document.getElementById('nome-plano-destaque').innerText = nomePlano;
+                document.getElementById('btn-plano-nome').innerText = nomePlano;
+
+                const mensagem = encodeURIComponent(`Olá! Fiz a simulação e tenho interesse no Plano ${nomePlano}.`);
+                document.getElementById('btn-contratar-plano').href =
+                    `https://api.whatsapp.com/send/?phone=557193540047&text=${mensagem}&type=phone_number&app_absent=0`;
+
+                loader.classList.add('hidden');
+                loader.classList.remove('flex');
+                resultado.classList.remove('hidden');
+                btnCalcular.disabled = false;
+                btnCalcular.classList.remove('opacity-75');
+            }, 800);
         }
 
         // LÓGICA DE COOKIES (LGPD)
